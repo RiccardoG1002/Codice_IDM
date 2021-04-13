@@ -1,0 +1,15 @@
+
+public class Espresso implements Caffe {
+	
+	private String miscela;
+	
+	public Espresso() {
+		this.miscela = miscela;
+	}
+
+	@Override
+	public void prepara() {
+		System.out.println();
+	}
+
+}

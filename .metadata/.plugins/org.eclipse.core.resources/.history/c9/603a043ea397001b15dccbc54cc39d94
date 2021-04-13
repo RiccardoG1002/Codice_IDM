@@ -1,0 +1,12 @@
+import java.util.LinkedList;
+import java.util.List;
+
+import Vagoni.Vagone;
+
+public abstract class FabbricaTreni {
+	 private Treno treno;
+	 
+	 public static Treno ordinaTreno(String treno) {
+		 
+	 }
+}

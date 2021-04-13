@@ -1,0 +1,5 @@
+package Algoritmi;
+
+public interface algoritmo {
+
+}

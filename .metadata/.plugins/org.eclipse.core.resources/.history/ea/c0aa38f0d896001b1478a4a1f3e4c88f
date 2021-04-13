@@ -1,0 +1,18 @@
+package Caffè;
+
+import java.util.List;
+
+import Ingredienti.Ingrediente;
+
+public abstract class Caffe {
+
+	private List<Ingrediente> ingerdienti;
+
+	public Caffe(List<Ingrediente> ingredienti) {
+		this.ingerdienti = ingredienti;
+	}
+
+	public final double prezzo(){
+		double prezzo = 0;
+	}
+}

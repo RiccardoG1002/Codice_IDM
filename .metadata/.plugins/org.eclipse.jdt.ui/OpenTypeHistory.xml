@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=Esercizio_FormeGeometriche/src&lt;Figure.Triangoli{Triangolo.java[Triangolo" modifiers="1" timestamp="1617957132554"/>
+    <typeInfo handle="=Esercizio_StudenteOperaio/src&lt;{Operaio.java[Operaio" modifiers="1" timestamp="1617473988385"/>
+    <typeInfo handle="=Esercizio_StudenteOperaio/src&lt;{Alunno.java[Alunno" modifiers="513" timestamp="1617449397785"/>
+    <typeInfo handle="=TipiCaffe/src&lt;Ingredienti{Ingrediente.java[Ingrediente" modifiers="513" timestamp="1617716495483"/>
+    <typeInfo handle="=Esercizio_FormeGeometriche/src&lt;Figure{Figura.java[Figura" modifiers="513" timestamp="1617955810125"/>
+    <typeInfo handle="=TipiCaffèDecorator/src&lt;Bevande{Bevanda.java[Bevanda" modifiers="513" timestamp="1617721403774"/>
+    <typeInfo handle="=TipiCaffèDecorator/src&lt;DecoratorBevande{CaffeDecorator.java[CaffeDecorator" modifiers="1025" timestamp="1617721670463"/>
+    <typeInfo handle="=CaffeDecorator2/src&lt;{Caffe.java[Caffe" modifiers="513" timestamp="1617787216915"/>
+    <typeInfo handle="=Esercizio_FormeGeometriche/src&lt;DecoratoriFigure{DecoratorFigura.java[DecoratorFigura" modifiers="1025" timestamp="1617956225047"/>
+    <typeInfo handle="=RicercaStringheSimili/src&lt;Algoritmi{Algoritmo.java[Algoritmo" modifiers="513" timestamp="1617894420858"/>
+    <typeInfo handle="=RicercaStringheSimili/C:\/Users\/Riccardo Gallelli\/.p2\/pool\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\/jre\/lib\/jrt-fs.jar`java.xml.crypto=/module=/true=/=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/15\/docs\/api\/=/&lt;javax.xml.crypto(AlgorithmMethod.class[AlgorithmMethod" modifiers="1537" timestamp="1612169862000"/>
+    <typeInfo handle="=Treno/src&lt;Vagoni{Vagone.java[Vagone" modifiers="513" timestamp="1617800955587"/>
+    <typeInfo handle="=Treno/src&lt;Fabbriche{FabbricaLocomotive.java[FabbricaLocomotive" modifiers="1" timestamp="1617889332593"/>
+    <typeInfo handle="=Treno/src&lt;Fabbriche{FabbricaVagoni.java[FabbricaVagoni" modifiers="1025" timestamp="1617889261195"/>
+    <typeInfo handle="=Esercizio_FormeGeometriche/C:\/Users\/Riccardo Gallelli\/.p2\/pool\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\/jre\/lib\/jrt-fs.jar`java.base=/module=/true=/=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/15\/docs\/api\/=/&lt;java.util(Comparator.class[Comparator" modifiers="1537" timestamp="1612169862000"/>
+    <typeInfo handle="=Esercizio_FormeGeometriche/src&lt;Figure.PoligoniRegolari{PoligonoRegolare.java[PoligonoRegolare" modifiers="513" timestamp="1617956786265"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;ComponentiTreni{ComponenteTreno.java[ComponenteTreno" modifiers="513" timestamp="1618219908994"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;ComponentiTreni{Motrice.java[Motrice" modifiers="1025" timestamp="1618220020080"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;ComponentiTreni{Vagone.java[Vagone" modifiers="1025" timestamp="1618220859045"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;ComponentiTreni{VagonePasseggeri.java[VagonePasseggeri" modifiers="1025" timestamp="1618222704424"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;ComponentiTreni{VagoneCargo.java[VagoneCargo" modifiers="1025" timestamp="1618221371555"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;ComponentiTreni{VagoneRistorante.java[VagoneRistorante" modifiers="1025" timestamp="1618212865164"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;ComponentiTreni{VagoneBagno.java[VagoneBagno" modifiers="1025" timestamp="1618220708571"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;FabbricheTreni{FabbricaTreni.java[FabbricaTreni" modifiers="513" timestamp="1618214136596"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;NegozioTreni{NegozioTreni.java[NegozioTreni" modifiers="1025" timestamp="1618216372242"/>
+    <typeInfo handle="=FerrovieDelloStato/src&lt;Treni{Treno.java[Treno" modifiers="1025" timestamp="1618224131282"/>
+    <typeInfo handle="=FerrovieDelloStato/C:\/Users\/Riccardo Gallelli\/.p2\/pool\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\/jre\/lib\/jrt-fs.jar`java.base=/module=/true=/=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/15\/docs\/api\/=/&lt;java.lang(Exception.class[Exception" modifiers="33" timestamp="1612169862000"/>
+</typeInfoHistroy>

@@ -1,0 +1,19 @@
+package DecoratoriFigure;
+
+import Figure.Figura;
+
+public class BordoDecorator extends DecoratorFigura {
+	
+	private double spessoreBordo;
+
+	public BordoDecorator(Figura figura, double spessoreBordo) {
+		super(figura);
+		
+	}
+
+	@Override
+	public void stampaPersonalizzata() {
+
+	}
+
+}

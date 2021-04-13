@@ -1,0 +1,6 @@
+import Vagoni.Treno;
+import Vagoni.Vagone;
+
+public intreface FabbricaTreni {	 
+	 public abstract Vagone crea();
+}

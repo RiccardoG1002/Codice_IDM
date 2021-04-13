@@ -1,0 +1,15 @@
+
+public abstract class ZuccheroDecorator implements Caffe {
+	
+	public Caffe base;
+	
+	public ZuccheroDecorator() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void prepara() {
+		// TODO Auto-generated method stub
+	}
+
+}

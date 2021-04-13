@@ -1,0 +1,23 @@
+import NegoziTreni.NegozioTreni;
+import Vagoni.Treno;
+
+public class TestTreni {
+
+	public static void main(String[] args) throws Exception {
+		
+		NegozioTreni negozio = new NegozioTreni();
+		Treno treno;
+		try {
+			treno = negozio.ordinaTreno("HPPPRPPPRC");
+			treno.accendi();
+			treno = negozio.aggiungiCarrozza(treno, "CC");
+			treno.accendi();
+			treno = negozio.ordinaTreno("HCCCCCCCCCB");
+			treno.accendi();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

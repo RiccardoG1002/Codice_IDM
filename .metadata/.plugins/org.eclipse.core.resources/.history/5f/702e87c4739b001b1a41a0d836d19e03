@@ -1,0 +1,9 @@
+package ComponentiTreni;
+
+public abstract class VagoneBagno extends Vagone {
+	public final void pulisci() {
+		
+	}
+	
+	protected abstract void pulisciPersonalizzato();
+}

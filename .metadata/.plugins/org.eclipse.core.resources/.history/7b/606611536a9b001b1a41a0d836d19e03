@@ -1,0 +1,23 @@
+package NegozioTreni;
+
+import ComponentiTreni.ComponenteTreno;
+import FabbricheTreni.FabbricaTreni;
+import Treni.Treno;
+import Treni.TrenoTrenitalia;
+
+public class NegozioTrenitalia extends NegozioTreni {
+	
+	private FabbricaTreni fabbrica;
+	
+	@Override
+	public ComponenteTreno aggiungiCarrozzaPersonalizzata(char tipoCarrozza) {
+		
+		return null;
+	}
+
+	@Override
+	public Treno ordinaTrenoPersonalizzato() {
+		return new TrenoTrenitalia();
+	}
+
+}

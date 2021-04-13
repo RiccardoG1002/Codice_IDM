@@ -1,0 +1,10 @@
+package ComponentiTreni;
+
+public class VagoneBagnoFR extends VagoneBagno {
+
+	@Override
+	public void stampaPersonalizzata() {
+		System.out.print("🚽");
+	}
+
+}

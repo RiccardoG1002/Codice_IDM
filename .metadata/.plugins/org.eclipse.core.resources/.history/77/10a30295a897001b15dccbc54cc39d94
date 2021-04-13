@@ -1,0 +1,10 @@
+package Vagoni;
+
+public class VagonePasseggeri implements Vagone{
+
+	@Override
+	public void accendi() {
+		
+	}
+
+}

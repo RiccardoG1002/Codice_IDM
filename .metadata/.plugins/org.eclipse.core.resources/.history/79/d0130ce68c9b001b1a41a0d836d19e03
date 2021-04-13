@@ -1,0 +1,35 @@
+package NegozioTreni;
+
+import ComponentiTreni.ComponenteTreno;
+import Exceptions.PesoEccessivoException;
+import Treni.Treno;
+
+public abstract class NegozioTreni {
+	
+	public final Treno ordinaTreno(String ordine) throws Exception {
+		Treno treno = this.ordinaTrenoPersonalizzato();
+		for (int i = 1; i < ordine.length(); i++) {
+			treno.aggiungiVagone(this.aggiungiCarrozzaPersonalizzata(ordine.charAt(i)));
+		}
+		if(!controllaPeso(treno, this.aggiungiCarrozzaPersonalizzata(ordine.charAt(0)))) throw new PesoEccessivoException();
+		treno.aggiungiMotrice(this.aggiungiCarrozzaPersonalizzata(ordine.charAt(0)));
+		return treno;
+	}
+	
+	private boolean controllaPeso(Treno treno, ComponenteTreno motrice) {
+		double pesoTreno = treno.pesoMassimo();
+		if(pesoTreno > ((Motrice)motrice).pesoTrainabile())
+	}
+	
+	public final Treno aggiungiCarrozza(String ordine, Treno treno) {
+		for (int i = 0; i < ordine.length(); i++) {
+			treno.aggiungiVagone(this.aggiungiCarrozzaPersonalizzata(ordine.charAt(i)));
+		}
+		return treno;
+	}
+	
+	public abstract Treno ordinaTrenoPersonalizzato();
+	
+	public abstract ComponenteTreno aggiungiCarrozzaPersonalizzata(char tipoCarrozza);
+
+}

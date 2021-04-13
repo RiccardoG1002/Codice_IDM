@@ -1,0 +1,12 @@
+package Fabbriche;
+
+import Vagoni.Vagone;
+
+public abstract class FabbricaVagoni {
+	
+	public Vagone ordinaVagone(char vagone) {
+		return null;
+	}
+	
+	public abstract Vagone costruisciVagone();
+}

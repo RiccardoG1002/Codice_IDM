@@ -1,0 +1,23 @@
+package Cantiere;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import Figure.Figura;
+
+public class TanGram {
+	
+	List<Figura> list = new ArrayList<Figura>();
+	
+	public void addFigura(Figura f) {
+		list.add(f);
+	}
+	
+	public double calcolaAreaTotale() {
+		double areaTotale = 0;
+		for(Figura f : list) {
+			
+		}
+	}
+}

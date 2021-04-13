@@ -1,0 +1,18 @@
+import NegoziTreni.NegozioTreni;
+import Vagoni.Treno;
+
+public class TestTreni {
+
+	public static void main(String[] args) {
+		
+		NegozioTreni negozio = new NegozioTreni();
+		Treno treno = negozio.ordinaTreno("HPPPRPPPRC");
+		treno.accendi();
+		treno = negozio.aggiungiCarrozza(treno, "CC");
+		treno.accendi();
+		treno = negozio.ordinaTreno("HCCCCCCCCCB");
+		treno.accendi();
+		
+	}
+
+}

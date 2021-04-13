@@ -1,0 +1,23 @@
+package ComponentiTreni;
+
+public abstract class VagonePasseggeri extends Vagone {
+	
+	public final void aggiungiPassegggeri(int numeroPasseggeri) throws Exception {
+		this.aggiungiPasseggeriPersonalizzato(numeroPasseggeri);
+	}
+	
+	protected abstract void aggiungiPasseggeriPersonalizzato(int numeroPasseggeri) throws Exception;
+	
+	public final int capienzaVagone() {
+		return this.capienzaPersonalizzata()
+	}
+	
+	protected abstract int capienzaPersonalizzata();
+	
+	@Override
+	protected double pesoPersonalizzato() {
+		return 1000 + this.pesoPersoneTrasportate();
+	}
+	
+	protected abstract double pesoPersoneTrasportate();
+}

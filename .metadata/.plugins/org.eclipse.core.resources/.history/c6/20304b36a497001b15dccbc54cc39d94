@@ -1,0 +1,4 @@
+
+public class FabbricaLocomotive extends FabbricaTreni {
+
+}

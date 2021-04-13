@@ -1,0 +1,5 @@
+import Vagoni.Vagone;
+
+public interface FabbricaTreni {	 
+	 public Vagone crea();
+}

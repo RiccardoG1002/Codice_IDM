@@ -1,0 +1,18 @@
+package NegoziTreni;
+
+import Vagoni.Treno;
+
+public class NegozioTreni {
+	
+	public Treno ordinaTreno(String ordine) {
+		return null;
+	}
+	
+	public Treno aggiungiCarrozza(Treno treno, String tipoCarrozza) {
+		return null;
+	}
+	
+	private boolean controllaOrdine(String ordine) {
+		return true;
+	}
+}

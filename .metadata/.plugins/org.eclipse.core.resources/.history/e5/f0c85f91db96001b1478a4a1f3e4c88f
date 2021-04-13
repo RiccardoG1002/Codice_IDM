@@ -1,0 +1,14 @@
+package Caffè;
+
+import Ingredienti.Caffe;
+import Ingredienti.PannaMontata;
+import Ingredienti.Whiskey;
+
+public class Cappuccino extends AbstractCaffe {
+
+	public public Cappuccino() {
+		super.addIngrediente(new Caffe());
+		super.addIngrediente(new Whiskey());
+		super.addIngrediente(new PannaMontata());
+	}
+}

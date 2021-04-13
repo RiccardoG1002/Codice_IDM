@@ -1,0 +1,11 @@
+package Algoritmi;
+
+public class UpperCase implements Algoritmo {
+
+	@Override
+	public double applica(String parola, String pattern) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

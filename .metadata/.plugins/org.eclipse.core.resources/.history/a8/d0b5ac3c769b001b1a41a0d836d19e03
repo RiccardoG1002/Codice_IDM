@@ -1,0 +1,10 @@
+package ComponentiTreni;
+
+public class VagonePasseggeriFR extends VagonePasseggeri {
+
+	@Override
+	protected void stampaPersonalizzata() {
+		System.out.print("😴");
+	}
+
+}

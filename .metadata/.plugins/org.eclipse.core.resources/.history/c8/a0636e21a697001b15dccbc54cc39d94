@@ -1,0 +1,11 @@
+import Vagoni.Vagone;
+import Vagoni.VagonePasseggeri;
+
+public class FabbricaVagonePasseggeri extends FabbricaTreni {
+
+	@Override
+	public Vagone crea() {
+		return new VagonePasseggeri();
+	}
+
+}

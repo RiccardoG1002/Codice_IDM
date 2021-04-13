@@ -1,0 +1,18 @@
+package DecoratoriFigure;
+
+import Figure.Figura;
+
+public class OmbraDecorator extends DecoratorFigura {
+
+	public OmbraDecorator(Figura figura) {
+		super(figura);
+		
+	}
+
+	@Override
+	public void stampaPersonalizzata() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

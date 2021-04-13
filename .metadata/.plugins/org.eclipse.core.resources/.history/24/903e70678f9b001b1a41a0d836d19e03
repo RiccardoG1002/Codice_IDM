@@ -1,0 +1,25 @@
+package ComponentiTreni;
+
+public abstract class Motrice implements ComponenteTreno {
+
+	@Override
+	public final void stampa() {
+		this.stampaPersonalizzata();
+	}
+	
+	@Override
+	public final double peso() {
+		return this.pesoPersonalizzato();
+	}
+	
+	public final double pesoTrainabile() {
+		return this.pesoTrainabilePersonalizzato();
+	}
+	
+	protected abstract double pesoTrainabilePersonalizzato();
+	
+	protected abstract double pesoPersonalizzato();
+	
+	protected abstract void stampaPersonalizzata();
+	
+}

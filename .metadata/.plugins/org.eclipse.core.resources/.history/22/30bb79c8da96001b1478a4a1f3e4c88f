@@ -1,0 +1,15 @@
+package Caffè;
+
+import java.util.List;
+
+import Ingredienti.Caffe;
+import Ingredienti.Ingrediente;
+
+
+public class IrishCoffee extends AbstractCaffe {
+	
+	public IrishCoffee() {
+		super.addIngrediente();
+	}
+
+}

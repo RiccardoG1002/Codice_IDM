@@ -1,0 +1,11 @@
+import Caffè.AbstractCaffe;
+import Caffè.IrishCoffee;
+
+public class TestCaffe {
+
+	public static void main(String[] args) {
+		AbstractCaffe caffe = new IrishCoffee();
+		System.out.println("L'Irish coffee costa: " + caffe.prezzo());
+	}
+
+}

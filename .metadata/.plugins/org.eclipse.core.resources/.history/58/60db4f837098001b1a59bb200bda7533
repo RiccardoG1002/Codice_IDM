@@ -1,0 +1,12 @@
+package Fabbriche;
+
+import Vagoni.Ristorante;
+import Vagoni.Vagone;
+
+public class FabbricaVagoniRistorante extends FabbricaVagoni {
+	
+	@Override
+	public Vagone costruisciVagonePersonalizzato() {
+		return new Ristorante();
+	}
+}

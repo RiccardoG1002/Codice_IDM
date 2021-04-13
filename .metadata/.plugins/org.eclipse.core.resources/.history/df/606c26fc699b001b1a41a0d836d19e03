@@ -1,0 +1,19 @@
+package NegozioTreni;
+
+import ComponentiTreni.ComponenteTreno;
+import Treni.Treno;
+import Treni.TrenoFrecciaRossa;
+
+public class NegozioFrecciaRossa extends NegozioTreni {
+
+	@Override
+	public ComponenteTreno aggiungiCarrozzaPersonalizzata(char tipoCarrozza) {
+		
+	}
+
+	@Override
+	public Treno ordinaTrenoPersonalizzato() {
+		return new TrenoFrecciaRossa();
+	}
+
+}

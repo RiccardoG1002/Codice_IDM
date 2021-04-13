@@ -1,0 +1,16 @@
+package DecoratoriFigure;
+
+import Figure.Figura;
+
+public abstract class DecoratorFigura implements Figura {
+	
+	private Figura figura;
+	
+	
+
+	@Override
+	public final double area() {
+		return figura.area();
+	}
+
+}

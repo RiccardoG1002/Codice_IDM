@@ -1,0 +1,16 @@
+package ComponentiTreni;
+
+public class VagoneRistoranteTI extends VagoneRistorante {
+
+	@Override
+	public void stampaPersonalizzata() {
+		System.out.print("🍔");
+	}
+	
+	@Override
+	protected double pesoPersonalizzato() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

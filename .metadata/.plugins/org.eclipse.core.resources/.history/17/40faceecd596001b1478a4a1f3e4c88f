@@ -1,0 +1,5 @@
+package Caffè;
+
+public abstract class Caffe {
+
+}

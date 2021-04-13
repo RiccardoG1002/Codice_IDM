@@ -1,0 +1,28 @@
+package Figure.PoligoniRegolari;
+
+public class Pentagono implements PoligonoRegolare {
+
+	private double lato;
+	private double apotema;
+	
+	public Pentagono(double lato, double apotema) {
+		this.lato = lato;
+		this.apotema = apotema;
+	}
+	
+	private double perimetro() {
+		return lato * 5;
+	}
+	
+	@Override
+	public double area() {
+		return this.perimetro() * apotema / 2;
+	}
+
+	@Override
+	public int numeroLati() {
+		// TODO Auto-generated method stub
+		return 5;
+	}
+
+}

@@ -1,0 +1,23 @@
+package Confronto;
+
+import Algoritmi.Algoritmo;
+import Algoritmi.GestaltPatternMatching;
+import Algoritmi.IsContained;
+
+public class Comparatore {
+	
+	private static Algoritmo algoritmo;
+	
+	public static double confronta(String parola, String pattern) {
+		scegliAlgoritmo(parola, pattern);
+		return algoritmo.applica(parola, pattern) / 100;
+	}
+	
+	private static final void scegliAlgoritmo(String parola, String pattern) {
+		algoritmo = new IsContained();
+		if(algoritmo.applica(parola, pattern) == 0) {
+			algoritmo = new GestaltPatternMatching();
+		}
+	}
+
+}

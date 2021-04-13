@@ -1,0 +1,10 @@
+package ComponentiTreni;
+
+public abstract class VagonePasseggeri extends Vagone {
+	@Override
+	protected double pesoPersonalizzato() {
+		return 1000 + this.pesoPersoneTrasportate();
+	}
+	
+	protected abstract double pesoPersoneTrasportate();
+}

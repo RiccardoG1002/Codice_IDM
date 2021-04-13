@@ -1,0 +1,17 @@
+import Vagoni.Treno;
+
+public abstract class FabbricaTreni {
+	 private static Treno treno = null;
+	 
+	 public static Treno ordinaTreno(String ordine) {
+		 Treno t = new Treno();
+		 if(controllo(ordine)) {
+			 
+		 }
+		 return treno;
+	 }
+	 
+	 private static boolean controllo(String ordine) {
+		 return true;
+	 }
+}

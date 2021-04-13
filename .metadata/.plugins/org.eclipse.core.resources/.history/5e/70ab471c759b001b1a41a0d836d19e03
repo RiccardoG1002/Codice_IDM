@@ -1,0 +1,15 @@
+package ComponentiTreni;
+
+public class VagoneCargoTI extends VagoneCargo {
+
+	@Override
+	protected void stampaPersonalizzata() {
+		System.out.println("📦");
+	}
+
+	@Override
+	protected double pesoVagoneVuoto() {
+		return 1250;
+	}
+
+}

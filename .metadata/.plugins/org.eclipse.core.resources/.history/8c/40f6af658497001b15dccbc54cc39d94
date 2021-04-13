@@ -1,0 +1,10 @@
+
+public class Espresso implements Caffe {
+
+	@Override
+	public void prepara() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

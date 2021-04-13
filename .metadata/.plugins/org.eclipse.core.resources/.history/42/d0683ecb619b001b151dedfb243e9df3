@@ -1,0 +1,11 @@
+package ComponentiTreni;
+
+public abstract class Motrice implements ComponenteTreno {
+	@Override
+	public final void stampa() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public abstract void stampaPersonalizzata();
+}

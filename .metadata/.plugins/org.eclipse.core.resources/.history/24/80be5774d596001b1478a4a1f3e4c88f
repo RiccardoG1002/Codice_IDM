@@ -1,0 +1,11 @@
+package Ingredienti;
+
+public class Whiskey implements Ingrediente {
+
+	@Override
+	public double prezzo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

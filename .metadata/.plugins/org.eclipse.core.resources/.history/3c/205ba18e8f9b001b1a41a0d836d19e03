@@ -1,0 +1,11 @@
+package ComponentiTreni;
+
+public abstract class VagoneRistorante extends Vagone {
+	
+	public final void controllaApertura() {
+		
+	}
+	
+	protected abstract void controllaAperturaPersonalizzata();
+	
+}

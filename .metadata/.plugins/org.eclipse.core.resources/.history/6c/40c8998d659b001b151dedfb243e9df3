@@ -1,0 +1,6 @@
+package NegozioTreni;
+
+public class VenditoreTreni {
+	
+	private NegozioTreni negozio;
+}

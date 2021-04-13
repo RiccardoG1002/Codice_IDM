@@ -1,0 +1,22 @@
+package Vagoni;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class Treno {
+	
+	private List<Vagone> treno = new LinkedList<Vagone>();
+	
+	public void aggiungiVagone(Vagone vagone) {
+		this.treno.add(vagone);
+	}
+	
+	@Override
+	public void accendi() {
+		for (Vagone vagone : treno) {
+			vagone.accendi();
+		}
+		System.out.print("\n");
+	}
+
+}

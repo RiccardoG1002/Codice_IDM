@@ -1,0 +1,16 @@
+
+public class CaffeCorrettoDecorator implements Caffe {
+	
+	private Caffe base;
+	
+	public CaffeCorrettoDecorator(Caffe base) {
+		this.base = base;
+	}
+
+	@Override
+	public void prepara() {
+		base.prepara();
+		System.out.println("Aggiungo del liquore per renderlo corretto");
+	}
+
+}

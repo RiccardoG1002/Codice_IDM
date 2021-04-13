@@ -1,0 +1,19 @@
+package DecoratoriFigure;
+
+import Figure.Figura;
+
+public class ColoreBordoDecorator extends DecoratorFigura {
+	
+	private String coloreBordo;
+
+	public ColoreBordoDecorator(Figura figura) {
+		super(figura);
+	}
+
+	@Override
+	public void stampaPersonalizzata() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

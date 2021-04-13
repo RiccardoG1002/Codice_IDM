@@ -1,0 +1,49 @@
+package Treni;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import ComponentiTreni.ComponenteTreno;
+import ComponentiTreni.VagonePasseggeri;
+import Exceptions.TroppiPasseggeriException;
+
+public abstract class Treno {
+	
+	private List<ComponenteTreno> treno;
+	
+	public Treno() {
+		this.treno = new LinkedList<ComponenteTreno>();
+	}
+	
+	public final void aggiungiVagone(ComponenteTreno vagone) {
+		this.treno.add(vagone);
+	}
+	
+	public final void accendi() {
+		this.accendiPersonalizzata();
+		System.out.print("\n");
+	}
+	
+	public final void mostra() {
+		for (ComponenteTreno componenteTreno : treno) {
+			componenteTreno.stampa();
+		}
+		System.out.print("\n");
+	}
+	
+	public final void aggiungiPasseggeri(int numeroPasseggeri) throws Exception {
+		if(numeroPasseggeri > capienza()) throw new TroppiPasseggeriException(capienza());
+		
+	}
+	
+	private int capienza() {
+		int capienza = 0;
+		for (ComponenteTreno componenteTreno : treno) {
+			if (componenteTreno instanceof VagonePasseggeri) capienza = capienza + ((VagonePasseggeri) componenteTreno).capienzaVagone();
+		}
+		return capienza;
+	}
+	
+	public abstract void accendiPersonalizzata();
+
+}

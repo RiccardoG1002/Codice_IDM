@@ -1,0 +1,24 @@
+package DecoratoriFigure;
+
+import Figure.Figura;
+
+public abstract class DecoratorFigura implements Figura {
+	
+	private Figura figura;
+	
+	public DecoratorFigura(Figura figura) {
+		this.figura = figura;
+	}
+	
+	public final void stampa() {
+		System.out.print(figura);
+		stampaPersonalizzata();
+	}
+
+	@Override
+	public final double area() {
+		return figura.area();
+	}
+
+	public abstract void stampaPersonalizzata();
+}

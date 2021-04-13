@@ -1,0 +1,11 @@
+package Vagoni;
+
+public class Locomotiva implements Vagone {
+
+	@Override
+	public void accendi() {
+		System.out.println("\u001b[36;1m");
+		System.out.print("🚅");
+	}
+
+}

@@ -1,0 +1,27 @@
+package ComponentiTreni;
+
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+
+public class VagoneRistoranteFR extends VagoneRistorante {
+
+	@Override
+	protected void stampaPersonalizzata() {
+		System.out.print("🍝");
+	}
+	
+	@Override
+	protected double pesoPersonalizzato() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected void controllaAperturaPersonalizzata() {
+		SimpleDateFormat opening = new SimpleDateFormat("13:00");
+		SimpleDateFormat closing = new SimpleDateFormat("15:30");
+	}
+
+}

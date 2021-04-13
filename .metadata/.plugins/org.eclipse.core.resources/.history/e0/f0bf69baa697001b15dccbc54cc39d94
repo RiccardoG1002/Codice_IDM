@@ -1,0 +1,9 @@
+import Vagoni.Treno;
+
+public class Venditore {
+	public static Treno ordinaTreno(String ordine) {
+		Treno t = null;
+		
+		return t;
+	}
+}

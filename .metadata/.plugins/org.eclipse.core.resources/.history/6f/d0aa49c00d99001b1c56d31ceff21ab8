@@ -1,0 +1,29 @@
+package Figure.PoligoniRegolari;
+
+import Figure.Figura;
+
+public class Esagono implements PoligonoRegolareBase {
+	
+	private double lato;
+	private double apotema;
+	
+	public Esagono(double lato, double apotema) {
+		this.lato = lato;
+		this.apotema = apotema;
+	}
+	
+	private double perimetro() {
+		return lato * 6;
+	}
+
+	@Override
+	public double area() {
+		return this.perimetro() * apotema / 2;
+	}
+
+	@Override
+	public int numeroLati() {
+		return 6;
+	}
+
+}

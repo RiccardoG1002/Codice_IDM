@@ -1,0 +1,10 @@
+INDEX VERSION 1.131+C:\Users\Riccardo Gallelli\eclipse-workspace\.metadata\.plugins\org.eclipse.jdt.core
+740570039.index
+3183966072.index
+2954059812.index
+1093945714.index
+50191944.index
+3915390383.index
+870392515.index
+2923715352.index
+3764739563.index

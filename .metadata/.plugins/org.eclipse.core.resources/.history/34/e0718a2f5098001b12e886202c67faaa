@@ -1,0 +1,44 @@
+package Algoritmi;
+
+public class GestaltPatternMatching implements Algoritmo {
+
+	@Override
+	public int applica(String parola, String pattern) {
+		int numberOfMatchingCharacters = numberOfMatchingCharacters(parola, pattern);
+		double similarity = calculateSimilarity(parola, pattern, numberOfMatchingCharacters);
+		return (int) similarity * 100;
+	}
+
+	/**
+	 * calcola il numero di caratteri uguali tra le due parole
+	 * 
+	 * @param parola:  parola inserita
+	 * @param pattern: parola da confrontare
+	 * @return numero di caratteri che matchano
+	 */
+	private int numberOfMatchingCharacters(String parola, String pattern) {
+		int numberOfMatchingCharacters = 0;
+		for (int i = 0; i < parola.length(); i++) {
+			if (pattern.charAt(i) != '\0') {
+				if (parola.charAt(i) == pattern.charAt(i)) {
+					numberOfMatchingCharacters++;
+				}
+			}
+		}
+		return numberOfMatchingCharacters;
+	}
+
+	/**
+	 * calcola il grado di similitutdine tra le due parole
+	 * 
+	 * @param parola:                     parola inserita
+	 * @param pattern:                    parola da confrontare
+	 * @param numberOfMatchingCharacters: nuero di caratteri uguali tra le due
+	 *                                    parole
+	 * @return grado di similitudine
+	 */
+	private double calculateSimilarity(String parola, String pattern, int numberOfMatchingCharacters) {
+		return numberOfMatchingCharacters / (parola.length() + pattern.length());
+	}
+
+}

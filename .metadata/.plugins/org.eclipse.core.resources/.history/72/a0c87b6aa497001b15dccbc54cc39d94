@@ -1,0 +1,11 @@
+import Vagoni.Vagone;
+
+public class FabbricaVagonePasseggeri extends FabbricaTreni {
+
+	@Override
+	public Vagone crea() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

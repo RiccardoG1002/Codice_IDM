@@ -1,0 +1,37 @@
+package FabbricheTreni;
+
+import ComponentiTreni.ComponenteTreno;
+
+public class FabbricaFrecciaRossa implements FabbricaTreni{
+
+	@Override
+	public ComponenteTreno costruisciMotrice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ComponenteTreno costruisciVagonePasseggeri() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ComponenteTreno costruisciVagoneCargo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ComponenteTreno costruisciVagoneRistorante() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ComponenteTreno costruisciVagoneBagno() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

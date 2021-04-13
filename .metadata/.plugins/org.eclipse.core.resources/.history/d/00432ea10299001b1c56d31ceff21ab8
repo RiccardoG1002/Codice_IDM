@@ -1,0 +1,19 @@
+import Cantiere.Muratore;
+import DecoratoriFigure.ColoreDecorator;
+import Figure.Cerchio;
+import Figure.Figura;
+import Figure.PoligoniRegolari.Quadrato;
+
+public class TestMuratore {
+
+	public static void main(String[] args) {
+		Muratore franco = new Muratore("Franco");
+		franco.presentati();
+		Figura piastrella = new Cerchio(30);
+		franco.piastrellare(piastrella);
+		piastrella = new Quadrato(10);
+		franco.piastrellare(piastrella);
+		piastrella = new ColoreDecorator(piastrella, "Rosso");
+	}
+
+}

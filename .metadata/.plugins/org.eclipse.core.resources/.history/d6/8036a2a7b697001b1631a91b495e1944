@@ -1,0 +1,13 @@
+package DecoratoriFigure;
+
+import Figure.Figura;
+
+public abstract class DecoratorFigura implements Figura {
+
+	@Override
+	public double area() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,10 @@
+package Treni;
+
+public class TrenoFrecciaRossa extends Treno {
+
+	@Override
+	public void accendiPersonalizzata() {
+		
+	}
+
+}

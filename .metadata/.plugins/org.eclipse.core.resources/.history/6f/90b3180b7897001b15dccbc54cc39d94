@@ -1,0 +1,5 @@
+package DecoratorBevande;
+
+public class CacaoDecorator extends CaffeDecorator {
+
+}

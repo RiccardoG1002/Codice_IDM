@@ -1,0 +1,10 @@
+package ComponentiTreni;
+
+public abstract class VagoneCargo extends Vagone {
+	@Override
+	protected double pesoPersonalizzato() {
+		return ;
+	}
+	
+	protected abstract double pesoVagoneVuoto();
+}

@@ -1,0 +1,10 @@
+package Ingredienti;
+
+public class PannaMontata implements Ingrediente {
+
+	@Override
+	public double prezzo() {
+		return 0.20;
+	}
+
+}

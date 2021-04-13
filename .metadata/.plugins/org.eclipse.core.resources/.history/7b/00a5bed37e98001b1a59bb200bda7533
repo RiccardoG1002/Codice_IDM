@@ -1,0 +1,7 @@
+package Figure;
+
+import java.util.Comparator;
+
+public interface Figura extends Comparable{
+	double area();
+}

@@ -1,0 +1,31 @@
+package Cantiere;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import Figure.*;
+import Figure.PoligoniRegolari.*;
+import Figure.Triangoli.*;
+
+public class Stella implements Figura {
+	
+	private PoligonoRegolare centro;
+	private List<Triangolo> punte = new LinkedList<Triangolo>();
+	
+	public Stella(PoligonoRegolare centro) {
+		this.centro = centro;
+		for (int i = 0; i < centro.numeroLati(); i++) {
+			punte.add(new Triangolo(1,1));
+		}
+	}
+
+	@Override
+	public double area() {
+		double areaTot = 0;
+		for (Triangolo triangolo : punte) {
+			areaTot = areaTot + triangolo.area();
+		}
+		return areaTot + centro.area();
+	}
+
+}

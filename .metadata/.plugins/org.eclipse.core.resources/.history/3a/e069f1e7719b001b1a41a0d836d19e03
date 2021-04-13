@@ -1,0 +1,5 @@
+package ComponentiTreni;
+
+public interface ComponenteTreno {
+	void stampa();
+}

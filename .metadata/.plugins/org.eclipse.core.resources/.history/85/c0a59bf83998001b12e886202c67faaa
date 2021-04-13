@@ -1,0 +1,16 @@
+package DecoratoriFigure;
+
+import Figure.Figura;
+
+public class ColoreDecorator extends DecoratorFigura {
+
+	public ColoreDecorator(Figura figura) {
+		super(figura);
+	}
+
+	@Override
+	public void stampaPersonalizzata() {
+		
+	}
+	
+}

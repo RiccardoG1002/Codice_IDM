@@ -1,0 +1,22 @@
+package Figure.PoligoniRegolari;
+
+import Figure.Rettangolo;
+
+public class Quadrato extends Rettangolo implements PoligonoRegolare {
+
+	public Quadrato(double lato) {
+		super(lato, lato);
+	}
+	
+	@Override
+	public double area() {
+		return super.area();
+	}
+
+	@Override
+	public int numeroLati() {
+		// TODO Auto-generated method stub
+		return 4;
+	}
+	
+}

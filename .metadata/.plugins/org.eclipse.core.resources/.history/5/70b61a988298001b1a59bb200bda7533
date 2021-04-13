@@ -1,0 +1,11 @@
+package Vagoni;
+
+public class Bagno implements Vagone {
+
+	@Override
+	public void accendi() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

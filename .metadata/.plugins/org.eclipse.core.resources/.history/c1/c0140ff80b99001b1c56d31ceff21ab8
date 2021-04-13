@@ -1,0 +1,31 @@
+package DecoratoriFigure;
+
+import Figure.Figura;
+
+public abstract class DecoratorFigura extends FiguraBase {
+	
+	private Figura figura;
+	
+	public DecoratorFigura(Figura figura) {
+		this.figura = figura;
+	}
+	
+	public final void stampa() {
+		System.out.print(figura);
+		stampaPersonalizzata();
+	}
+
+	
+	public final double area() {
+		return figura.area();
+	}
+	
+	
+	public final int compare(Figura o1, Figura o2) {
+		if(o1.area() == o2.area()) return 0;
+		else if(o1.area() > o2.area()) return 1;
+		else return -1;
+	}
+
+	public abstract void stampaPersonalizzata();
+}

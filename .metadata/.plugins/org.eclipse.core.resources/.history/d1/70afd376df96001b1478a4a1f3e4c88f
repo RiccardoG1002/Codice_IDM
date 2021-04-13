@@ -1,0 +1,32 @@
+package Cantiere;
+
+import Figure.Figura;
+import Figure.Parallelogramma;
+import Figure.PoligoniRegolari.Quadrato;
+
+public class Muratore {
+	String nome;
+	
+	public Muratore(String nome) {
+		this.nome = nome;
+	}
+	
+	public void presentati() {
+		System.out.println("Ciao! Mi chiamo " + nome + " e sono il tuo muratore");
+	}
+	public void piastrellare(Figura piastrella) {
+		System.out.println("Sto piastrellando con delle piastrelle di area: " + piastrella.area());
+	}
+
+	public int numPiastrelle(Figura stanza, Figura piastrella) {
+		return (int) (stanza.area() / piastrella.area());
+	}
+	
+	public void faiMosaico(Quadrato tassello) {
+		System.out.println("Sto facendo un mosaico con tasselli di area: " + tassello.area());
+	}
+	
+	public void costruisciOblo(Cerchio oblo) {
+		System.out.println("Sto costruendo un oblò di area: " + oblo.area());
+	}
+}

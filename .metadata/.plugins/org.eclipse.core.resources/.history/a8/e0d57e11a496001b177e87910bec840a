@@ -1,0 +1,10 @@
+package Cantiere;
+
+import java.util.ArrayList;
+import Figure.Figura;
+import com.sun.tools.javac.util.List;
+
+public class TanGram {
+	
+	List<> list = new ArrayList<Figura>();
+}

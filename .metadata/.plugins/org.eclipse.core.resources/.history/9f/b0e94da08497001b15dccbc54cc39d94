@@ -1,0 +1,16 @@
+
+public class CaffeCorrettoDecorator implements Caffe {
+	
+	private Caffe base;
+	
+	public CaffeCorrettoDecorator(Caffe base) {
+		this.base = base;
+	}
+
+	@Override
+	public void prepara() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

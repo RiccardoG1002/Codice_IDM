@@ -1,0 +1,51 @@
+package Cantiere;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import Figure.ComparatoreFigure;
+import Figure.Figura;
+
+public class FiIguraComposta implements Figura {
+	
+	private List<Figura> list = new LinkedList<Figura>();
+	private String nomeForma; 
+	
+	public FiIguraComposta(String nomeforma) {
+		this.nomeForma = nomeforma;
+	}
+	
+	public void addFigura(Figura f) {
+		list.add(f);
+	}
+	
+	public String nomeForma() {
+		return this.nomeForma;
+	}
+
+	@Override
+	public double area() {
+		double areaTotale = 0;
+		for(Figura f : list) {
+			areaTotale = areaTotale + f.area();
+		}
+		return areaTotale;
+	}
+	
+	public List<Figura> getFigureOrdinate() {
+		Collections.sort(list, ComparatoreFigure.class);
+		return list;
+	}
+	
+	
+	
+	/*private void insertionSort(Figura f) {
+		for (int i = 0; i < list.size(); i++) {
+			if(compare(f, list.get(i)) < 0) 
+				list.add(i, f);
+		}
+	}*/
+	
+}

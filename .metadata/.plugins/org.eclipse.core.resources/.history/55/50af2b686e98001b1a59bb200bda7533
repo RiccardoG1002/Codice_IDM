@@ -1,0 +1,12 @@
+package Fabbriche;
+import Vagoni.Locomotiva;
+import Vagoni.Vagone;
+
+public class FabbricaLocomotive implements FabbricaTreni {
+
+	@Override
+	public Vagone crea() {
+		return new Locomotiva();
+	}
+	
+}

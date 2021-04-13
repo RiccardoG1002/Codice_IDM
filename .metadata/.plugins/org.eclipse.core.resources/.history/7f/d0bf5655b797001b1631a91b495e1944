@@ -1,0 +1,9 @@
+package DecoratoriFigure;
+
+public class ColoreDecorator extends DecoratorFigura {
+
+	@Override
+	public void stampaPersonalizzata() {
+	}
+	
+}

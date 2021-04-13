@@ -1,0 +1,18 @@
+package Confronto;
+
+import Algoritmi.Algoritmo;
+
+public class Comparatore {
+	
+	private static Algoritmo algoritmo;
+	
+	public static double confronta(String parola, String pattern) {
+		scegliAlgoritmo(parola, pattern);
+		return algoritmo.applica(parola, pattern) / 100;
+	}
+	
+	private final void scegliAlgoritmo(String parola, String pattern) {
+		
+	}
+
+}

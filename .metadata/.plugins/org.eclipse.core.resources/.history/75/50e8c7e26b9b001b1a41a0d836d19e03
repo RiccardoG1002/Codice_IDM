@@ -1,0 +1,36 @@
+package NegozioTreni;
+
+import Treni.Treno;
+
+public class VenditoreTreni {
+	
+	private NegozioTreni negozio;
+	
+	public VenditoreTreni() {
+	}
+	
+	public final Treno ordinaTreno(String ordine, int negozio) {
+		if(controllaNegozio()) {
+			if(controllaOrdine()) {
+				
+			}
+		}
+		return null;
+	}
+	
+	public final Treno aggiungiCarrozza() {
+		return null;
+	}
+	
+	private boolean controllaOrdine() {
+		return true;
+	}
+	
+	private boolean controllaAggiunta() {
+		return true;
+	}
+	
+	private boolean controllaNegozio() {
+		return true;
+	}
+}

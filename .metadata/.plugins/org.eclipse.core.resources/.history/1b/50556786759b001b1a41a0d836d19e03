@@ -1,0 +1,9 @@
+package ComponentiTreni;
+
+public abstract class VagonePasseggeri extends Vagone {
+	@Override
+	protected double pesoPersonalizzato() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

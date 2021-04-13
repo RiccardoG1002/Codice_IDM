@@ -1,0 +1,9 @@
+
+public class Moka implements Caffe {
+
+	@Override
+	public void prepara() {
+		System.out.println("Riempio la moka di caffé ed acqua, la metto sul fuoco e quando il caffé sale lo verso nella tazzina");
+	}
+
+}

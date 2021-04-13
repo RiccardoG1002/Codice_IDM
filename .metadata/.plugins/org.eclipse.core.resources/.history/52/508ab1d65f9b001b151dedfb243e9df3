@@ -1,0 +1,16 @@
+package Treni;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import ComponentiTreni.ComponenteTreno;
+
+public abstract class Treno {
+	
+	private List<ComponenteTreno> treno;
+	
+	public Treno() {
+		this.treno = new LinkedList<ComponenteTreno>();
+	}
+
+}

@@ -1,0 +1,5 @@
+package DecoratoriFigure;
+
+public class ColoreDecorator extends DecoratorFigura {
+
+}

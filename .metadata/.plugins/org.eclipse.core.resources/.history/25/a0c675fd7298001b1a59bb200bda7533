@@ -1,0 +1,11 @@
+import NegoziTreni.NegozioTreni;
+import Vagoni.Treno;
+
+public class TestTreni {
+
+	public static void main(String[] args) {
+		
+		NegozioTreni negozio = new NegozioTreni(),
+	}
+
+}

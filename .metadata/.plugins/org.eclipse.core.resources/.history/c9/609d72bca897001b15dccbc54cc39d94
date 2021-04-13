@@ -1,0 +1,9 @@
+
+public class TestTreni {
+
+	public static void main(String[] args) {
+		
+		Venditore venditore = new Venditore();
+	}
+
+}

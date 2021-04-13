@@ -1,0 +1,18 @@
+package Fabbriche;
+
+import Vagoni.Vagone;
+
+public abstract class FabbricaVagoni {
+	
+	private static FabbricaVagoni fabbrica;
+	
+	public FabbricaVagoni(FabbricaVagoni fabbrica) {
+		this.fabbrica = fabbrica;
+	}
+	
+	public static final Vagone costrisciVagone() {
+		return fabbrica.costruisciVagonePersonalizzato();
+	}
+	
+	public abstract Vagone costruisciVagonePersonalizzato();
+}

@@ -1,0 +1,5 @@
+package Caffè;
+
+public class IrishCoffee extends Caffe {
+
+}

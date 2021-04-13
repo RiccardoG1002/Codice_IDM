@@ -1,0 +1,10 @@
+package Vagoni;
+
+public class Cargo implements Vagone {
+
+	@Override
+	public void accendi() {
+		System.out.print("🛢");
+	}
+
+}

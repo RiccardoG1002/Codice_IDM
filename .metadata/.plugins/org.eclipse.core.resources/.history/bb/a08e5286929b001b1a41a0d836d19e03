@@ -1,0 +1,17 @@
+import NegozioTreni.VenditoreTreni;
+import Treni.Treno;
+
+public class TreniTest {
+
+	public static void main(String[] args) {
+		VenditoreTreni venditore = new VenditoreTreni();
+		try {
+			Treno treno = venditore.ordinaTreno("MPBPPPR", 0);
+			treno.accendi();
+			treno.mostra();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+}

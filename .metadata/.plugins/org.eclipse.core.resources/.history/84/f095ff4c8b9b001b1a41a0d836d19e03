@@ -1,0 +1,33 @@
+package NegozioTreni;
+
+import ComponentiTreni.ComponenteTreno;
+import ComponentiTreni.Motrice;
+import Treni.Treno;
+
+public abstract class NegozioTreni {
+	
+	public final Treno ordinaTreno(String ordine) {
+		Treno treno = this.ordinaTrenoPersonalizzato();
+		for (int i = 1; i < ordine.length(); i++) {
+			treno.aggiungiVagone(this.aggiungiCarrozzaPersonalizzata(ordine.charAt(i)));
+		}
+		if()
+		return treno;
+	}
+	
+	private boolean controllaPeso(Treno treno, Motrice motrice) {
+		return true;
+	}
+	
+	public final Treno aggiungiCarrozza(String ordine, Treno treno) {
+		for (int i = 0; i < ordine.length(); i++) {
+			treno.aggiungiVagone(this.aggiungiCarrozzaPersonalizzata(ordine.charAt(i)));
+		}
+		return treno;
+	}
+	
+	public abstract Treno ordinaTrenoPersonalizzato();
+	
+	public abstract ComponenteTreno aggiungiCarrozzaPersonalizzata(char tipoCarrozza);
+
+}

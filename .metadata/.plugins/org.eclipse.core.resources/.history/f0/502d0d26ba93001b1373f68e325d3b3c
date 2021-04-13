@@ -1,0 +1,9 @@
+
+public class StudenteLavoratore extends Operaio {
+
+	public StudenteLavoratore(String nome, String cognome, String mansione) {
+		super(nome, cognome, mansione);
+		// TODO Auto-generated constructor stub
+	}
+
+}

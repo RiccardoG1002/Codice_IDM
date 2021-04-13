@@ -1,0 +1,19 @@
+package NegozioTreni;
+
+import FabbricheTreni.FabbricaTreni;
+import Treni.Treno;
+
+public abstract class NegozioTreni {
+	
+	public final Treno ordinaTreno(String ordine) {
+		Treno treno = new no();
+		return null;
+	}
+	
+	public final Treno aggiungiCarrozza(String ordine, Treno treno) {
+		return treno;
+	}
+	
+	public abstract Treno aggiungiCarrozzaPersonalizzata(char tipoCarrozza);
+
+}

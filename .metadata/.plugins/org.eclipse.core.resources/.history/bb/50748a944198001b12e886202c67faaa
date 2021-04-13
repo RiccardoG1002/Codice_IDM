@@ -1,0 +1,20 @@
+package Algoritmi;
+
+public class GestaltPatternMatching implements Algoritmo {
+
+	@Override
+	public int applica(String parola, String pattern) {
+		return 0;
+	}
+	
+	private int numberOfMatchingCharacters(String parola, String pattern) {
+		int numberOfMatchingCharacters = 0;
+		for (int i = 0; i < parola.length(); i++) {
+			if (parola.charAt(i) == pattern.charAt(i)) {
+				numberOfMatchingCharacters ++;
+			}
+		}
+		return 0;
+	}
+
+}

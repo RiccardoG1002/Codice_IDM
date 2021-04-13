@@ -1,0 +1,11 @@
+package Algoritmi;
+
+public class IsContained implements Algoritmo {
+
+	@Override
+	public int applica(String parola, String pattern) {
+		if(pattern.contains(parola)) return 1;
+		return 0;
+	}
+
+}

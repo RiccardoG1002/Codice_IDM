@@ -1,0 +1,11 @@
+package Treni;
+
+public class TrenoTrenitalia extends Treno {
+
+	@Override
+	public void accendiPersonalizzata() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

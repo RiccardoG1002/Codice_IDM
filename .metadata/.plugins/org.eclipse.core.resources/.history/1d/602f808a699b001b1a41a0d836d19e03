@@ -1,0 +1,19 @@
+package NegozioTreni;
+
+import Treni.Treno;
+
+public class NegozioTrenitalia extends NegozioTreni {
+	
+	@Override
+	public Treno aggiungiCarrozzaPersonalizzata(char tipoCarrozza) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Treno ordinaTrenoPersonalizzato() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

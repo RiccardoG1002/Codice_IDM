@@ -1,0 +1,45 @@
+package NegozioTreni;
+
+import Treni.Treno;
+
+public class VenditoreTreni {
+	
+	private NegozioTreni negozio;
+	
+	public VenditoreTreni() {
+	}
+	
+	public final Treno ordinaTreno(String ordine, int negozio) {
+		if(controllaNegozio()) {
+			if(controllaOrdine()) {
+				if(negozio == 0) this.negozio = new NegozioFrecciaRossa();
+				else this.negozio = new NegozioTrenitalia();
+				return this.negozio.ordinaTreno(ordine);
+			}
+		}
+		return null;
+	}
+	
+	public final Treno aggiungiCarrozza(String ordine, int negozio, Treno treno) {
+		if(controllaNegozio()) {
+			if(controllaAggiunta()) {
+				if(negozio == 0) this.negozio = new NegozioFrecciaRossa();
+				else this.negozio = new NegozioTrenitalia();
+				return this.negozio.ordinaTreno(ordine);
+			}
+		}
+		return null;
+	}
+	
+	private boolean controllaOrdine() {
+		return true;
+	}
+	
+	private boolean controllaAggiunta() {
+		return true;
+	}
+	
+	private boolean controllaNegozio() {
+		return true;
+	}
+}

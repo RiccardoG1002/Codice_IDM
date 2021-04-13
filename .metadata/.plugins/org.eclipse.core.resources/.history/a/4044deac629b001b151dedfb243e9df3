@@ -1,0 +1,11 @@
+package ComponentiTreni;
+
+public class VagonePasseggeriTI extends VagonePasseggeri {
+
+	@Override
+	public void stampaPersonalizzata() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package Algoritmi;
+
+public class BitmapDistance implements Algoritmo {
+
+	@Override
+	public int applica(String parola, String pattern) {
+		return 0;
+	}
+
+}

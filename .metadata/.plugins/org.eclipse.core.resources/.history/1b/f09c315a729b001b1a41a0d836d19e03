@@ -1,0 +1,10 @@
+package ComponentiTreni;
+
+public class MotriceTrenitalia extends Motrice {
+
+	@Override
+	public void stampaPersonalizzata() {
+		System.out.print("🚈");
+	}
+
+}

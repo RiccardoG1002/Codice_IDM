@@ -1,5 +1,0 @@
-package ComponentiTreni;
-
-public class VagoneCargoTI extends VagoneCargo {
-
-}

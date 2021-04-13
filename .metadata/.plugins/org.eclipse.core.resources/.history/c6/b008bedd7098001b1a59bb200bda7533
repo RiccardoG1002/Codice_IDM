@@ -1,9 +1,0 @@
-package NegoziTreni;
-
-import Vagoni.Treno;
-
-public class NegozioTreni {
-	public Treno ordinaTreno() {
-		return null;
-	}
-}

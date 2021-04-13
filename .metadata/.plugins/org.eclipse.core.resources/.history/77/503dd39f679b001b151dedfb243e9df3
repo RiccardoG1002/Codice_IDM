@@ -1,7 +1,0 @@
-package Exceptions;
-
-public class MotriceNonInTestaException extends Exception {
-	public MotriceNonInTestaException() {
-		super("La prima carrozza del treno deve esseere una motrice!");
-	}
-}

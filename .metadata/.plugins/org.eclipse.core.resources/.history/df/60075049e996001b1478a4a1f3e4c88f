@@ -1,5 +1,0 @@
-package Bevande;
-
-public class Cappuccino implements Bevanda {
-
-}

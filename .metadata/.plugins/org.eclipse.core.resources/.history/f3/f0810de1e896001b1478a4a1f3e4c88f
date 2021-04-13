@@ -1,9 +1,0 @@
-
-
-public class Snippet {
-	@Override
-		public void descrizione() {
-			System.out.println("Cappuccino");
-			super.descrizione();
-		}
-}

@@ -1,5 +1,0 @@
-package Fabbriche;
-
-public abstract class FabbricaTreni {
-
-}

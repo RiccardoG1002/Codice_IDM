@@ -1,7 +1,0 @@
-package Figure;
-
-import java.util.Comparator;
-
-public interface Figura {
-	double area();
-}

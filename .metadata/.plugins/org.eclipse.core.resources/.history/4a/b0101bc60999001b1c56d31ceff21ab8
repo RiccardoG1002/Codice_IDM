@@ -1,7 +1,0 @@
-package Figure;
-
-import java.util.Comparator;
-
-public class ComparatoreFigure implements Comparator<T> {
-
-}

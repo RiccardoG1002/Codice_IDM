@@ -1,7 +1,0 @@
-package Exceptions;
-
-public class TroppiPasseggeriException extends Exception {
-	public TroppiPasseggeriException(int capienzaMax) {
-		super("Questo vagone ha una capienza massima di: " + capienzaMax + " persone!")
-	}
-}

@@ -1,5 +1,0 @@
-package ComponentiTreni;
-
-public abstract class VagoneRistorante extends Vagone {
-	
-}

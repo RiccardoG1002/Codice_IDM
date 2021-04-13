@@ -1,5 +1,0 @@
-package FabbricheTreni;
-
-public interface FabbricaTreni {
-
-}

@@ -1,8 +1,0 @@
-package Figure.PoligoniRegolari;
-
-import Figure.Figura;
-
-public interface PoligonoRegolare extends FiguraBase {
-	double area();
-	int numeroLati();
-}

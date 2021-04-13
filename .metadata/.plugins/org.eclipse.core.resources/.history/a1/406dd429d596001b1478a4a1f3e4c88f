@@ -1,9 +1,0 @@
-
-public class Caffe implements Ingrediente {
-
-	@Override
-	public double prezzo() {
-		return 1;
-	}
-
-}

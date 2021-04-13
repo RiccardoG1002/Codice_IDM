@@ -1,4 +1,0 @@
-
-public interface Ingrediente {
-	double prezzo();
-}

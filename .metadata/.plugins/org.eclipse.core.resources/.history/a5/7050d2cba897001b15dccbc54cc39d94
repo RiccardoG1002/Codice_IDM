@@ -1,5 +1,0 @@
-import Vagoni.Vagone;
-
-public interface FabbricaTreni {	 
-	 public abstract Vagone crea();
-}

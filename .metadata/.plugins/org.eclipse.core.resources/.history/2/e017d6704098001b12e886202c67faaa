@@ -1,5 +1,0 @@
-package Algoritmi;
-
-public interface algoritmo {
-	int applica(String parola, String pattern);
-}

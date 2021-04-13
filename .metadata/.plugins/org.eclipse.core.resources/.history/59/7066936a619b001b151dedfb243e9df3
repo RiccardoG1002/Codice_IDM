@@ -1,5 +1,0 @@
-package ComponentiTreni;
-
-public abstract class Vagone implements ComponenteTreno {
-
-}

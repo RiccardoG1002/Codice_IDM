@@ -1,9 +1,0 @@
-package ComponentiTreni;
-
-public abstract class VagonePasseggeri extends Vagone {
-	@Override
-	public final void stampa() {
-		// TODO Auto-generated method stub
-		
-	}
-}

@@ -9,7 +9,7 @@ public class TestTreno {
 	
 	public static void main(String[] args) {
 		
-		Treno t = new BuilderTreniA("HPPPPPPPP").getTreno();
+		Treno t = new BuilderTreniA("HPPPPPPPPPPPPPPPPPP").getTreno();
 		
 		
 		System.out.println(t.toString());

@@ -1,7 +1,10 @@
 package com.corso.algoritmi;
 
-public class LD implements StringComparingAlgo {
+import java.util.List;
+
+public class LD implements SimilarString{
 	
+	private SimilarString next = new SoundEx();
 	
 	 public LD(){
 		 
@@ -11,7 +14,7 @@ public class LD implements StringComparingAlgo {
 	  // Get minimum of three values
 	  //****************************
 	
-	  private int minimum (int a, int b, int c) {
+	  private static int minimum (int a, int b, int c) {
 	  int mi;
 	
 	    mi = a;
@@ -30,8 +33,7 @@ public class LD implements StringComparingAlgo {
 	  //*****************************
 	
 
-	@Override
-	public int compare(String s, String t) {
+	public static int compare(String s, String t) {
 		 int d[][]; // matrix
 		  int n; // length of s
 		  int m; // length of t
@@ -96,6 +98,42 @@ public class LD implements StringComparingAlgo {
 	
 	    return d[n][m];
 	}
+
+	
+	@Override
+	public SimilarString getNext() {
+		return next;
+	}
+	
+	
+
+	@Override
+	public String similarString(String input, List<String> standard) {
+		int min_score = Integer.MAX_VALUE;
+		String best_match = null;
+		
+		for(String s: standard) {
+			int score = compare(input, s);
+			
+			if(score < min_score) {
+				best_match = s;
+				min_score = score;
+			}
+		}
+		
+		if(min_score <= 2)
+			return best_match;
+			
+		return getNext().similarString(input, standard);
+	}
+
+	@Override
+	public void setNext(SimilarString s) {
+		this.next = s;
+		
+	}
+
+	
 
 }
 

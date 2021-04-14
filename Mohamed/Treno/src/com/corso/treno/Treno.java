@@ -10,18 +10,14 @@ import com.corso.vagoni.Vagone;
 public class Treno {
 	
 	private LinkedList<Vagone> vagoni;
-	private double peso = 0;
+	private Locomotiva locomotiva;
 	private int numeroPassegeri = 0;
-	private double maxTrainabile = -1;
 	
 	
 	public LinkedList<Vagone> getVagoni() {
 		return vagoni;
 	}
 
-	public double getPeso() {
-		return peso;
-	}
 
 	public int getNumeroPassegeri() {
 		return numeroPassegeri;
@@ -31,20 +27,39 @@ public class Treno {
 		this.vagoni = new LinkedList<>();
 	}
 	
-	public void addVagone(Vagone vagone) {
-		if(vagone instanceof Locomotiva && maxTrainabile <0)
-			maxTrainabile = ((Locomotiva) vagone).getMaxPesoTrainabile();
-		
-		if (vagone instanceof Carrozza)
-			numeroPassegeri += (((Carrozza) vagone).getNumeroPosti());
-		
-		vagoni.add(vagone);
-		peso += vagone.getmaxPeso();
-		
-			
-		if(peso > maxTrainabile) throw new PesoEccessoException(peso, maxTrainabile);	
+	
+	
+	public Treno(Locomotiva locomotiva, LinkedList<Vagone> vagoni) {
+		super();
+		this.vagoni = vagoni;
+		this.locomotiva = locomotiva;
+		if(getPeso() > locomotiva.getMaxPesoTrainabile()) throw new PesoEccessoException(getPeso(), locomotiva.getMaxPesoTrainabile());
 	}
 
+	public void addVagone(Vagone vagone) {
+		controllaPeso(vagone);
+	}
+	
+	public void addVagone(Carrozza carrozza) {
+		numeroPassegeri += carrozza.getNumeroPosti();
+		controllaPeso(carrozza);
+	}
+	
+	public double getPeso() {
+		double peso = locomotiva.getmaxPeso();
+		for(Vagone v: vagoni) {
+			peso += v.getmaxPeso();
+			
+		}
+		return peso;
+	}
+
+	private void controllaPeso(Vagone vagone){
+		if(getPeso() + vagone.getmaxPeso() > locomotiva.getMaxPesoTrainabile()) throw new PesoEccessoException(getPeso()+ vagone.getmaxPeso(), locomotiva.getMaxPesoTrainabile());
+		vagoni.add(vagone);
+	}
+	
+	
 	@Override
 	public String toString() {
 		String s= "";	

@@ -4,6 +4,12 @@ public class Cerchio implements Figura {
 	
 	private double raggio;
 	
+	
+	
+	public void setRaggio(double raggio) {
+		this.raggio = raggio;
+	}
+
 	public Cerchio(double raggio){
 		this.raggio = raggio;
 	}

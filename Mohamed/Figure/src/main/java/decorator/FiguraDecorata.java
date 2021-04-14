@@ -40,6 +40,7 @@ public abstract class FiguraDecorata implements Figura{
 	}
 	
 	public void stampaProprieta() {
+		
 		HashMap<Proprieta, Object> proprieta = getProprieta();
 		for(Proprieta d: proprieta.keySet()) {
 			System.out.println(d+ " " + proprieta.get(d));

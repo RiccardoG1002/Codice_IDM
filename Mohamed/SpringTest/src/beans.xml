@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:aop="http://www.springframework.org/schema/aop"   
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans.xsd   
+       http://www.springframework.org/schema/aop   
+       http://www.springframework.org/schema/aop/spring-aop.xsd">  
+       
+       
+ 	<bean id = "cerchio01" class = "figureGeometriche.Cerchio" scope="prototype">
+      <constructor-arg name = "raggio" value = "3.0" type= "double"/>
+   </bean>
+   
+   <bean id = "cerchio02" class = "figureGeometriche.Cerchio">
+      <constructor-arg name = "raggio" value = "3.0" type= "double"/>
+   </bean>
+   
+   <bean id="figuraUnica01" class="figureGeometriche.FiguraUnica" factory-method="getInstance" scope="prototype">
+   
+   </bean>
+   
+   <bean id="figuraUnica02" class="figureGeometriche.FiguraUnica" factory-method="getInstance" scope="prototype">
+   
+   </bean>
+   
+   <bean id="figura01" class="decorator.FiguraColorata">
+   	<constructor-arg name="figura" ref="cerchio01"/>
+   	<constructor-arg name="colore" value="giallo" type="String"/>
+   </bean>
+   
+    <bean id="figura02" class="decorator.FiguraConBordo">
+   	<constructor-arg name="figura" ref="figura01"/>
+   	<constructor-arg name="spessore" value="2.00" type="double"/>
+   	<constructor-arg name="colore" value="verde" type="String"/>
+   </bean>
+
+  </beans>

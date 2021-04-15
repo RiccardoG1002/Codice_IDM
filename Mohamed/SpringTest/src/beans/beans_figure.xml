@@ -8,6 +8,7 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">  
        
        
+       
  	<bean id = "cerchio01" class = "figureGeometriche.Cerchio" scope="prototype">
       <constructor-arg name = "raggio" value = "3.0" type= "double"/>
    </bean>
@@ -30,9 +31,24 @@
    </bean>
    
     <bean id="figura02" class="decorator.FiguraConBordo">
-   	<constructor-arg name="figura" ref="figura01"/>
-   	<constructor-arg name="spessore" value="2.00" type="double"/>
-   	<constructor-arg name="colore" value="verde" type="String"/>
+	   	<constructor-arg name="figura" ref="figura01"/>
+	   	<constructor-arg name="spessore" value="2.00" type="double"/>
+	   	<constructor-arg name="colore" value="verde" type="String"/>
    </bean>
+   
+
+    
+   <bean id="figComposta" class="figureGeometriche.FiguraComposta">
+	   <constructor-arg>
+	   		<list>
+	            <ref bean="figura01" />
+	            <ref bean="cerchio02"/>
+	   		</list>
+	   </constructor-arg>
+   </bean>
+  
+   
+   
+   
 
   </beans>

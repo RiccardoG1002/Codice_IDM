@@ -2,38 +2,30 @@ package com.corso.algoritmi;
 
 import java.util.List;
 
-public class LD implements SimilarString{
+public class Levenshtein extends SimilarString{
 	
-	private SimilarString next = new SoundEx();
+	private int maxDistance = 2;
 	
-	 public LD(){
+	 public Levenshtein(){
 		 
 	 }
+	 
+	 public Levenshtein(int maxDistance) {
+		 this.maxDistance = maxDistance;
+		// System.out.println("maxDistance: " + maxDistance);
+	 }
 
-	  //****************************
-	  // Get minimum of three values
-	  //****************************
-	
-	  private static int minimum (int a, int b, int c) {
-	  int mi;
-	
-	    mi = a;
-	    if (b < mi) {
-	      mi = b;
-	    }
-	    if (c < mi) {
-	      mi = c;
-	    }
+	 private static int minimum (int a, int b, int c) {
+		 int mi;
+		 mi = a;
+		 if (b < mi)
+			 mi = b;
+		 if (c < mi) 
+			 mi = c;
 	    return mi;
-	
-	  }
-	
-	  //*****************************
-	  // Compute Levenshtein distance
-	  //*****************************
-	
-
-	public static int compare(String s, String t) {
+	}
+	  
+	 public static int compare(String s, String t) {
 		 int d[][]; // matrix
 		  int n; // length of s
 		  int m; // length of t
@@ -99,16 +91,8 @@ public class LD implements SimilarString{
 	    return d[n][m];
 	}
 
-	
 	@Override
-	public SimilarString getNext() {
-		return next;
-	}
-	
-	
-
-	@Override
-	public String similarString(String input, List<String> standard) {
+	Match getBestMatch(String input, List<String> standard) {
 		int min_score = Integer.MAX_VALUE;
 		String best_match = null;
 		
@@ -121,20 +105,19 @@ public class LD implements SimilarString{
 			}
 		}
 		
-		if(min_score <= 2)
-			return best_match;
-			
-		return getNext().similarString(input, standard);
+		//System.out.println(best_match +" "+ min_score + " "+ (min_score <= maxDistance));
+		
+		return new Match(best_match, min_score, (min_score <= maxDistance));
 	}
 
 	@Override
-	public void setNext(SimilarString s) {
-		this.next = s;
-		
+	public String toString() {
+		return this.getClass().getSimpleName() + maxDistance;
 	}
-
 	
-
+	
+	
+	 
 }
 
 

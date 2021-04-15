@@ -2,7 +2,7 @@ package com.corso.algoritmi;
 
 import java.util.List;
 
-public class SoundEx implements SimilarString{
+public class SoundEx extends SimilarString{
 	
 	private SimilarString next  = null;
 	private int sogliaDistanzaMassima = 3;
@@ -63,20 +63,17 @@ public class SoundEx implements SimilarString{
 		return output;
 		}
 
-	@Override
-	public SimilarString getNext() {
-		return next;
-	}
 
 	@Override
-	public String similarString(String input, List<String> standard) {
-		
+	Match getBestMatch(String input, List<String> standard) {
+
+
 		int min_score = Integer.MAX_VALUE;
 		String best_match = null;
 		
 		for(String s: standard) {
 			
-			int score = LD.compare(soundex(input), soundex(s));
+			int score = Levenshtein.compare(soundex(input), soundex(s));
 			
 			if(score < min_score) {
 				best_match = s;
@@ -85,18 +82,11 @@ public class SoundEx implements SimilarString{
 		
 		}
 		
-		if(min_score <= sogliaDistanzaMassima)
-			return best_match;
-				
-		if(getNext() != null)
-			return getNext().similarString(input, standard);
-		
-		return null;
+		return new Match(best_match, min_score, (min_score <= sogliaDistanzaMassima));
 	}
 
 	@Override
-	public void setNext(SimilarString s) {
-		this.next = s;
+	public String toString() {
+		return this.getClass().getSimpleName() + sogliaDistanzaMassima;
 	}
-
 }

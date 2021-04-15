@@ -14,6 +14,9 @@ public class FiguraComposta implements Figura{
 		this.figure = figure.stream().sorted(Comparator.comparingDouble(Figura::getArea)).collect(Collectors.toList());
 	}
 
+	public FiguraComposta() {
+		this.figure = new ArrayList<Figura>();
+	}
 	@Override
 	public double getArea() {
 		double area = 0.00;

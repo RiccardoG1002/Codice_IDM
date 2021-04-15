@@ -8,5 +8,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring5.2.3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Figure"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Caffe2"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/StringheSimili"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Treno"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

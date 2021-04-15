@@ -10,7 +10,7 @@ public class Espresso implements Caffe {
            
            @Override
           public void prepara(){
-                System.out.println("preparazione di un caffe espresso con miscela ” + miscela");
+                System.out.println("preparazione di un caffe espresso con miscela: " + miscela);
           }
 
 		

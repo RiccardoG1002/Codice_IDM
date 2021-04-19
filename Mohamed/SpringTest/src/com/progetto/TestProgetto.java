@@ -10,7 +10,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.corso.algoritmi.SimilarString;
+import com.corso.azienda.GruppoOperai;
 import com.corso.caffe.Caffe;
+import com.persone.Operaio;
+import com.persone.OperaioConcreto;
 
 import decorator.*;
 import figureGeometriche.*;
@@ -22,12 +25,13 @@ public class TestProgetto {
 	private static final String beans_figure = "beans/beans_figure.xml";
 	private static final String beans_caffe = "beans/beans_caffe.xml";
 	private static final String beans_stringhe = "beans/beans_stringhe.xml";
+	private static final String beans_studente_operaio ="beans/beans_studente_operaio.xml";
 	
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext(beans_stringhe);
+		ApplicationContext context = new ClassPathXmlApplicationContext(beans_studente_operaio);
 		//ApplicationContext context = new ClassPathXmlApplicationContext("beans/beans_caffe.xml");
 		//testFigureComposte(context);
-		testSimilarStrings(context);
+		testStudenteOperaio(context);
 	}
 	
 	
@@ -65,15 +69,21 @@ public class TestProgetto {
 	}
 	
 	private static void testSimilarStrings(ApplicationContext context) {
-		SimilarString similarString = (SimilarString) context.getBean("ld_123");
+		SimilarString similarString = (SimilarString) context.getBean("checkString");
 		
 		System.out.println("Best match: "+ similarString.getMostSimilar("Italia", TestStringhe.fromFile("countries.txt")));
 		System.out.println("By: "+ similarString.getLastAlgo());
 	}
 	
 	private static void testFigureComposte(ApplicationContext context) {
-		Figura figComposta = (Figura) context.getBean("figComposta");
-		System.out.println("Area figura composta: "+ figComposta.getArea());
+		Figura fig = (Figura) context.getBean("figura03");
+		System.out.println("Area figura composta: "+ fig.getArea());
 	}
 	
+	private static void testStudenteOperaio(ApplicationContext context) {
+		//OperaioConcreto alessandro = (OperaioConcreto) context.getBean("Alessandro");
+		// alessandro.stampaDati();
+		GruppoOperai go = (GruppoOperai) context.getBean("operai_gruppo");
+		go.stampaOperai();
+	}
 }

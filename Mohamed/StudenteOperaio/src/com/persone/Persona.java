@@ -20,7 +20,7 @@ public abstract class Persona {
 	// final non puo essere sovrascritta! 
 	public final void stampaDati() {
 		System.out.println("dati anagrafici: " +getNome() + 
-				" " + getCognome() + " " + stampaDatiPersonalizzati());
+				" " + getCognome() + " \n" + stampaDatiPersonalizzati());
 	}
 
 	abstract String stampaDatiPersonalizzati() ;

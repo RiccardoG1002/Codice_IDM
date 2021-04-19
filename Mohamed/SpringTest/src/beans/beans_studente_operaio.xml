@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:aop="http://www.springframework.org/schema/aop"   
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans.xsd   
+       http://www.springframework.org/schema/aop   
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+       
+	 <bean id="AlessandroP" class="com.persone.Persona" abstract="true">
+	 	<constructor-arg name="nome" value="Alessandro" type="String"/>
+	 	<constructor-arg name="cognome" value="Rossi" type ="String"/>
+	 </bean>      
+	 
+	 <bean id="Alessandro" class="com.persone.OperaioConcreto" parent="AlessandroP">
+	 	<constructor-arg name="mansione" value="muratore"/>
+	 </bean>
+	 
+	 <bean id="ElenaP" class="com.persone.Persona" abstract="true">
+	 	<constructor-arg name="nome" value="Elena" type="String"/>
+	 	<constructor-arg name="cognome" value="Bianchi" type ="String"/>
+	 </bean>      
+	 
+	 <bean id="Elena" class="com.persone.OperaioConcreto" parent="ElenaP">
+	 	<constructor-arg name="mansione" value="elettricista"/>
+	 </bean>
+	 
+	 <bean id="operai_gruppo" class="com.corso.azienda.GruppoOperai">
+	 	<constructor-arg>
+	 		<map>  
+				<entry key="KLLJS1" value-ref="Elena"></entry>  
+				<entry key="ANH762" value-ref="Alessandro"></entry>  
+			</map>  
+	 	</constructor-arg>
+	 </bean>
+   
+       
+ </beans>

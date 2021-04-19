@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "com.corso.paesi.Sinonimo" table = "sinonimi">
+      
+      <!-- ID -->
+      <id name = "cercata" type = "string" column = "cercata">
+         <generator class="assigned"/>
+      </id>
+      
+      <!-- PROPERTIES -->
+      <property name = "algoritmo" column = "algoritmo" type = "string"/>
+      <property name = "hits" column = "hits" type = "int"/>
+      
+      <!-- RELATIONS -->
+      <many-to-one name="paese" column="codice" class="com.corso.paesi.Paese"  />
+      
+      
+   </class>
+</hibernate-mapping>

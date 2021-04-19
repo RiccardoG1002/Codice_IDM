@@ -4,19 +4,19 @@ import java.util.List;
 
 public class SoundEx extends SimilarString{
 	
-	private SimilarString next  = null;
-	private int sogliaDistanzaMassima = 3;
 	
-	public void setSogliaDistanzaMassima(int sogliaDistanzaMassima) {
-		this.sogliaDistanzaMassima = sogliaDistanzaMassima;
+	private int maxDistance = 3;
+	
+	public void setSogliaDistanzaMassima(int maxDistance) {
+		this.maxDistance = maxDistance;
 	}
 
 	public SoundEx(){
 		
 	}
 
-	public SoundEx(int ldSogliaDistanzaMassima){
-		this.sogliaDistanzaMassima = ldSogliaDistanzaMassima;
+	public SoundEx(int maxDistance){
+		this.maxDistance = maxDistance;
 	}
 	
 	
@@ -82,11 +82,11 @@ public class SoundEx extends SimilarString{
 		
 		}
 		
-		return new Match(best_match, min_score, (min_score <= sogliaDistanzaMassima));
+		return new Match(best_match, min_score, (min_score <= maxDistance));
 	}
 
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() + sogliaDistanzaMassima;
+		return this.getClass().getSimpleName() + maxDistance;
 	}
 }

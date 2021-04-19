@@ -8,14 +8,27 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">  
        
        
-       
- 	<bean id = "cerchio01" class = "figureGeometriche.Cerchio" scope="prototype">
+      
+
+    
+   <bean id="figura03" class="figureGeometriche.FiguraComposta">
+	   <constructor-arg>
+	   		<list>
+	            <ref bean="figura01" />
+	            <ref bean="cerchio02"/>
+	   		</list>
+	   </constructor-arg>
+   </bean>
+  
+     <bean id = "cerchio02" class = "figureGeometriche.Cerchio">
       <constructor-arg name = "raggio" value = "3.0" type= "double"/>
    </bean>
    
-   <bean id = "cerchio02" class = "figureGeometriche.Cerchio">
-      <constructor-arg name = "raggio" value = "3.0" type= "double"/>
+    	<bean id = "cerchio01" class = "figureGeometriche.Cerchio" scope="prototype">
+      <constructor-arg name = "raggio" value = "2.0" type= "double"/>
    </bean>
+   
+ 
    
    <bean id="figuraUnica01" class="figureGeometriche.FiguraUnica" factory-method="getInstance" scope="prototype">
    
@@ -36,18 +49,10 @@
 	   	<constructor-arg name="colore" value="verde" type="String"/>
    </bean>
    
-
-    
-   <bean id="figComposta" class="figureGeometriche.FiguraComposta">
-	   <constructor-arg>
-	   		<list>
-	            <ref bean="figura01" />
-	            <ref bean="cerchio02"/>
-	   		</list>
-	   </constructor-arg>
-   </bean>
-  
+   <!-- TESTING PARENT WITH ABSTRACT -->
    
+   <bean id="quadrilatero" class="figureGeometriche.Quadrilatreo" abstract="true"></bean>
+
    
    
 

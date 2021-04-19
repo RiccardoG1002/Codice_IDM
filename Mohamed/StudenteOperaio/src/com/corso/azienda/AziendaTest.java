@@ -9,7 +9,7 @@ import com.persone.StudenteOperaio;
 import com.persone.Studente;
 
 public class AziendaTest {
-
+	
 		public static void main (String args[]) {
 			
 			Studente studente = new StudenteConcreto("Mario", "Rossi", "MAT1234567890"); 

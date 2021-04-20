@@ -3,14 +3,12 @@ package com.corso.dao;
 import java.util.List;
 
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Root;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.CriteriaQuery;
+
+import com.corso.exceptions.NotFoundException;
 
 public abstract class DAO<T> {
 	private SessionFactory sessionFactory;
@@ -27,6 +25,7 @@ public abstract class DAO<T> {
 	         throw new ExceptionInInitializerError(ex); 
 	      }
 	}	
+	
 		
     protected void openCurrentSession() {
         session = sessionFactory.openSession();
@@ -59,13 +58,17 @@ public abstract class DAO<T> {
     
     public abstract Class<?> getStringClass();
     
-	public T get(String key) {
+	public T get(String key) throws NotFoundException {
 		openCurrentSessionwithTransaction();
 		
 		T t = (T) session.get(getStringClass(), key);
+
+		if(t == null) throw new NotFoundException(getStringClass().getSimpleName(),key);
+		
     	closeCurrentSessionWithTransaction();
     	return t;
 	}
+	
 	
 	
 	

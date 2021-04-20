@@ -12,7 +12,17 @@
       </id>
       
       <!-- PROPERTY -->
-      <property name = "nome" column = "name" type = "string"/>
+      <property name = "nome" column = "nome"  type = "string"/>
+      
+      
+      <!-- RELATIONS -->
+      
+       <set name="sinonimi" inverse="true" lazy="false" cascade="all">
+            <key column="codice" not-null="true" />
+            <one-to-many class="com.corso.paesi.Sinonimo"/>
+       </set>
+       
+
       
    </class>
 </hibernate-mapping>

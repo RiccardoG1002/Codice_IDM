@@ -8,26 +8,48 @@ import java.util.Scanner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.corso.algoritmi.Levenshtein;
 import com.corso.algoritmi.SimilarString;
 import com.corso.algoritmi.SoundEx;
+
+import com.corso.dao.DAO;
 import com.corso.dao.PaeseDAO;
 import com.corso.dao.PaeseDAOImpl;
 import com.corso.dao.SinonimoDAO;
+import com.corso.dao.SinonimoDAOImpl;
 import com.corso.dizionario.DizionarioDaLocale;
+import com.corso.exceptions.NotFoundException;
+import com.corso.exceptions.PaeseNotFoundException;
 
 import antlr.collections.List;
 import test.TestStringhe;
 
 public class PaeseTest {
-	private static final String beans_stringhe = "beans/beans_stringhe.xml";
+
 	
 	public static void main(String[] args) {
-		 
-	//	Scanner sc= new Scanner(System.in); 
-	//	String cercata = sc.nextLine();
 		
-		testGetAll();
+		 //DAO.createSession();
+		//testInputUtente();
+		// testGetSinonimi();
+	
+		//System.out.println(SoundEx.soundex("Niue"));
+		
+		// CheckPaese c = new CheckPaese();
+		
 
+			
+		//	SoundExWithLD sld = new SoundExWithLD();
+		//	System.out.println((sld.getMostSimilar("Chikkkkkna", Arrays.asList(new String[]{"China"}))).isBestMatch());
+		//	System.out.println(Levenshtein.compare(SoundEx.soundex("Chikkkkkna"), SoundEx.soundex("china")));
+		
+		menu();
+//		Paese p = new Paese();
+//		p.setCodice("IT");
+//		DAO dao = new PaeseDAOImpl();
+//	    dao.delete(p);
+		
+		
 	}
 	
 	private static void testGetNomi() {
@@ -38,48 +60,80 @@ public class PaeseTest {
 			System.out.println(nomePaese);
 	}
 
-//	private static void testInserimentoSinonimi(String cercata) {
-//		SinonimoDAOImpl sinonimiDao = new SinonimoDAOImpl();
-//		Sinonimo dbRisultato = sinonimiDao.get(cercata);
-//		
-//		if (dbRisultato == null) {
-//			
-//			Paese p = new Paese();
-//			p.setCodice("AF");
-//			
-//			Sinonimo sinonimo = new Sinonimo();
-//			sinonimo.setCercata(cercata);
-//			sinonimo.setPaese(p);
-//			sinonimo.setAlgoritmo("soundex2");
-//			
-//			sinonimiDao.save(sinonimo);
-//			
-//			
-//			
-//		}else {
-//			
-//			dbRisultato.increment();
-//			sinonimiDao.update(dbRisultato);
-//		}
-//	}
-//	
-//	private static void testGetSinonimo() {
-//		SinonimoDAOImpl sinDao = new SinonimoDAOImpl();
-//		
-//		
-//	}
-//	
-//	private static void testCheckStringBeans() {
-//		ApplicationContext context =  new ClassPathXmlApplicationContext(beans_stringhe);
-//		SimilarString similarString = (SimilarString) context.getBean("checkString");
-//		System.out.println(similarString.getMostSimilar("Italia", TestStringhe.fromFile("src/main/resources/countries.txt")));
-//	}
-//	
+
+	
+	private static void testGetSinonimo() {
+		SinonimoDAOImpl sinDao = new SinonimoDAOImpl();
+		try {
+			sinDao.get("Italiaa");
+		} catch (NotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	private static void testGetAll() {
-		 PaeseDAO paeseDao = new PaeseDAOImpl();
+		PaeseDAO paeseDao = new PaeseDAOImpl();
 		ArrayList<Paese> paesi = (ArrayList<Paese>) paeseDao.getAll();
 		
 		for(int i =0; i<10; i++)
 			System.out.println(paesi.get(i).toString());
+	}
+	
+	private static void testGetSinonimi() {
+		ArrayList<Sinonimo> sinonimi = new ArrayList<Sinonimo>();
+		PaeseDAO paeseDao = new PaeseDAOImpl();
+		
+		Scanner sc= new Scanner(System.in);
+		
+		System.out.println("Inserisci il codice del paese: ");
+		String codice = sc.nextLine();
+		try {
+			for (Sinonimo s: paeseDao.get(codice).getSinonimi()) {
+				System.out.println(s.getCercata());
+			}
+		} catch (NotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	}
+	
+	private static void testInputUtente() {
+		String cercata = "";
+		Scanner sc= new Scanner(System.in); 
+		System.out.println("Inserisci il nome di un paese o (break):");
+		cercata = sc.nextLine();
+		
+		Paese p;
+		try {
+			p = new CheckPaese().getPaeseStandard(cercata);
+			System.out.println(p.toString());
+		} catch (PaeseNotFoundException e) {
+			
+			e.printStackTrace();
+		}
+			
+	}
+	
+	
+	private static void menu() {
+		String cercata = "";
+		
+		Scanner sc= new Scanner(System.in); 
+		System.out.println("Inserisci p(cerca paese), s(sinonimi), b(break):");
+		cercata = sc.nextLine();
+		
+		if(cercata.equals("b")) {
+			System.out.println("Grazie!");
+			return;
+		}
+		else if (cercata.equals("s"))
+			testGetSinonimi();
+		
+		else if (cercata.equals("p"))
+			testInputUtente();
+			
+		menu();
 	}
 }

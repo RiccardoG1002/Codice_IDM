@@ -1,14 +1,20 @@
 package com.corso.algoritmi;
 
 public class Match {
-	private double score ;
+	
 	private String match;
+	private String algorithm;
 	private boolean isBestMatch;
 	
-	public Match(String match, double score, boolean isBestMatch) {
+	
+	public String getAlgorithm() {
+		return algorithm;
+	}
+
+	public Match(String match, String algorithm, boolean isBestMatch) {
 		super();
+		this.algorithm = algorithm;
 		this.isBestMatch = isBestMatch;
-		this.score = score;
 		this.match = match;
 	}
 
@@ -17,11 +23,6 @@ public class Match {
 		return isBestMatch;
 	}
 
-
-	public double getScore() {
-		return score;
-	}
-	
 	public String getMatch() {
 		return match;
 	}

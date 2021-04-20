@@ -1,5 +1,6 @@
 package com.corso.algoritmi;
 
+import java.util.Collection;
 import java.util.List;
 
 public class Levenshtein extends SimilarString{
@@ -92,7 +93,7 @@ public class Levenshtein extends SimilarString{
 	}
 
 	@Override
-	Match getBestMatch(String input, List<String> standard) {
+	Match getBestMatch(String input, Collection<String> standard) {
 		int min_score = Integer.MAX_VALUE;
 		String best_match = null;
 		
@@ -107,7 +108,7 @@ public class Levenshtein extends SimilarString{
 		
 		//System.out.println(best_match +" "+ min_score + " "+ (min_score <= maxDistance));
 		
-		return new Match(best_match, min_score, (min_score <= maxDistance));
+		return new Match(best_match, toString(), (min_score <= maxDistance));
 	}
 
 	@Override

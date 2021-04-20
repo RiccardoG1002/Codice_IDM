@@ -1,24 +1,15 @@
 package com.corso.algoritmi;
 
+import java.util.Collection;
 import java.util.List;
 
 public class SoundEx extends SimilarString{
 	
 	
-	private int maxDistance = 3;
-	
-	public void setSogliaDistanzaMassima(int maxDistance) {
-		this.maxDistance = maxDistance;
-	}
 
 	public SoundEx(){
 		
 	}
-
-	public SoundEx(int maxDistance){
-		this.maxDistance = maxDistance;
-	}
-	
 	
 	public static String soundex(String s) {
 		char[] x = s.toUpperCase().toCharArray();
@@ -65,28 +56,20 @@ public class SoundEx extends SimilarString{
 
 
 	@Override
-	Match getBestMatch(String input, List<String> standard) {
-
-
-		int min_score = Integer.MAX_VALUE;
-		String best_match = null;
+	Match getBestMatch(String input, Collection<String> standard) {
 		
 		for(String s: standard) {
 			
-			int score = Levenshtein.compare(soundex(input), soundex(s));
+			if (soundex(input).equals(soundex(s)))
+				return new Match(s, toString(), true);
 			
-			if(score < min_score) {
-				best_match = s;
-				min_score = score;
-			}
-		
 		}
+		return null;
 		
-		return new Match(best_match, min_score, (min_score <= maxDistance));
 	}
 
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() + maxDistance;
+		return this.getClass().getSimpleName();
 	}
 }

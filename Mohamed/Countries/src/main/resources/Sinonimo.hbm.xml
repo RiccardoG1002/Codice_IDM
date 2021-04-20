@@ -16,7 +16,7 @@
       <property name = "hits" column = "hits" type = "int"/>
       
       <!-- RELATIONS -->
-      <many-to-one name="paese" column="codice" class="com.corso.paesi.Paese"  />
+      <many-to-one name="paese" column="codice" lazy="false" class="com.corso.paesi.Paese"  />
       
       
    </class>

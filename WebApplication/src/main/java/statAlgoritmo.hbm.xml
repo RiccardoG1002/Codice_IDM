@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class  name = "com.corso.checkstring.beans.StatAlgoritmo" table="algorithms" mutable="false">
+   
+ 	  <!-- ID -->
+      <id name = "algoritmo" type = "string" column = "algorithm">
+         <generator class="assigned"/>
+      </id>
+      
+      <!-- PROPERTIES -->
+      <property name = "num" column = "num" type = "int"/>
+    
+   </class>
+</hibernate-mapping>

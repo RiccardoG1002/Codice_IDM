@@ -28,7 +28,7 @@ public abstract class BaseDAO<T extends BeanDTO> {
 		}
 		catch(Throwable e) {
 			System.err.println("Impossibile creare la SessionFactory" + e);
-			throw new ExceptionInInitializerError(e);
+        //			throw new ExceptionInInitializerError(e);
 		}
 	}
 	

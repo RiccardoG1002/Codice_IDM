@@ -52,14 +52,15 @@
 					<th>Algorithm</th>
 					<th>#Success</th>
 				</tr>
-				<tr>
-					<td>Levenshtein</td>
-					<td>${ count1 }</td>
-				</tr>
-				<tr>
-					<td>Contains</td>
-					<td>${ count2 }</td>
-				</tr>
+				
+				<c:forEach items="${list}" var="item">
+				
+					<tr>
+						<td>${item.algoritmo}</td>
+						<td>${item.num}</td>
+					</tr>
+				
+				</c:forEach>
 			</table>
 		</div>
 	</body>

@@ -105,7 +105,7 @@
 			</div>
 		</div>
 	
-	<script>
+		<script>
 		var app = angular.module('myApp', []);
 		
 		app.controller('customersCtrl', function($scope, $http) {
@@ -115,6 +115,7 @@
 		      $scope.myData = response.data;
 		  });
 		});
+		
 	</script>
 
 

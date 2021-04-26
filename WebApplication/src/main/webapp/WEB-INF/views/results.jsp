@@ -13,12 +13,13 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="resources/home.css">
+		<link rel="stylesheet" href="resources/search.css">
 		<link rel="stylesheet" href="resources/results.css">
 	</head>
 	<body>
 	
-		<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-3 shadow">
-			<a class="navbar-brand" href="/ProgettoDecHit/">Home</a>
+		<nav class="navbar navbar-expand-lg navbar-dark static-top mb-3 shadow colorNavbar">
+			<a class="navbar-brand" href="/WebApplication/">Home</a>
 			
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
@@ -40,9 +41,9 @@
 				</ul>
 			</div>
 			
-			<form class="form-inline" action="http://localhost:8080/ProgettoDecHit/results" method="GET">
+			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
 				<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
-				<button class="btn btn-warning" type="submit">Search</button>
+				<button class="btn searchBtn" type="submit">Search</button>
 			</form>
 		</nav>
 	
@@ -104,7 +105,7 @@
 			</div>
 		</div>
 	
-		<script>
+	<script>
 		var app = angular.module('myApp', []);
 		
 		app.controller('customersCtrl', function($scope, $http) {
@@ -114,7 +115,6 @@
 		      $scope.myData = response.data;
 		  });
 		});
-		
 	</script>
 
 

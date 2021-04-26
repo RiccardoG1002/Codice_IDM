@@ -16,41 +16,8 @@
 	
 	<body>
 	
-	
-		<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-3 shadow">
-			<a class="navbar-brand" href="/ProgettoDecHit/">Home</a>
+		<jsp:include page="navBar.jsp" />
 			
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="search">CheckString</a>
-					</li>
-			
-					<li>
-						<a class="nav-link" href="approve">Approve</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="statistics">Statistics</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="startLogin">Login</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="logout">Logout</a>
-					</li>
-					
-					
-					
-				</ul>
-			</div>
-		</nav>
-	
-	
-
-		
 		<div class="ml-5 mt-5">
 			<form action="http://localhost:8080/ProgettoDecHit/apply" method="POST">
 				<table style="width:60%">

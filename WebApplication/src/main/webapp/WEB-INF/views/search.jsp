@@ -16,12 +16,11 @@
 	</head>
 	
 	<body>
-	
-		<img alt="" class="immBack" id="search" src="resources/background.png"> 
+		
+		<div class="imgCover"></div>
+		<img alt="" class="immBack" id="search" src="resources/1618129626414.jpg"> 
 		
 		<jsp:include page="navBar.jsp" />
-		
-		
 		
 		<c:if test = "${message != null}">
 			<div id="noCountryAlert" class="alert alert-danger alert-dismissible text-center" role="alert">
@@ -31,9 +30,9 @@
 		</c:if>
 		
 		<div class="container" style="margin-top: 20%; margin-left: 37%;">
-			<form class="form-inline" action="http://localhost:8080/ProgettoDecHit/results" method="GET">
-				<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
-				<button class="btn btn-warning" type="submit">Search</button>
+			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
+				<input name="find" class="searchForm" type="text" placeholder="Country" aria-label="Search">
+				<button class="btn searchBtn" type="submit">Search</button>
 			</form>
 		</div>
 	</body>

@@ -1,3 +1,25 @@
 .hide {
-	display:none;
+	display: none;
+}
+
+.searchBtn {
+	background-color: #89d6d9;
+}
+
+.searchBtn:hover {
+	background-color: #5fb4b8;
+}
+
+.searchForm {
+	display: block;
+	padding: .375rem .75rem;
+	margin-right: 1%;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+	/*transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;*/
 }

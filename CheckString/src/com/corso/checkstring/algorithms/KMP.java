@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class KMP extends Algorithm {
-    public String checkString(String string, ArrayList<String> list) {
+    public Match checkString(String string, ArrayList<String> list) {
 		for(String s: list) {
 			if(s.length() < string.length()) {
 				System.out.println("Non sono riuscito con Knuth–Morris–Pratt...");
@@ -30,7 +30,7 @@ public class KMP extends Algorithm {
 				if(j < string.length() && s.charAt(i) == string.charAt(j)) {
 					if(++j == string.length()) {
 						System.out.println("Risolto con Knuth–Morris–Pratt!");
-						return s+"$"+this.toString();
+						return new Match(s, toString(),true);
 					}
 				}
 				else if(j > 0) {

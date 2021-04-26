@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Contains extends Algorithm {
 	
 	@Override
-	public String checkString(String string, ArrayList<String> list) {
+	public Match checkString(String string, ArrayList<String> list) {
 		
 		// Devo fare un contains() per ogni singola parola della stringa e non su tutta.
 		// Controllo se ci sono degli spazzi e divido in diverse parole.
@@ -13,7 +13,7 @@ public class Contains extends Algorithm {
 		for(String s: list) {
 			if(s.contains(string)) {
 				System.out.println("Risolto con Contains!");
-				return s+"$"+this.toString();
+				new Match(s, toString(),true);
 			}
 		}
 		

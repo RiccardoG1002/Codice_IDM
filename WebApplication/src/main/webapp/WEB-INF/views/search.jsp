@@ -31,7 +31,7 @@
 		</c:if>
 		
 		<div class="container" style="margin-top: 20%; margin-left: 37%;">
-			<form class="form-inline" action="http://localhost:8080/ProgettoDecHit/results" method="GET">
+			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
 				<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
 				<button class="btn btn-warning" type="submit">Search</button>
 			</form>

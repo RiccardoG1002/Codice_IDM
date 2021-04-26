@@ -13,5 +13,5 @@ public abstract class Algorithm {
 		return next;
 	}
 	
-	public abstract String checkString(String string, ArrayList<String> list);
+	public abstract Match checkString(String string, ArrayList<String> list);
 }

@@ -1,6 +1,6 @@
 package test;
 
-import dto.User;
+import com.corso.dto.User;
 
 
 public class Test {

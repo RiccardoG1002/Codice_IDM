@@ -1,20 +1,14 @@
 package com.corso.progetto.controller_login;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
-import dao.UserDAO;
-import dao.UserDAOmanage;
-import dto.User;
+import com.corso.dao.UserDAO;
+import com.corso.dao.UserDAOmanage;
+import com.corso.dto.User;
 
 @Controller
 public class IndexController {

@@ -1,9 +1,8 @@
 package test;
 
-import dao.UserDAO;
-
-import dao.UserDAOmanage;
-import dto.User;
+import com.corso.dao.UserDAO;
+import com.corso.dao.UserDAOmanage;
+import com.corso.dto.User;
 
 public class TestDB {
 	

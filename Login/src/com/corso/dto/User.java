@@ -1,4 +1,4 @@
-package dto;
+package com.corso.dto;
 
 public class User implements DTO{
 	

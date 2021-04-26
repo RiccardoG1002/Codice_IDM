@@ -1,15 +1,6 @@
-package dao;
+package com.corso.dao;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import dto.User;
+import com.corso.dto.User;
 
 
 public class UserDAOmanage extends DAO implements UserDAO{

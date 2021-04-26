@@ -1,4 +1,4 @@
-package dto;
+package com.corso.dto;
 
 public interface DTO {
 

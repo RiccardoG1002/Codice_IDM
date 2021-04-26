@@ -1,6 +1,6 @@
-package dao;
+package com.corso.dao;
 
-import dto.User;
+import com.corso.dto.User;
 
 public interface UserDAO {
 	public String addUser(User user);

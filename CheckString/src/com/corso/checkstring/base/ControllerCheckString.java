@@ -16,7 +16,7 @@ import com.corso.checkstring.dao.CountryDAOImpl;
 import com.corso.checkstring.dao.PatternDAO;
 import com.corso.checkstring.dao.PatternDAOImpl;
 
-public class Controller {
+public class ControllerCheckString {
 
 	public Country checkString(String find, Algorithm algo) {
 		

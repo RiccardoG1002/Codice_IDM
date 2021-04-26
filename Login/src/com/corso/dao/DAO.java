@@ -1,4 +1,4 @@
-package dao;
+package com.corso.dao;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.hibernate.cfg.Configuration;
 
 import org.hibernate.query.Query;
 
-import dto.DTO;
-import dto.User;
+import com.corso.dto.DTO;
+import com.corso.dto.User;
 
 public abstract class DAO {
 private SessionFactory factory; 

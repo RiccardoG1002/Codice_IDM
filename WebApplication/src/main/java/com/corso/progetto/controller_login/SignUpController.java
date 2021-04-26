@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import dao.UserDAO;
-import dao.UserDAOmanage;
-import dto.User;
+import com.corso.dao.UserDAO;
+import com.corso.dao.UserDAOmanage;
+import com.corso.dto.User;
 
 @Controller
 public class SignUpController {

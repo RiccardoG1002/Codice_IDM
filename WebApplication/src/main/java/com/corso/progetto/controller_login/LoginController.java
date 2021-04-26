@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.corso.checkstring.beans.Pattern;
 import com.corso.checkstring.dao.PatternDAO;
 import com.corso.checkstring.dao.PatternDAOImpl;
-
-import dao.UserDAO;
-import dao.UserDAOmanage;
-import dto.User;
+import com.corso.dao.UserDAO;
+import com.corso.dao.UserDAOmanage;
+import com.corso.dto.User;
 
 
 @Controller

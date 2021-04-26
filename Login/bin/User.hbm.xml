@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
 	
-   <class name = "dto.User" table = "users">
+   <class name = "com.corso.dto.User" table = "users">
       
       <id name = "username" type = "string" column = "username">
       	<generator class="assigned"/>

@@ -15,29 +15,26 @@
 	
 	<body>
 		
-		<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-3 shadow">
-			<a class="navbar-brand" href="/ProgettoDecHit/">Home</a>
+		<nav class="navbar navbar-expand-lg navbar-dark static-top mb-3 shadow colorNavbar">
+			<a class="navbar-brand textColorNavbar" href="/WebApplication/">Home</a>
 			
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="search">CheckString</a>
+						<a class="nav-link textColorNavbar" href="search">CheckString</a>
 					</li>
 			
 					<li>
-						<a class="nav-link" href="approve">Approve</a>
+						<a class="nav-link textColorNavbar" href="approve">Approve</a>
 					</li>
 					
 					<li>
-						<a class="nav-link" href="startLogin" style="margin-left: 90px;">Login</a>
+						<a class="nav-link textColorNavbar" href="startLogin" style="margin-left: 90px;">Login</a>
 					</li>
 					
 					<li>
-						<a class="nav-link" href="logout">Logout</a>
+						<a class="nav-link textColorNavbar" href="logout">Logout</a>
 					</li>
-					
-					
-					
 				</ul>
 			</div>
 		</nav>

@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.corso.exceptions.NotFoundException;
+import com.corso.exceptions.PaeseNotFoundException;
 import com.corso.paesi.Paese;
 
 public interface PaeseDAO {

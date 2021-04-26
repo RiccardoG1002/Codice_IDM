@@ -34,12 +34,12 @@ public class CheckPaese {
 		try {
 			sinonimo = sinonimiDao.get(cercata);
 		} catch (NotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
+		
 		if (sinonimo == null) {
-
+			
 			sinonimo = creaNuovoSinonimo(cercata);
 			sinonimiDao.save(sinonimo);
 						

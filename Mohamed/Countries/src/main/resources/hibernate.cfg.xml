@@ -23,6 +23,7 @@
         <!-- ELENCO MAPPING -->
         <mapping resource="Paese.hbm.xml"/>
         <mapping resource="Sinonimo.hbm.xml"/>
+        <mapping resource="StatAlgoritmo.hbm.xml"/>
     
     
     </session-factory>

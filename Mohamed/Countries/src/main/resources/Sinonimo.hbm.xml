@@ -14,6 +14,7 @@
       <!-- PROPERTIES -->
       <property name = "algoritmo" column = "algoritmo" type = "string"/>
       <property name = "hits" column = "hits" type = "int"/>
+      <property name = "approvato" column = "approvato" type = "int"/>
       
       <!-- RELATIONS -->
       <many-to-one name="paese" column="codice" lazy="false" class="com.corso.paesi.Paese"  />

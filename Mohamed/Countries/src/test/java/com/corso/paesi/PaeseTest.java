@@ -29,25 +29,9 @@ public class PaeseTest {
 	
 	public static void main(String[] args) {
 		
-		 //DAO.createSession();
-		//testInputUtente();
-		// testGetSinonimi();
-	
-		//System.out.println(SoundEx.soundex("Niue"));
-		
-		// CheckPaese c = new CheckPaese();
-		
-
-			
-		//	SoundExWithLD sld = new SoundExWithLD();
-		//	System.out.println((sld.getMostSimilar("Chikkkkkna", Arrays.asList(new String[]{"China"}))).isBestMatch());
-		//	System.out.println(Levenshtein.compare(SoundEx.soundex("Chikkkkkna"), SoundEx.soundex("china")));
-		
 		menu();
-//		Paese p = new Paese();
-//		p.setCodice("IT");
-//		DAO dao = new PaeseDAOImpl();
-//	    dao.delete(p);
+		
+		Admin.stampaStatsAlgoritmi();
 		
 		
 	}
@@ -67,7 +51,6 @@ public class PaeseTest {
 		try {
 			sinDao.get("Italiaa");
 		} catch (NotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -102,7 +85,7 @@ public class PaeseTest {
 	private static void testInputUtente() {
 		String cercata = "";
 		Scanner sc= new Scanner(System.in); 
-		System.out.println("Inserisci il nome di un paese o (break):");
+		System.out.println("Inserisci il nome di un paese: ");
 		cercata = sc.nextLine();
 		
 		Paese p;
@@ -136,4 +119,5 @@ public class PaeseTest {
 			
 		menu();
 	}
+
 }

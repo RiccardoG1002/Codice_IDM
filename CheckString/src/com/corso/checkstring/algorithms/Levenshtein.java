@@ -1,84 +1,125 @@
 package com.corso.checkstring.algorithms;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-public class Levenshtein extends Algorithm {
-	/* Restituisce il massimo tra |i| e |j| */
-    private int max(int i, int j) {
-        return (i>j ? i : j);
-    }
+public class Levenshtein extends Algorithm{
+	
+	private int maxDistance = 2;
+	
+	 public Levenshtein(){
+		 
+	 }
+	 
+	 public Levenshtein(int maxDistance) {
+		 this.maxDistance = maxDistance;
+		// System.out.println("maxDistance: " + maxDistance);
+	 }
 
-    /* Restituisce il minimo tra |i|, |j| e |k| */
-    private int min3(int i, int j, int k) {
-        int min = i;
-        if (j < min) min = j;
-        if (k < min) min = k;
-        return min;
-    }
+	 private static int minimum (int a, int b, int c) {
+		 int mi;
+		 mi = a;
+		 if (b < mi)
+			 mi = b;
+		 if (c < mi) 
+			 mi = c;
+	    return mi;
+	}
+	  
+	 public static int compare(String s, String t) {
+		 int d[][]; // matrix
+		  int n; // length of s
+		  int m; // length of t
+		  int i; // iterates through s
+		  int j; // iterates through t
+		  char s_i; // ith character of s
+		  char t_j; // jth character of t
+		  int cost; // cost
+	
+		// Step 1
+	
+	    n = s.length ();
+	    m = t.length ();
+	    if (n == 0) {
+	      return m;
+	    }
+	    if (m == 0) {
+	      return n;
+	    }
+	    d = new int[n+1][m+1];
+	
+	    // Step 2
+	
+	    for (i = 0; i <= n; i++) {
+	      d[i][0] = i;
+	    }
+	
+	    for (j = 0; j <= m; j++) {
+	      d[0][j] = j;
+	    }
+	
+	    // Step 3
+	
+	    for (i = 1; i <= n; i++) {
+	
+	      s_i = s.charAt (i - 1);
+	
+	      // Step 4
+	
+	      for (j = 1; j <= m; j++) {
+	
+	        t_j = t.charAt (j - 1);
+	
+	        // Step 5
+	
+	        if (s_i == t_j) {
+	          cost = 0;
+	        }
+	        else {
+	          cost = 1;
+	        }
+	
+	        // Step 6
+	
+	        d[i][j] = minimum (d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1] + cost);
+	
+	      }
+	
+	    }
+	
+	    // Step 7
+	
+	    return d[n][m];
+	}
 
-    /*
-     * Restituisce la distanza di Levenshtein tra due stringhe.
-     * La distanza è un intero compreso tra 0 e la massima
-     * lunghezza delle due stringhe.
-     */     
-    @Override
-    public String checkString(String string, ArrayList<String> list) {
-    	int minDistanceFound = -1;
-    	String result = null;
-    	
-    	for(String s: list) {
-    		
-            int i, j;
-            final int n = string.length(), m = s.length();
-            int L[][] = new int[n+1][m+1];
-            for (i=0; i<n+1; i++) {
-                for (j=0; j<m+1; j++) {
-                    if (i==0 || j==0) {
-                        L[i][j] = max(i, j);
-                    }
-                    else {
-                        L[i][j] = min3(L[i-1][j] + 1, L[i][j-1] + 1,
-                                       L[i-1][j-1] + (string.charAt(i-1) != s.charAt(j-1) ? 1 : 0));
-                    }
-                }
-            }
-
-            /*
-            // Stampa la matrice L
-            for (i=0; i<n+1; i++) {
-                for (j=0; j<m+1; j++) {
-                    System.out.print(L[i][j]);
-                }
-                System.out.println();
-            }
-            */
-            
-            if(minDistanceFound == -1) {
-            	minDistanceFound = L[n][m];
-            	result = s;
-            }
-            else if(L[n][m] < minDistanceFound) {
-            	minDistanceFound = L[n][m];
-            	result = s;
-            }
-    	}
-    	
-    	if(minDistanceFound >= 2) {
-    		System.out.println("Non sono riuscito con Levenshtein...");
-    		if(getNext() != null) {
-    			return getNext().checkString(string, list);
-    		}
-    		else return null;
-    	}
-    	else {
-    		System.out.println("Risolto con Levenshtein!");
-    		return result+"$"+this.toString();
-    	}
-    }
 
 	@Override
 	public String toString() {
-		return "Levenshtein";
+		return this.getClass().getSimpleName() + maxDistance;
 	}
+	
+	
 
+	@Override
+	public Match checkString(String input, ArrayList<String> standard) {
+		int min_score = Integer.MAX_VALUE;
+		String best_match = null;
+		
+		for(String s: standard) {
+			int score = compare(input, s);
+			
+			if(score < min_score) {
+				best_match = s;
+				min_score = score;
+			}
+		}
+		
+		//System.out.println(best_match +" "+ min_score + " "+ (min_score <= maxDistance));
+		
+		return new Match(best_match, toString(), (min_score <= maxDistance));
+	}
+	 
 }
+
+

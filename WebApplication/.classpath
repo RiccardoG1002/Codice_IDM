@@ -32,5 +32,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/CheckString"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Login"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

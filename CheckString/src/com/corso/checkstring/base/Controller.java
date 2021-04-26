@@ -7,6 +7,7 @@ import com.corso.checkstring.algorithms.Algorithm;
 import com.corso.checkstring.algorithms.Contains;
 import com.corso.checkstring.algorithms.KMP;
 import com.corso.checkstring.algorithms.Levenshtein;
+import com.corso.checkstring.algorithms.Match;
 import com.corso.checkstring.beans.Country;
 import com.corso.checkstring.beans.Id;
 import com.corso.checkstring.beans.Pattern;
@@ -17,18 +18,12 @@ import com.corso.checkstring.dao.PatternDAOImpl;
 
 public class Controller {
 
-	public Country checkString(String find) {
+	public Country checkString(String find, Algorithm algo) {
 		
 		if(find.equals("")) {
 			return null;
 		}
 		
-		Algorithm a1 = new Contains();
-		Algorithm a2 = new Levenshtein();
-		Algorithm a3 = new KMP();
-		
-		a1.setNext(a2);
-		a2.setNext(a3);
 		
 		CountryDAO cDAO = new CountryDAOImpl();
 		PatternDAO pDAO = new PatternDAOImpl();
@@ -61,16 +56,15 @@ public class Controller {
 		}
 		else {
 			// dobbiamo cercare usando gli algoritmi
-			String raw_result = a1.checkString(find, countryList);
+			Match raw_result = algo.checkString(find, countryList);
 			
 			// inserisco in PatternDB o una coppia pattern-country o una pattern-null se non ho trovato un risultato
 			Country c = null;
 			String algorithm = null;
 			
 			if(raw_result != null) {
-				String[] parts = raw_result.split(java.util.regex.Pattern.quote("$"));
-				String result = parts[0];
-				algorithm = parts[1];
+				String result = raw_result.getMatch();
+				algorithm = raw_result.getAlgorithm();
 				
 				c = cDAO.getCountryByName(result);
 			}

@@ -1,0 +1,23 @@
+body,
+html {
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.immBack {
+	width: 100%;
+	height: auto;
+	opacity: 0.85;
+	position: absolute;
+    z-index: -1;
+    overflow-y:hidden;
+}
+
+.immBack#search {
+	width: 100%;
+	height: auto;
+	opacity: 0.5;
+	position: absolute;
+    z-index: -1;
+    overflow-y:hidden;
+}

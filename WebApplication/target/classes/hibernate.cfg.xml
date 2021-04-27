@@ -20,6 +20,7 @@
       <mapping resource = "User.hbm.xml"/>
       <mapping resource = "country.hbm.xml"/>
 	  <mapping resource = "pattern.hbm.xml"/>
+	  <mapping resource="statAlgoritmo.hbm.xml"/>
       
       
    </session-factory>

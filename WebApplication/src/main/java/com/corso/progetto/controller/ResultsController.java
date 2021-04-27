@@ -2,7 +2,6 @@ package com.corso.progetto.controller;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.ui.Model;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -21,7 +20,7 @@ public class ResultsController {
 
 	@SuppressWarnings("resource")
 	@GetMapping(value = "/results")
-	public String showResults(@RequestParam("find") String find, @RequestParam("search") String search, Model model)
+	public String showResults(@RequestParam("find") String find, Model model)
 			throws IOException {
 
 		ControllerCheckString c = new ControllerCheckString();
@@ -31,37 +30,17 @@ public class ResultsController {
 		String message = null;
 		String ret = "";
 
-		System.out.println(search);
-		if (search.equals("search")) {
-			if (country != null) {
-				model.addAttribute("country", country);
-				ret = "results";
-			} else {
-				message = "Paese " + find + " non trovato!";
-				model.addAttribute("message", message);
-				ret = "search";
-			}
-		} else if (search.equals("synonyms")) {
-			if (country != null) {
-				System.out.println("Il paese " + country.getCode() + " non ha sinonimi!");
-				Synonyms s = new Synonyms();
-				Collection<Pattern> synonyms = s.findSynonyms(country);
-				if (synonyms != null) {
-					System.out.println(synonyms);
-					model.addAttribute("patterns", synonyms);
-					ret = "results";
-				} else {
-					message = "Il paese " + find + " non ha sinonimi!";
-					System.out.println("Il paese " + find + " non ha sinonimi!");
-					model.addAttribute("message", message);
-					ret = "search";
-				}
-			} else {
-				message = "Paese " + find + " non trovato!";
-				model.addAttribute("message", message);
-				ret = "search";
-			}
+
+		if (country != null) {
+			model.addAttribute("country", country);
+			ret = "results";
+		} else {
+			message = "Il paese " + find + " non ha sinonimi!";
+			System.out.println("Il paese " + find + " non ha sinonimi!");
+			model.addAttribute("message", message);
+			ret = "search";
 		}
+
 		return ret;
 	}
 }

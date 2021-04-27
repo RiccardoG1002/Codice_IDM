@@ -41,12 +41,12 @@ public class LoginController {
 			UserDAO uDAO = new UserDAOmanage();
 			
 			if(uDAO.ifExistUser(user)) {
+				session.setAttribute("user", user);
+				session.setMaxInactiveInterval(60 * 3);
+				String failedMessage = "bentornato " + user.getUsername();	
+				model.addAttribute("message", failedMessage);
 				if(user.getUsername().equals(adminName)) {
-					session.setAttribute("user", user);
-					session.setMaxInactiveInterval(60 * 3);
-					String failedMessage = "bentornato " + user.getUsername();	
-					model.addAttribute("message", failedMessage);
-					return "home";
+					return "admin";
 				} else {
 					return "user";
 				}

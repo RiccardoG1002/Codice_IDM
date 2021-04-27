@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.corso.checkstring.beans.Country" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -44,13 +45,10 @@
 			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
 				<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
 				<button class="btn searchBtn" type="submit" name="search" value="search">Search</button>
-				<button class="btn searchBtn" type="submit" name="search" value="synonyms">Search Synonyms</button>
 			</form>
 		</nav>
 	
 		<h1 class="display-1 text-center text-dark">${ country.name }</h1>
-		
-		
 		
 		
 		<!-- ANGULAR -->
@@ -68,7 +66,6 @@
 				</div>
 			
 				<table class"table" >
-					
 				  	<tr ng-show="myData">
 				    	<td> name: {{ myData.name }} </td>
 				    </tr>
@@ -94,35 +91,28 @@
 				    </tr>
 				    
 				    <tr ng-show="myData">
-				    <td>calling code: {{ myData.callingCodes }}</td>
+				    	<td>calling code: {{ myData.callingCodes }}</td>
 				    </tr>
 				    
 				    <tr ng-show="myData">
-				    <td>currency: {{ myData.currencies[0].name }}</td>
+				    	<td>currency: {{ myData.currencies[0].name }}</td>
 				    </tr>
-		
-				  
 				</table>
 			</div>
 		</div>
 	
 		<script>
-		var app = angular.module('myApp', []);
-		
-		app.controller('customersCtrl', function($scope, $http) {
-			//console.log("https://restcountries.eu/rest/v2/alpha/" + $scope.codice );
-			var c = document.getElementById("codice").value;
-		  $http.get("https://restcountries.eu/rest/v2/alpha/" + c   ).then(function (response) {
-		      $scope.myData = response.data;
-		  });
-		});
-		
-	</script>
-
-
-
-
-
+			var app = angular.module('myApp', []);
+			
+			app.controller('customersCtrl', function($scope, $http) {
+				//console.log("https://restcountries.eu/rest/v2/alpha/" + $scope.codice );
+				var c = document.getElementById("codice").value;
+			  $http.get("https://restcountries.eu/rest/v2/alpha/" + c   ).then(function (response) {
+			      $scope.myData = response.data;
+			  });
+			});
+			
+		</script>
 
 
 	</body>

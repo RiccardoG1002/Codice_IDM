@@ -11,10 +11,11 @@
 		
 		<property name="name" column="name" type="string"></property>
 		
-		<list name="patternList" cascade="all"> <!-- fetch="select" lazy="true" -->
-			<key column="code"></key>
-			<index column="country"></index>
-			<one-to-many class="com.corso.checkstring.beans.Pattern"></one-to-many>
-		</list>
+       <set name="patternList" inverse="true" lazy="false" cascade="all">
+            <key column="country" not-null="true" />
+            <one-to-many class="com.corso.checkstring.beans.Pattern"/>
+       </set>
+       
+       
 	</class>
 </hibernate-mapping>

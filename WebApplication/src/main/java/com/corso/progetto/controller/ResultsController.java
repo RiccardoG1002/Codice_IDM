@@ -1,6 +1,7 @@
 package com.corso.progetto.controller;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.ui.Model;
@@ -44,7 +45,7 @@ public class ResultsController {
 			if (country != null) {
 				System.out.println("Il paese " + country.getCode() + " non ha sinonimi!");
 				Synonyms s = new Synonyms();
-				List<Pattern> synonyms = s.findSynonyms(country);
+				Collection<Pattern> synonyms = s.findSynonyms(country);
 				if (synonyms != null) {
 					System.out.println(synonyms);
 					model.addAttribute("patterns", synonyms);

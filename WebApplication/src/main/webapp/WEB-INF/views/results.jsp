@@ -43,7 +43,8 @@
 			
 			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
 				<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
-				<button class="btn searchBtn" type="submit">Search</button>
+				<button class="btn searchBtn" type="submit" name="search" value="search">Search</button>
+				<button class="btn searchBtn" type="submit" name="search" value="synonyms">Search Synonyms</button>
 			</form>
 		</nav>
 	

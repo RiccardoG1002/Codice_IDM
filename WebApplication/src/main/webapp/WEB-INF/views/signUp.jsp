@@ -65,7 +65,6 @@
 									<input type="password" name="confirm_password" class="form-control input_pass" value="" placeholder="confirm password">
 								</div>
 							</div>
-							
 						</div>
 						
 						<div class="d-flex justify-content-center mt-3 login_container">

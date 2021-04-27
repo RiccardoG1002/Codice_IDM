@@ -16,9 +16,9 @@
 	
 	<body>
 	
-		<img alt="" class="immBack" src="resources/background.png"> 
+		<img alt="" class="immBack" src="resources/background.png">
 		
-		<jsp:include page="navBar.jsp" />  
+		<jsp:include page="navBar.jsp" />
 		
 		<c:if test = "${message != null}">
 	    	<div class="alert alert-danger" role="alert">

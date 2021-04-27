@@ -35,18 +35,20 @@ public class LoginController {
 			// utente già loggato
 			String failedMessage = "sei già in sessione " + userSession.getUsername();	
 			model.addAttribute("message", failedMessage);
+			if(userSession.getUsername().equals("admin")) return "admin";
 			return "home";
 		} else {
 			User user = new User(username, password);
 			UserDAO uDAO = new UserDAOmanage();
 			
 			if(uDAO.ifExistUser(user)) {
+				session.setAttribute("user", user);
+				session.setMaxInactiveInterval(60 * 3);
+				String failedMessage = "bentornato " + user.getUsername();	
+				model.addAttribute("message", failedMessage);
+				
 				if(user.getUsername().equals(adminName)) {
-					session.setAttribute("user", user);
-					session.setMaxInactiveInterval(60 * 3);
-					String failedMessage = "bentornato " + user.getUsername();	
-					model.addAttribute("message", failedMessage);
-					return "home";
+					return adminLogin();
 				} else {
 					return "user";
 				}
@@ -82,7 +84,6 @@ public class LoginController {
 			
 			return "index";
 		}
-		
 	}
 	
 	
@@ -107,6 +108,8 @@ public class LoginController {
 	}
 	
 	
-	
+	private String adminLogin() {
+		return "admin";
+	}
 	
 }

@@ -13,15 +13,11 @@ public class Synonyms {
 	public List<Pattern> findSynonyms(Country country) {
 
 		CountryDAO cDAO = new CountryDAOImpl();
-		
 		Id id = new Id(country.getCode());
-		
 		List<Pattern> synonyms = cDAO.getPatternsFromCountryID(id);
-		
 		country.setPatternList(synonyms);
-		
 		System.out.println("lista dei sinonimi: " + synonyms);
-		
 		return synonyms;
+		
 	}
 }

@@ -11,7 +11,7 @@ import com.corso.checkstring.beans.Pattern;
 import com.corso.checkstring.dao.PatternDAO;
 import com.corso.checkstring.dao.PatternDAOImpl;
 
-//@Controller
+@Controller
 public class ApproveController {
 
 	@GetMapping(value="/approve")

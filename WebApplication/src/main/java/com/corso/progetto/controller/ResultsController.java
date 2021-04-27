@@ -3,6 +3,8 @@ package com.corso.progetto.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.ui.Model;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -29,7 +31,7 @@ public class ResultsController {
 
 		String message = null;
 		String ret = "";
-
+		
 		System.out.println(search);
 		if (search.equals("search")) {
 			if (country != null) {

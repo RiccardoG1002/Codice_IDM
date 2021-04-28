@@ -1,10 +1,11 @@
 package com.corso.checkstring.beans;
 
+import java.util.Collection;
 import java.util.List;
 
 public class Country implements BeanDTO {
 	private String code, name;
-	private List<Pattern> patternList;
+	private Collection<Pattern> patternList;
 	
 	public Country() {}
 	public Country(String code, String name) {
@@ -24,12 +25,12 @@ public class Country implements BeanDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Pattern> getPatternList() {
+	public Collection<Pattern> getPatternList() {
 		return patternList;
 	}
 	
 	// private?
-	public void setPatternList(List<Pattern> patternList) {
+	public void setPatternList(Collection<Pattern> patternList) {
 		this.patternList = patternList;
 	}
 }

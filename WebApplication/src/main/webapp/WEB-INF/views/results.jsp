@@ -94,11 +94,11 @@
 				    </tr>
 				    
 				    <tr ng-show="myData">
-				    <td>calling code: {{ myData.callingCodes }}</td>
+				    	<td>calling code: {{ myData.callingCodes }}</td>
 				    </tr>
 				    
 				    <tr ng-show="myData">
-				    <td>currency: {{ myData.currencies[0].name }}</td>
+				    	<td>currency: {{ myData.currencies[0].name }}</td>
 				    </tr>
 		
 				  

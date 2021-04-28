@@ -16,10 +16,10 @@
 	<body>
 		
 		<nav class="navbar navbar-expand-lg navbar-dark static-top mb-3 shadow colorNavbar">
-			<a class="navbar-brand textColorNavbar" href="/WebApplication/">Home</a>
+			<a class="navbar-brand textColorNavbar" href="/WebApplication/"> <img src="resources/logo.png" height="28"></a>
 			
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
+				<ul class="navbar-nav ml-autonavbar-nav ml-auto">
 					<li class="nav-item">
 						<a class="nav-link textColorNavbar" href="search">CheckString</a>
 					</li>
@@ -27,6 +27,8 @@
 					<li>
 						<a class="nav-link textColorNavbar" href="approve">Approve</a>
 					</li>
+					
+					
 					
 					<li>
 						<a class="nav-link textColorNavbar" href="startLogin" style="margin-left: 90px;">Login</a>

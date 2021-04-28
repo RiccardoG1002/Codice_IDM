@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Search Results</title>
+		<title>Results</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -14,10 +14,12 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="resources/home.css">
 		<link rel="stylesheet" href="resources/search.css">
-		<link rel="stylesheet" href="resources/results.css">
+		<link rel="stylesheet" href="resources/searchResults.css">
 	</head>
 	<body>
 	
+		<div class="imgCover"></div>
+		
 		<nav class="navbar navbar-expand-lg navbar-dark static-top mb-3 shadow colorNavbar">
 			<a class="navbar-brand" href="/WebApplication/">Home</a>
 			
@@ -47,61 +49,63 @@
 			</form>
 		</nav>
 	
-		<h1 class="display-1 text-center text-dark">${ country.name }</h1>
-		
-		
 		
 		
 		<!-- ANGULAR -->
-		<br> <br>
+		
 		<div ng-app="myApp" ng-controller="customersCtrl"> 
 			
 			<input id="codice" type="hidden"  value="${ country.code }">
 			
+			<div class="container" >
+				<img src="{{myData.flag}}" class="image">
+				<div class="overlay">
+					<div class="text">
+						<h2>${ country.name }</h2>
+					</div>
+				</div>		
+			</div>
 			
 			<!-- visualizza nazione -->
-			<div class="container">
-			
-				<div class="text-center">
-					<img src="{{myData.flag}}" width=300 >
+			<br>
+			<div class="d-flex justify-content-center text-center">
+				<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+					<table class="table">
+						
+					  	<tr ng-show="myData">
+					    	<td> <strong>Name:</strong> {{ myData.name }} </td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					   		<td> <strong>Code:</strong> {{ myData.alpha2Code }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Capital:</strong> {{ myData.capital }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Population:</strong> {{ myData.population }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Native name:</strong> {{ myData.nativeName }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Region:</strong> {{ myData.region }}<td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Calling code:</strong> {{ myData.callingCodes }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Currency:</strong> {{ myData.currencies[0].name }}</td>
+					    </tr>
+					  
+					</table>
 				</div>
-			
-				<table class"table" >
-					
-				  	<tr ng-show="myData">
-				    	<td> name: {{ myData.name }} </td>
-				    </tr>
-				    
-				    <tr ng-show="myData">
-				   		<td> code: {{ myData.alpha2Code }}</td>
-				    </tr>
-				    
-				    <tr ng-show="myData">
-				    	<td>capital: {{ myData.capital }}</td>
-				    </tr>
-				    
-				    <tr ng-show="myData">
-				    	<td>population: {{ myData.population }}</td>
-				    </tr>
-				    
-				    <tr ng-show="myData">
-				    	<td>native name: {{ myData.nativeName }}</td>
-				    </tr>
-				    
-				    <tr ng-show="myData">
-				    	<td>region: {{ myData.region }}<td>
-				    </tr>
-				    
-				    <tr ng-show="myData">
-				    	<td>calling code: {{ myData.callingCodes }}</td>
-				    </tr>
-				    
-				    <tr ng-show="myData">
-				    	<td>currency: {{ myData.currencies[0].name }}</td>
-				    </tr>
-		
-				  
-				</table>
 			</div>
 		</div>
 	
@@ -117,11 +121,6 @@
 		});
 		
 	</script>
-
-
-
-
-
 
 
 	</body>

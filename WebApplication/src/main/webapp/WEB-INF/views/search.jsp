@@ -18,7 +18,6 @@
 	<body>
 		
 		<div class="imgCover"></div>
-		<img alt="" class="immBack" id="search" src="resources/1618129626414.jpg"> 
 		
 		<c:choose>
    			<c:when test="${isAdmin}">

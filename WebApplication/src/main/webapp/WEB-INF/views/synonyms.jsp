@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Search Results</title>
+		<title>Synonyms Results</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -15,32 +15,33 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="resources/home.css">
 		<link rel="stylesheet" href="resources/search.css">
-		<link rel="stylesheet" href="resources/results.css">
+		<link rel="stylesheet" href="resources/searchResults.css">
 	</head>
 	<body>
 	
+		<div class="imgCover"></div>
+		
 		<nav class="navbar navbar-expand-lg navbar-dark static-top mb-3 shadow colorNavbar">
-			<a class="navbar-brand" href="/WebApplication/">Home</a>
-			
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="search">CheckString</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="approve">Approve</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="startLogin" style="margin-left: 90px;">Login</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="logout">Logout</a>
-					</li>
-				</ul>
-			</div>
+		<a class="navbar-brand" href="/WebApplication/login">Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNavDropdown"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li><a class="nav-link" href="approve">Approve</a></li>
+
+				<li><a class="nav-link" href="statistics">Statistics</a></li>
+				
+				<li><a class="nav-link" href="searchSynonyms">Synonyms</a></li>
+
+				<li><a class="nav-link" href="logout" style="margin-left: 80%">Logout</a>
+				</li>
+			</ul>
+		</div>
 			
 			<form class="form-inline" action="http://localhost:8080/WebApplication/synonyms" method="GET">
 				<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
@@ -48,20 +49,19 @@
 			</form>
 		</nav>
 		
-		<div >
-
-			<c:if test = "${first != null}">
-		    	<h2>Synonyms of  ${first.country.name} </h2>
-		    </c:if>  
-	
-			<ul>
-			<c:forEach items="${synonyms}" var="pattern">
-				<li>
-					${pattern.userPattern}
-				</li>	
-			</c:forEach>
-			</ul>
+		<div class="d-flex justify-content-center text-center">
+			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+				<c:if test = "${first != null}">
+			    	<h2>Synonyms of ${first.country.name} </h2>
+			    </c:if>  
+				<ul class="list-group">
+					<c:forEach items="${synonyms}" var="pattern">
+						<li class="list-group-item">
+						${pattern.userPattern}
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
 		</div>
-
 	</body>
 </html>

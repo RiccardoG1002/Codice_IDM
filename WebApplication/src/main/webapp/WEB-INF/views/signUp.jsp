@@ -35,7 +35,7 @@
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
 						<a href="http://localhost:<%out.print(porta); out.print(path);%>/">
-						 	<img src="resources/idm-logo.png" class="brand_logo" alt="Logo"> 
+						 	<img src="resources/img/idm-logo.png" class="brand_logo" alt="Logo"> 
 						</a>
 					</div>
 				</div>

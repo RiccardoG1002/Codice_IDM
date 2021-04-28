@@ -12,6 +12,7 @@ public class Synonyms {
 
 	public Collection<Pattern> findSynonyms(Country country) {
 		
+
 //		CountryDAO cDAO = new CountryDAOImpl();
 //		
 //		Id id = new Id(country.getCode());

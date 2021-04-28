@@ -31,3 +31,5 @@ CaffeDecorator2/bin/
 CaffeDecorator2/Test/
 CaffeDecorator2/.classpath
 CaffeDecorator2/.project
+
+/META-INF/ .jar .classpath

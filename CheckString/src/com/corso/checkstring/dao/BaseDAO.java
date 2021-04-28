@@ -25,7 +25,6 @@ public abstract class BaseDAO<T extends BeanDTO> {
 		}
 		catch(Throwable e) {
 			System.err.println("Impossibile creare la SessionFactory" + e);
-        //			throw new ExceptionInInitializerError(e);
 		}
 	}
 	
@@ -84,7 +83,7 @@ public abstract class BaseDAO<T extends BeanDTO> {
 	
 	protected final BeanDTO getBeanDTOByName(Class clazz, String field, Serializable name) {
 
-		Session session = getFactory().openSession();
+		Session session = this.factory.openSession();
 		Transaction tx = null;
 		BeanDTO dto = null;
 		
@@ -114,7 +113,7 @@ public abstract class BaseDAO<T extends BeanDTO> {
 	
 	protected final ArrayList<String> getColumn(Class clazz, String field) {
 
-		Session session = getFactory().openSession();
+		Session session = this.factory.openSession();
 		Transaction tx = null;
 		ArrayList<String> column = null;
 		

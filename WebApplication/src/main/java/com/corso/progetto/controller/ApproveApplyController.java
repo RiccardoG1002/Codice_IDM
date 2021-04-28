@@ -27,6 +27,6 @@ public class ApproveApplyController {
 			}
 		}
 
-		return "redirect:" + "http://localhost:8080/ProgettoDecHit/approve";
+		return "redirect:" + "http://localhost:8080/WebApplication/approve";
 	}
 }

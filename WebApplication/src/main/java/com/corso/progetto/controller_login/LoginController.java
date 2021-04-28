@@ -35,8 +35,13 @@ public class LoginController {
 			// utente già loggato
 			String failedMessage = "sei già in sessione " + userSession.getUsername();	
 			model.addAttribute("message", failedMessage);
-			if(userSession.getUsername().equals("admin")) return "admin";
+			/*if(userSession.getUsername().equals("admin")) {
+				model.addAttribute("isAdmin", true);
+			} else {
+				model.addAttribute("isAdmin", false);
+			}*/
 			return "home";
+			
 		} else {
 			User user = new User(username, password);
 			UserDAO uDAO = new UserDAOmanage();
@@ -48,10 +53,13 @@ public class LoginController {
 				model.addAttribute("message", failedMessage);
 				
 				if(user.getUsername().equals(adminName)) {
-					return adminLogin();
+					session.setAttribute("isAdmin", true);
+					model.addAttribute("isAdmin", true);
 				} else {
-					return "user";
+					session.setAttribute("isAdmin", false);
+					model.addAttribute("isAdmin", false);
 				}
+				return "search";
 			} 
 			
 			// messaggio di errore
@@ -104,7 +112,7 @@ public class LoginController {
 			model.addAttribute("message", failedMessage);
 		}
 		
-		return "home";
+		return "search";
 	}
 	
 	

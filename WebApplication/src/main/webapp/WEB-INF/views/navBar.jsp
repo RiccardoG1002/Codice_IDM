@@ -23,20 +23,13 @@
   			
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link textColorNavbar" href="search">CheckString</a>
-					</li>
-			
+				
 					<li>
-						<a class="nav-link textColorNavbar" href="approve">Approve</a>
+						<a class="nav-link textColorNavbar navbar-right" href="startLogin" style="float: right;">Login</a>
 					</li>
 					
 					<li>
-						<a class="nav-link textColorNavbar" href="startLogin" style="margin-left: 90px;">Login</a>
-					</li>
-					
-					<li>
-						<a class="nav-link textColorNavbar" href="logout">Logout</a>
+						<a class="nav-link textColorNavbar navbar-right" href="logout">Logout</a>
 					</li>
 				</ul>
 			</div>

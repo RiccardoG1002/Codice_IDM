@@ -12,7 +12,7 @@
 		<property name="name" column="name" type="string"></property>
 		
 		<set name="patternList" inverse="true" lazy="false" cascade="all">
-            <key column="code" not-null="true" />
+            <key column="country" not-null="true" />
             <one-to-many class="com.corso.checkstring.beans.Pattern"/>
        </set>
 	</class>

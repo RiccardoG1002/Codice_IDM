@@ -31,8 +31,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/CheckString"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Login"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/finalProj"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

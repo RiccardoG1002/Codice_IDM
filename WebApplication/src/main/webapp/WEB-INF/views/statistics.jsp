@@ -15,6 +15,7 @@
 	</head>
 	
 	<body>
+		<jsp:include page="adminNavbar.jsp"></jsp:include>
 	
 		<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-3 shadow">
 			<a class="navbar-brand" href="/ProgettoDecHit/">Home</a>

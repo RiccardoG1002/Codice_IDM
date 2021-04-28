@@ -35,6 +35,7 @@ public class LoginController {
 			// utente già loggato
 			String failedMessage = "sei già in sessione " + userSession.getUsername();	
 			model.addAttribute("message", failedMessage);
+			if(userSession.getUsername().equals("admin")) return "admin";
 			return "home";
 		} else {
 			User user = new User(username, password);
@@ -45,8 +46,9 @@ public class LoginController {
 				session.setMaxInactiveInterval(60 * 3);
 				String failedMessage = "bentornato " + user.getUsername();	
 				model.addAttribute("message", failedMessage);
+				
 				if(user.getUsername().equals(adminName)) {
-					return "admin";
+					return adminLogin();
 				} else {
 					return "user";
 				}
@@ -82,7 +84,6 @@ public class LoginController {
 			
 			return "index";
 		}
-		
 	}
 	
 	
@@ -107,6 +108,8 @@ public class LoginController {
 	}
 	
 	
-	
+	private String adminLogin() {
+		return "admin";
+	}
 	
 }

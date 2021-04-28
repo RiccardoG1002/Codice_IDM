@@ -16,7 +16,7 @@
 	
 	<body>
 	
-		<jsp:include page="navBar.jsp" />
+		<jsp:include page="adminNavbar.jsp" />
 			
 		<div class="ml-5 mt-5">
 			<form action="http://localhost:8080/ProgettoDecHit/apply" method="POST">

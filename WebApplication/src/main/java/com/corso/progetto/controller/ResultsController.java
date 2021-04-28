@@ -1,19 +1,15 @@
 package com.corso.progetto.controller;
 
 import java.io.IOException;
-import java.util.Collection;
-
 import org.springframework.ui.Model;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.corso.checkstring.base.Synonyms;
 import com.corso.checkstring.algorithms.Algorithm;
 import com.corso.checkstring.base.ControllerCheckString;
 import com.corso.checkstring.beans.Country;
-import com.corso.checkstring.beans.Pattern;
 
 @Controller
 public class ResultsController {
@@ -29,7 +25,7 @@ public class ResultsController {
 
 		String message = null;
 		String ret = "";
-
+		
 
 		if (country != null) {
 			model.addAttribute("country", country);
@@ -40,7 +36,6 @@ public class ResultsController {
 			model.addAttribute("message", message);
 			ret = "search";
 		}
-
 		return ret;
 	}
 }

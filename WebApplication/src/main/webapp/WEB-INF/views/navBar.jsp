@@ -16,10 +16,13 @@
 	<body>
 		
 		<nav class="navbar navbar-expand-lg navbar-dark static-top mb-3 shadow colorNavbar">
-			<a class="navbar-brand textColorNavbar" href="/WebApplication/"> <img src="resources/logo.png" height="28"></a>
-			
+			<a class="navbar-brand textColorNavbar" href="/WebApplication/"> <img src="resources/logo_idm7.png" height="30"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+  			
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav ml-autonavbar-nav ml-auto">
+				<ul class="navbar-nav">
 					<li class="nav-item">
 						<a class="nav-link textColorNavbar" href="search">CheckString</a>
 					</li>
@@ -27,8 +30,6 @@
 					<li>
 						<a class="nav-link textColorNavbar" href="approve">Approve</a>
 					</li>
-					
-					
 					
 					<li>
 						<a class="nav-link textColorNavbar" href="startLogin" style="margin-left: 90px;">Login</a>

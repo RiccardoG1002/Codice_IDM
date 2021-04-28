@@ -18,7 +18,6 @@
 	<body>
 		
 		<div class="imgCover"></div>
-		<img alt="" class="immBack" id="search" src="resources/1618129626414.jpg"> 
 		
 		<jsp:include page="navBar.jsp" />
 		
@@ -32,8 +31,7 @@
 		<div class="container" style="margin-top: 20%; margin-left: 37%;">
 			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
 				<input name="find" class="searchForm" type="text" placeholder="Country" aria-label="Search">
-				<button class="btn searchBtn" type="submit" name="search" value="search">Search</button>
-        		<button class="btn searchBtn" type="submit" name="search" value="synonyms">Search Synonyms</button>
+				<button class="btn searchBtn" type="submit">Search</button>
 			</form>
 		</div>
 	</body>

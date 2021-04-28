@@ -16,7 +16,7 @@
 	
 	<body>
 	
-		<img alt="" class="immBack" src="resources/background.png">
+		<img alt="" class="immBack" src="resources/img/background.png">
 		
 		<jsp:include page="navBar.jsp" />
 		

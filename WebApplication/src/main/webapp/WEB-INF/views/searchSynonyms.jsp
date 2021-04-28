@@ -17,10 +17,11 @@
 	
 	<body>
 		
-		<div class="imgCover"></div>
-		<img alt="" class="immBack" id="search" src="resources/1618129626414.jpg"> 
 		
-		<jsp:include page="navBar.jsp" />
+		<div class="imgCover"></div>
+		
+		<jsp:include page="adminNavbar.jsp" />
+		
 		
 		<c:if test = "${message != null}">
 			<div id="noCountryAlert" class="alert alert-danger alert-dismissible text-center" role="alert">

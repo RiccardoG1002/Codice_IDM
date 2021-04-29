@@ -12,15 +12,18 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
 		<link rel="stylesheet" href="resources/search.css">
-		<link rel="stylesheet" href="resources/home.css">
+		
 	</head>
 	
 	<body>
 		
-		<img alt="" class="immBack" src="resources/img/1618129626414.jpg">
-		<div class="imgCover"></div>
+		
+		
+		
 		
 		<jsp:include page="navBar.jsp"></jsp:include>
+		
+	
 		
 		<c:if test = "${message != null}">
 			<div id="noCountryAlert" class="alert alert-danger alert-dismissible text-center" role="alert">
@@ -29,11 +32,15 @@
 			</div>
 		</c:if>
 		
-		<div class="container" style="margin-top: 20%; margin-left: 37%;">
-			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
-				<input name="find" class="searchForm" type="text" placeholder="Country" aria-label="Search">
-				<button class="btn searchBtn" type="submit">Search</button>
-			</form>
-		</div>
+			
+		
+		<div  class="col-md-4 offset-md-4" style="margin-top: 20%;">
+		
+		<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
+  		<input name="find" type="text" class="searchForm" placeholder="Country" aria-label="Recipient's username" aria-describedby="Search">
+ 	 	<button class="btn btn-info searchBtn" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
+		</form>
+		
+		
 	</body>
 </html>

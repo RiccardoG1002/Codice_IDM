@@ -24,7 +24,9 @@ public class ApproveApplyController {
 			Model model,
 			@RequestParam(value="approved", required=false) List<String> approvedList, HttpServletRequest request) throws IOException {
 		
-		// approved
+
+		model.addAttribute("isSearching", false);
+
 		if(approvedList != null) {
 			PatternDAO pDAO = new PatternDAOImpl();
 			

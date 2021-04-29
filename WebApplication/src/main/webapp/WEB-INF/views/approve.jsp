@@ -34,7 +34,7 @@
 	
 	<body>
 	
-		<jsp:include page="adminNavbar.jsp" />
+		<jsp:include page="navBar.jsp"></jsp:include>
 			
 		<div class="ml-5 mt-5" >
 			<form action="http://localhost:8080/WebApplication/apply" method="POST" id="form_paesi" name="form_paesi">

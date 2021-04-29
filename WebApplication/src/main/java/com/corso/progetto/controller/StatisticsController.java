@@ -27,6 +27,7 @@ public class StatisticsController {
 //		
 //		String count1 = pDAO.getAlgorithmSuccess(algorithm1);
 //		String count2 = pDAO.getAlgorithmSuccess(algorithm2);
+		model.addAttribute("isSearching", false);
 		StatAlgoritmoDAO dao = new StatAlgoritmoDAOImpl();
 		
 		List<StatAlgoritmo> lista =  dao.getStatsAlgoritmi();

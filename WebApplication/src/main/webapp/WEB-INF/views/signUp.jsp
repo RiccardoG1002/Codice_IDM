@@ -20,7 +20,7 @@
 %>
 <body>
 
-	<jsp:include page="navBar.jsp" />  
+	<jsp:include page="navBar.jsp"></jsp:include>
 
 	<c:if test = "${message != null}">
     	<div class="alert alert-danger" role="alert">

@@ -56,13 +56,16 @@ public class ControllerCheckString {
 		}
 		else {
 			// dobbiamo cercare usando gli algoritmi
-			Match raw_result = algo.checkString(find, countryList);
+			Match raw_result = algo.getMostSimilar(find, countryList);
+			
+			
 			
 			// inserisco in PatternDB o una coppia pattern-country o una pattern-null se non ho trovato un risultato
 			Country c = null;
 			String algorithm = null;
 			
 			if(raw_result != null) {
+				System.out.println(raw_result.toString());
 				String result = raw_result.getMatch();
 				algorithm = raw_result.getAlgorithm();
 				

@@ -102,7 +102,7 @@ public class Levenshtein extends Algorithm{
 	
 
 	@Override
-	public Match checkString(String input, ArrayList<String> standard) {
+	public Match checkString(String input, Collection<String> standard) {
 		int min_score = Integer.MAX_VALUE;
 		String best_match = null;
 		

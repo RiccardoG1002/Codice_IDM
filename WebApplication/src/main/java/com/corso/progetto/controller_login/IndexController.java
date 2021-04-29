@@ -18,6 +18,7 @@ public class IndexController {
 	@RequestMapping(value="/startLogin")
 	public String test(HttpServletRequest request, Model model) {
 		
+		model.addAttribute("isSearching", false);
 		UserDAO uDAO = new UserDAOmanage();
 		
 		if(uDAO.isEmpty()){

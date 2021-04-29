@@ -17,6 +17,7 @@ public class ApproveController {
 	@GetMapping(value="/approve")
 	public String home(Model model) throws IOException {
 		
+		model.addAttribute("isSearching", false);
 		PatternDAO pDAO = new PatternDAOImpl();
 		List<Pattern> patternList = pDAO.getPatternsToBeApproved();
 		

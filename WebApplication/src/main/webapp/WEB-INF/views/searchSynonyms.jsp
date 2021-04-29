@@ -20,7 +20,7 @@
 		
 		<div class="imgCover"></div>
 		
-		<jsp:include page="adminNavbar.jsp" />
+		<jsp:include page="navBar.jsp"></jsp:include>
 		
 		
 		<c:if test = "${message != null}">

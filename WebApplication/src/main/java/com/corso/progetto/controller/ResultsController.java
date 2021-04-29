@@ -25,9 +25,9 @@ public class ResultsController {
 
 		String message = null;
 		String ret = "";
-		
 
 		if (country != null) {
+			model.addAttribute("isSearching", true);
 			model.addAttribute("country", country);
 			ret = "results";
 		} else {

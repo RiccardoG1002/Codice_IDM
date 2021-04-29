@@ -22,12 +22,14 @@ public class LoginController {
 
 	private String adminName = "admin";
 	
+	
 	@RequestMapping(value="/login")
 	public String test(@RequestParam(value="username") String username,
 						@RequestParam(value="password") String password,
 						 Model model,
 						 	 HttpServletRequest request) {
 		
+		model.addAttribute("isSearching", false);
 		HttpSession session = request.getSession();
 		User userSession = (User) session.getAttribute("user");
 		
@@ -35,11 +37,6 @@ public class LoginController {
 			// utente già loggato
 			String failedMessage = "sei già in sessione " + userSession.getUsername();	
 			model.addAttribute("message", failedMessage);
-			/*if(userSession.getUsername().equals("admin")) {
-				model.addAttribute("isAdmin", true);
-			} else {
-				model.addAttribute("isAdmin", false);
-			}*/
 			return "home";
 			
 		} else {
@@ -47,17 +44,16 @@ public class LoginController {
 			UserDAO uDAO = new UserDAOmanage();
 			
 			if(uDAO.ifExistUser(user)) {
+				session.setAttribute("isLogged", true);
 				session.setAttribute("user", user);
 				session.setMaxInactiveInterval(60 * 3);
-				String failedMessage = "bentornato " + user.getUsername();	
+				String failedMessage = "Bentornato " + user.getUsername();	
 				model.addAttribute("message", failedMessage);
 				
 				if(user.getUsername().equals(adminName)) {
 					session.setAttribute("isAdmin", true);
-					model.addAttribute("isAdmin", true);
 				} else {
 					session.setAttribute("isAdmin", false);
-					model.addAttribute("isAdmin", false);
 				}
 				return "search";
 			} 
@@ -74,6 +70,7 @@ public class LoginController {
 	@RequestMapping(value="/approve")
 	public String approve(Model model, HttpServletRequest request) {
 		
+		model.addAttribute("isSearching", false);
 		HttpSession session = request.getSession();
 		User userSession = (User) session.getAttribute("user");
 		
@@ -98,10 +95,12 @@ public class LoginController {
 	@RequestMapping(value="/logout")
 	public String logout(Model model, HttpServletRequest request) {
 		
+		model.addAttribute("isSearching", false);
 		HttpSession session = request.getSession();
 		User userSession = (User) session.getAttribute("user");
 		
 		if(userSession != null) {
+			session.setAttribute("isLogged", false);
 			session.invalidate();
 		
 			String failedMessage = "hai fatto il log out";	
@@ -113,11 +112,6 @@ public class LoginController {
 		}
 		
 		return "search";
-	}
-	
-	
-	private String adminLogin() {
-		return "admin";
 	}
 	
 }

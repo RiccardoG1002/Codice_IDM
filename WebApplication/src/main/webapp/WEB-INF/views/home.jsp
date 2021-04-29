@@ -16,16 +16,8 @@
 	
 	<body>
 	
+		<jsp:include page="navBar.jsp"></jsp:include>
 		<img alt="" class="immBack" src="resources/img/background.png">
-		
-		<c:choose>
-   			<c:when test="${isAdmin}">
-   				<jsp:include page="adminNavbar.jsp" />
-			</c:when>
-   			<c:otherwise>
-   				<jsp:include page="navBar.jsp" />
-			</c:otherwise>
-		</c:choose>
 		
 		<c:if test = "${message != null}">
 	    	<div class="alert alert-danger" role="alert">

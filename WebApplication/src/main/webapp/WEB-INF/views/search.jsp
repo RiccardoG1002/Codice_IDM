@@ -17,16 +17,10 @@
 	
 	<body>
 		
+		<img alt="" class="immBack" src="resources/img/1618129626414.jpg">
 		<div class="imgCover"></div>
 		
-		<c:choose>
-   			<c:when test="${isAdmin}">
-   				<jsp:include page="adminNavbar.jsp" />
-			</c:when>
-   			<c:otherwise>
-   				<jsp:include page="navBar.jsp" />
-			</c:otherwise>
-		</c:choose>
+		<jsp:include page="navBar.jsp"></jsp:include>
 		
 		<c:if test = "${message != null}">
 			<div id="noCountryAlert" class="alert alert-danger alert-dismissible text-center" role="alert">

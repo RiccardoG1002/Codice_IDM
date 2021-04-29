@@ -15,7 +15,7 @@
 	</head>
 	
 	<body>
-		<jsp:include page="adminNavbar.jsp"></jsp:include>
+		<jsp:include page="navBar.jsp"></jsp:include>
 		
 		<div class="ml-5 mt-5">
 			<table style="width:60%">

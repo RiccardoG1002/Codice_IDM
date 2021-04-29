@@ -36,7 +36,6 @@
 						
 							<td><input name="approved" type="checkbox" value="${ p.userPattern }"></td>
 						</tr>
-						
 					</c:forEach>
 				</table>
 				

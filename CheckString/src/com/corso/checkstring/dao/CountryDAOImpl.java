@@ -70,4 +70,34 @@ public class CountryDAOImpl extends BaseDAO<Country> implements CountryDAO {
 		
 		return (Country) super.getBeanDTO(Country.class, new Id(code));
 	}
+
+	@Override
+	public List<Country> getCountries() {
+
+		Session session = getFactory().openSession();
+		Transaction tx = null;
+		List<Country> countryList = null;
+		
+		try {
+			tx = session.beginTransaction();
+			
+			String hql = "FROM Country ORDER BY name asc";
+			Query q = session.createQuery(hql);
+			
+			countryList = (List<Country>) q.list();
+			
+			tx.commit();
+		}
+		catch(HibernateException e) {
+			if(tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		
+		return countryList;
+	}
 }

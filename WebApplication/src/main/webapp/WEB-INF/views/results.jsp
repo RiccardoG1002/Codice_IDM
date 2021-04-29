@@ -17,39 +17,9 @@
 		<link rel="stylesheet" href="resources/searchResults.css">
 	</head>
 	<body>
-	
 		<div class="imgCover"></div>
 		
-		<nav class="navbar navbar-expand-lg navbar-dark static-top mb-3 shadow colorNavbar">
-			<a class="navbar-brand" href="/WebApplication/">Home</a>
-			
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="search">CheckString</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="approve">Approve</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="startLogin" style="margin-left: 90px;">Login</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="logout">Logout</a>
-					</li>
-				</ul>
-			</div>
-			
-			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
-				<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
-				<button class="btn searchBtn" type="submit">Search</button>
-			</form>
-		</nav>
-	
-		
+		<jsp:include page="navBar.jsp"></jsp:include>
 		
 		<!-- ANGULAR -->
 		

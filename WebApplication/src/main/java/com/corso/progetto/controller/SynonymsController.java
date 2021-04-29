@@ -23,6 +23,7 @@ public class SynonymsController {
 	public String showResults(@RequestParam("find") String find, Model model)
 			throws IOException {
 
+		model.addAttribute("isSearching", false);
 		ControllerCheckString c = new ControllerCheckString();
 		Algorithm algorithm = (Algorithm) new ClassPathXmlApplicationContext("algorithms.xml").getBean("checkString");
 		Country country = c.checkString(find, algorithm);

@@ -22,7 +22,7 @@
 %>
 <body>
 
-	<jsp:include page="navBar.jsp" />  
+	<jsp:include page="navBar.jsp"></jsp:include> 
 	
 	<c:if test = "${messageSuccessful != null}">
     	<div class="alert alert-success" role="alert">
@@ -41,7 +41,7 @@
 			<div class="user_card">
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						 <img src="resources/idm-logo.png" class="brand_logo" alt="Logo"> 
+						 <img src="resources/img/idm-logo.png" class="brand_logo" alt="Logo"> 
 					</div>
 				</div>
 				

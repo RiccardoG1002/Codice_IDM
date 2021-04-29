@@ -59,7 +59,7 @@ public class SoundEx extends Algorithm {
 	}
 
 	@Override
-	public Match checkString(String input, ArrayList<String> standard) {
+	public Match checkString(String input, Collection<String> standard) {
 
 		for (String s : standard) {
 

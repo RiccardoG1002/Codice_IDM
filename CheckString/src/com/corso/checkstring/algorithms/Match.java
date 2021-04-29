@@ -26,5 +26,11 @@ public class Match {
 	public String getMatch() {
 		return match;
 	}
+
+	@Override
+	public String toString() {
+		return "Match [match=" + match + ", algorithm=" + algorithm + ", isBestMatch=" + isBestMatch + "]";
+	}
+	
 	
 }

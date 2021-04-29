@@ -19,10 +19,8 @@
 		
 		
 		<div class="imgCover"></div>
-		
-		<jsp:include page="adminNavbar.jsp" />
-		
-		
+		<jsp:include page="navBar.jsp"></jsp:include>
+
 		<c:if test = "${message != null}">
 			<div id="noCountryAlert" class="alert alert-danger alert-dismissible text-center" role="alert">
 				<a href="/synonyms" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -30,11 +28,11 @@
 			</div>
 		</c:if>
 		
-		<div class="container" style="margin-top: 20%; margin-left: 37%;">
+		<div class="col-md-4 offset-md-4" style="margin-top: 20%">
 			<form class="form-inline" action="http://localhost:8080/WebApplication/synonyms" method="GET">
-				<input name="find" class="searchForm" type="text" placeholder="Country" aria-label="Search">
-				<button class="btn searchBtn" type="submit">Search Synonyms</button>
-			</form>
+				<input name="find" class="searchForm" type="text" placeholder="Country" aria-label="Recipient's username" aria-describedby="Search">
+				<button class="btn btn-info searchBtn" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
+			</form> 
 		</div>
 	</body>
 </html>

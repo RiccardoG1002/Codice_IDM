@@ -11,59 +11,31 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
-		
+		<link rel="stylesheet" href="resources/table.css">
 	</head>
 	
 	<body>
-		<jsp:include page="adminNavbar.jsp"></jsp:include>
-	
-		<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-3 shadow">
-			<a class="navbar-brand" href="/ProgettoDecHit/">Home</a>
-			
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="search">CheckString</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="approve">Approve</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="statistics">Statistics</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="startLogin">Login</a>
-					</li>
-					
-					<li>
-						<a class="nav-link" href="logout">Logout</a>
-					</li>
-					
-					
-					
-				</ul>
-			</div>
-		</nav>
+	    <div class="imgCover"></div>
+		<jsp:include page="navBar.jsp"></jsp:include>
 		
-		<div class="ml-5 mt-5">
-			<table style="width:60%">
-				<tr>
-					<th>Algorithm</th>
-					<th>#Success</th>
-				</tr>
-				
-				<c:forEach items="${list}" var="item">
-				
+		<div class="d-flex justify-content-center text-center" style="margin-top: 10%;">
+			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+				<table id="table">
 					<tr>
-						<td>${item.algoritmo}</td>
-						<td>${item.num}</td>
+						<th>Algorithm</th>
+						<th>#Success</th>
 					</tr>
-				
-				</c:forEach>
-			</table>
+					
+					<c:forEach items="${list}" var="item">
+					
+						<tr>
+							<td>${item.algoritmo}</td>
+							<td>${item.num}</td>
+						</tr>
+					
+					</c:forEach>
+				</table>
+			</div>
 		</div>
 	</body>
 </html>

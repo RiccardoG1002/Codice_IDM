@@ -30,6 +30,7 @@ public class SignUpController {
 									@RequestParam(value="confirm_password") String confirmPassword,
 										Model model) {
 				
+		model.addAttribute("isSearching", false);
 		String errorMsg = null;
 		String successfulMsg = null;
 		

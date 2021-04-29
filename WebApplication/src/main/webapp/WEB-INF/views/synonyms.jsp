@@ -20,34 +20,8 @@
 	<body>
 	
 		<div class="imgCover"></div>
+		<jsp:include page="navBar.jsp"></jsp:include>
 		
-		<nav class="navbar navbar-expand-lg navbar-dark static-top mb-3 shadow colorNavbar">
-		<a class="navbar-brand" href="/WebApplication/login">Home</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNavDropdown"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li><a class="nav-link" href="approve">Approve</a></li>
-
-				<li><a class="nav-link" href="statistics">Statistics</a></li>
-				
-				<li><a class="nav-link" href="searchSynonyms">Synonyms</a></li>
-
-				<li><a class="nav-link" href="logout" style="margin-left: 80%">Logout</a>
-				</li>
-			</ul>
-		</div>
-			
-			<form class="form-inline" action="http://localhost:8080/WebApplication/synonyms" method="GET">
-				<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
-				<button class="btn searchBtn" type="submit">Search Synonyms</button>
-			</form>
-		</nav>
 		
 		<div class="d-flex justify-content-center text-center">
 			<div class="bg-light shadow p-3 mb-5 bg-body rounded">

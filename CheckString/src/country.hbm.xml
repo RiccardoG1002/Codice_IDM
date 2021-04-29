@@ -12,7 +12,7 @@
 		<property name="name" column="name" type="string"></property>
 		
 		<list name="patternList" cascade="all"> <!-- fetch="select" lazy="true" -->
-			<key column="code"></key>
+			<key column="country"></key>
 			<index column="country"></index>
 			<one-to-many class="com.corso.checkstring.beans.Pattern"></one-to-many>
 		</list>

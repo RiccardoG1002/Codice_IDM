@@ -1,10 +1,11 @@
 package com.corso.checkstring.algorithms;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 
 public class KMP extends Algorithm {
-    public Match checkString(String string, ArrayList<String> list) {
+    public Match checkString(String string, Collection<String> list) {
 		for(String s: list) {
 			if(s.length() < string.length()) {
 				System.out.println("Non sono riuscito con Knuth–Morris–Pratt...");

@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import com.corso.checkstring.beans.Country;
 import com.corso.checkstring.beans.Id;
 import com.corso.checkstring.beans.Pattern;
 
@@ -130,5 +131,74 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 		}
 		
 		return count;
+	}
+
+	@Override
+	public int deletePattern(String userPattern) {
+		Session session = getFactory().openSession();
+		Transaction tx = null;
+		String count = "0";
+		
+		int res=0;
+		try {
+			tx = session.beginTransaction();
+			
+			String hql = "DELETE from Pattern WHERE userPattern=:userPattern";
+			Query q = session.createQuery(hql);
+			q.setParameter("userPattern", userPattern);
+			
+			res=q.executeUpdate();
+			
+			tx.commit();
+		}
+		catch(HibernateException e) {
+			if(tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		
+		return res;
+	}
+
+	@Override
+	public int updateCountry(String userPattern, String newCountry) {
+		Session session = getFactory().openSession();
+		Transaction tx = null;
+		String count = "0";
+		
+		CountryDAO cDao = new CountryDAOImpl();
+		
+		int res=0;
+		try {
+			tx = session.beginTransaction();
+			
+			String hql = "UPDATE Pattern set country=:country WHERE userPattern=:userPattern";
+			Query q = session.createQuery(hql);
+			q.setParameter("userPattern", userPattern);
+			
+			System.out.println("DAO = "+userPattern + "   "+newCountry);
+			Country country = cDao.getCountryByName(newCountry);
+			q.setParameter("country", country);
+			
+			System.out.println(country);
+			res=q.executeUpdate();
+			
+			tx.commit();
+		}
+		catch(HibernateException e) {
+			if(tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		
+		return res;
 	}
 }

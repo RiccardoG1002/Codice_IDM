@@ -11,6 +11,8 @@ public interface PatternDAO {
 	public Pattern get(Id id);
 	public Pattern[] getPendingPatterns();
 	int setApprove(String userPattern, int approve);
+	public int deletePattern(String userPattern);
+	public int updateCountry(String userPattern, String newCountry);
 	public List<Pattern> getPatternsToBeApproved();
 	public String getAlgorithmSuccess(String algorithm);
 }

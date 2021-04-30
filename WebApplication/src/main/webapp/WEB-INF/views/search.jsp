@@ -16,8 +16,8 @@
 	</head>
 	
 	<body>
-		
-		<div class="imgCover"></div>
+
+		<img class="immBack" id="search" src="resources/img/search-background.jpg"/>
 		
 		<jsp:include page="navBar.jsp"></jsp:include>
 		

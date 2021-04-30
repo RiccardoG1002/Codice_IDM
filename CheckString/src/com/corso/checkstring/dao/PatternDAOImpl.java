@@ -176,9 +176,10 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 		try {
 			tx = session.beginTransaction();
 			
-			String hql = "UPDATE Pattern set country=:country WHERE userPattern=:userPattern";
+			String hql = "UPDATE Pattern set country=:country, algorithm=:algorithm WHERE userPattern=:userPattern";
 			Query q = session.createQuery(hql);
 			q.setParameter("userPattern", userPattern);
+			q.setParameter("algorithm", "admin");
 			
 			System.out.println("DAO = "+userPattern + "   "+newCountry);
 			Country country = cDao.getCountryByName(newCountry);

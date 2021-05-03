@@ -10,9 +10,9 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"></link>
 		<link rel="stylesheet" href="resources/approve.css">
-		
+		<link rel="stylesheet" href="resources/search.css">
+		<link rel="stylesheet" href="resources/table.css">
 	</head>
-	
 	
 	
 	<script>
@@ -34,48 +34,51 @@
 	
 	<body>
 	
+		<div class="imgCover"></div>
 		<jsp:include page="navBar.jsp"></jsp:include>
 			
-		<div class="ml-5 mt-5" >
-			<form action="http://localhost:8080/WebApplication/apply" method="POST" id="form_paesi" name="form_paesi">
-				<table style="width:60%">
-					<tr>
-						<th>Country searched</th>
-						<th>Country found</th>
-						<th>Algorithm used</th>
-						<th>Approve</th>
-					</tr>
-					
-					<c:forEach items="${ patternList }" var="p">
+		<div class="d-flex justify-content-center text-center" style="margin-top: 4%;">
+			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+				<form action="http://localhost:8080/WebApplication/apply" method="POST" id="form_paesi" name="form_paesi">
+					<table id="table">
 						<tr>
-							<td><c:out value="${ p.userPattern }"/></td>
-							
-							<td> 
-								<div class="input-group">
-									  <select class="custom-select" id="${ p.userPattern }" onchange="OnSelectCountry(&quot;${ p.userPattern }&quot;, this);">
-									    <option  selected>${p.country.name}</option>
-									    
-									    <c:forEach items="${countryList}" var="country"> 
-											 <option value="${country.name}">${country.name}</option>
-										</c:forEach>
-									    
-									  </select>
-									  
-								</div>
-							</td>
-							
-							<td><c:out value="${ p.algorithm }"/></td>
-						
-							<td><input name="approved" type="checkbox" value="${ p.userPattern }"></td>
+							<th>Country searched</th>
+							<th>Country found</th>
+							<th>Algorithm used</th>
+							<th>Approve</th>
+							<th>Delete</th>
 						</tr>
 						
-						
-						
-					</c:forEach>
-				</table>
-				
-				<button class="btn btn-warning mt-5" type="submit">Confirm</button>
-			</form>
+						<c:forEach items="${ patternList }" var="p">
+							<tr>
+								<td><c:out value="${ p.userPattern }"/></td>
+								
+								<td> 
+									<div class="input-group">
+										  <select class="custom-select" id="${ p.userPattern }" onchange="OnSelectCountry(&quot;${ p.userPattern }&quot;, this);">
+										    <option  selected>${p.country.name}</option>
+										    
+										    <c:forEach items="${countryList}" var="country"> 
+												 <option value="${country.name}">${country.name}</option>
+											</c:forEach>
+										    
+										  </select>
+										  
+									</div>
+								</td>
+								
+								<td><c:out value="${ p.algorithm }"/></td>
+							
+								<td><input name="approved" type="checkbox" value="${ p.userPattern }"></td>
+								<td><input name="removed" type="checkbox" value="${ p.userPattern }"></td>
+							</tr>
+			
+						</c:forEach>
+					</table>
+					
+					<button class="btn searchBtn" type="submit">Confirm</button>
+				</form>
+				</div>
 		</div>
 	</body>
 </html>

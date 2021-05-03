@@ -29,39 +29,33 @@
   			</button>
   			
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				
-				
-					<c:if test="${ isAdmin }">
-					<ul class="navbar-nav">
-						<li><a class="nav-link" href="approve"><i class="bi bi-list-check"></i> Approve</a></li>
+				<c:if test="${ isAdmin }">
+				<ul class="navbar-nav">
+					<li><a class="nav-link" href="approve"><i class="bi bi-list-check"></i> Approve</a></li>
 
-						<li><a class="nav-link" href="statistics"><i class="bi bi-graph-up"></i> Statistics</a></li>
-				
-						<li><a class="nav-link" href="synonyms"><i class="bi bi-card-list"></i> Synonyms</a></li>
-						</ul>
-					</c:if>
-					
-					<ul class="navbar-nav ml-auto">
-					
+					<li><a class="nav-link" href="statistics"><i class="bi bi-graph-up"></i> Statistics</a></li>
+			
+					<li><a class="nav-link" href="searchSynonyms"><i class="bi bi-card-list"></i> Synonyms</a></li>
+					</ul>
+				</c:if>
+	
+				<ul class="navbar-nav ml-auto">
 					<c:if test="${!isLogged}">
 						<li>
 							<a class="nav-link textColorNavbar" href=""  data-toggle="modal" data-target="#signinPage" ><i class="bi bi-box-arrow-in-left"></i> Login</a>
 						</li>
 					</c:if>
-					
 					<c:if test="${isLogged}">
 						<li>
 							<a class="nav-link textColorNavbar" href="logout"><i class="bi bi-box-arrow-in-right"></i> Logout</a>
 						</li>
 					</c:if>
-					
 					<c:if test="${ isSearching }">
 						<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
 							<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
 							<button class="btn searchBtn" type="submit">Search</button>
 						</form>
 					</c:if>
-					
 				</ul>
 			</div>
 		</nav>
@@ -69,43 +63,35 @@
 		<!--content of signin page-->
 
 		<div class="modal fade" id="signinPage">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
 		      
-		      <div class="modal-header text-center">
-		        <h3 class="modal-title w-100 dark-grey-text font-weight-bold"> <i class="bi bi-box-arrow-in-left"></i> Log In</h3>
-		        <button type="button" class="close" data-dismiss="modal" aria-lable="close">&times;</button>
-		      </div>
+			    	<div class="modal-header text-center">
+			        	<h3 class="modal-title w-100 dark-grey-text font-weight-bold"> <i class="bi bi-box-arrow-in-left"></i> Log In</h3>
+			        	<button type="button" class="close" data-dismiss="modal" aria-lable="close">&times;</button>
+			      	</div>
 		
-		      <div class="modal-body mx-4">
-		      <form action="http://localhost:<%out.print(porta); out.print(path);%>/login" method="POST" >
-		        <div class="md-form">
-		        <label>Username:</label>
-		          <input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
-		        </div>
-					<br>
-		        <div class="md-form">
-		        <label>Password:</label>
-		          <input type="password" name="password" class="form-control input_pass" value="" placeholder="*********">
-		          <br>
-		           <p class="font-small blue-text d-flex justify-content-end"> Non ti sei ancora registrato? <a href="http://localhost:<%out.print(porta); out.print(path);%>/signUp" class="blue-text ml-1">Registrati</a></p>
-		        </div>
-		        
-		       
-		
-		        <div class="text-center mb-3">
-		          <button type="submit" class="btn btn-primary btn-block z-depth-1a"><i class="bi bi-box-arrow-in-left"></i> Login</button>
-		        </div>
-		       
-		
-		      	</form>
-		      </div>
-		    </div>
-		    </div> 
-		  </div>
-		
-		
-		
+		      		<div class="modal-body mx-4">
+						<form action="http://localhost:<%out.print(porta); out.print(path);%>/login" method="POST" >
+							<div class="md-form">
+						    	<label>Username:</label>
+						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
+						    </div>
+							<br>
+						    <div class="md-form">
+						    	<label>Password:</label>
+						       	<input type="password" name="password" class="form-control input_pass" value="" placeholder="*********">
+						       	<br>
+						        <p class="font-small blue-text d-flex justify-content-end"> Non ti sei ancora registrato? <a href="http://localhost:<%out.print(porta); out.print(path);%>/signUp" class="blue-text ml-1">Registrati</a></p>
+						 	</div>
+							<div class="text-center mb-3">
+								<button type="submit" class="btn btn-primary btn-block z-depth-1a"><i class="bi bi-box-arrow-in-left"></i> Login</button>
+							</div>	
+						</form>
+		      		</div>
+				</div>
+			</div> 
+		</div>
 		
 	</body>
 </html>

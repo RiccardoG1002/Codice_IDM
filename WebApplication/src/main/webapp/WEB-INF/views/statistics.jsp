@@ -15,24 +15,27 @@
 	</head>
 	
 	<body>
+	    <div class="imgCover"></div>
 		<jsp:include page="navBar.jsp"></jsp:include>
 		
-		<div class="ml-5 mt-5">
-			<table id="table">
-				<tr>
-					<th>Algorithm</th>
-					<th>#Success</th>
-				</tr>
-				
-				<c:forEach items="${list}" var="item">
-				
+		<div class="d-flex justify-content-center text-center" style="margin-top: 10%;">
+			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+				<table id="table">
 					<tr>
-						<td>${item.algoritmo}</td>
-						<td>${item.num}</td>
+						<th>Algorithm</th>
+						<th>#Success</th>
 					</tr>
-				
-				</c:forEach>
-			</table>
+					
+					<c:forEach items="${list}" var="item">
+					
+						<tr>
+							<td>${item.algoritmo}</td>
+							<td>${item.num}</td>
+						</tr>
+					
+					</c:forEach>
+				</table>
+			</div>
 		</div>
 	</body>
 </html>

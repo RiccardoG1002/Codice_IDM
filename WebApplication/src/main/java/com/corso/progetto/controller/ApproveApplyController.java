@@ -22,16 +22,23 @@ public class ApproveApplyController {
 	@PostMapping(value="/apply")
 	public String home(
 			Model model,
-			@RequestParam(value="approved", required=false) List<String> approvedList, HttpServletRequest request) throws IOException {
+			@RequestParam(value="approved", required=false) List<String> approvedList,
+			@RequestParam(value="removed", required=false) List<String> deleteList, HttpServletRequest request) throws IOException {
+		
 		
 
 		model.addAttribute("isSearching", false);
 
+		PatternDAO pDAO = new PatternDAOImpl();
 		if(approvedList != null) {
-			PatternDAO pDAO = new PatternDAOImpl();
-			
 			for(String userPattern: approvedList) {
 				pDAO.setApprove(userPattern, 1);
+			}
+		}
+		
+		if(deleteList != null) {
+			for(String userPattern: deleteList) {
+				pDAO.deletePattern(userPattern);
 			}
 		}
 		
@@ -39,11 +46,12 @@ public class ApproveApplyController {
 		
 		while (a.asIterator().hasNext()) {
 			String s = a.asIterator().next();
-			if(s.contains("selected"))
+			if(s.contains("selected")) {
 				System.out.println(s + " " + request.getParameter(s));
+				String s2 = s.replaceAll("_selected", "");
+			    pDAO.updateCountry(s2,request.getParameter(s));
+			}
 		}
-		
-		
 
 		return "redirect:" + "http://localhost:8080/WebApplication/approve";
 	}

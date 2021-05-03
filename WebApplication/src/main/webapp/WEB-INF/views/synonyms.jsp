@@ -19,8 +19,9 @@
 	</head>
 	<body>
 	
-		<jsp:include page="navBar.jsp"></jsp:include>
 		<div class="imgCover"></div>
+		<jsp:include page="navBar.jsp"></jsp:include>
+		
 		
 		<div class="d-flex justify-content-center text-center">
 			<div class="bg-light shadow p-3 mb-5 bg-body rounded">

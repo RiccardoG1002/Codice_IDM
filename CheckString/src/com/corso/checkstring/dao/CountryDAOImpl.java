@@ -81,7 +81,7 @@ public class CountryDAOImpl extends BaseDAO<Country> implements CountryDAO {
 		try {
 			tx = session.beginTransaction();
 			
-			String hql = "FROM Country";
+			String hql = "FROM Country ORDER BY name asc";
 			Query q = session.createQuery(hql);
 			
 			countryList = (List<Country>) q.list();

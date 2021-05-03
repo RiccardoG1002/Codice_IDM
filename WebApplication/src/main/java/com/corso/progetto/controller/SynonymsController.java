@@ -46,7 +46,7 @@ public class SynonymsController {
 			}
 		
 		} else {
-			message = "Paese " + find + " non trovato!";
+			message = "Paese " + find + " non trovato";
 			model.addAttribute("message", message);
 			ret = "searchSynonyms";
 		}

@@ -38,8 +38,7 @@ public class ResultsController {
 			
 			ret = "results";
 		} else {
-			message = "Il paese " + find + " non ha sinonimi!";
-			System.out.println("Il paese " + find + " non ha sinonimi!");
+			message = "Paese " + find + " non trovato";
 			model.addAttribute("message", message);
 			ret = "search";
 		}

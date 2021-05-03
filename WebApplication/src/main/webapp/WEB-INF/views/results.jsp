@@ -35,11 +35,11 @@
 		
 		<!-- ANGULAR -->
 		
-		<div ng-app="myApp" ng-controller="customersCtrl"> 
+		<div ng-app="myApp" ng-controller="customersCtrl" style="overflow:hidden"> 
 			
 			<input id="codice" type="hidden"  value="${ country.code }">
 			
-			<div class="container" >
+			<div class="container" style="width:20%;" >
 				<img src="{{myData.flag}}" class="image">
 				<div class="overlay">
 					<div class="text">

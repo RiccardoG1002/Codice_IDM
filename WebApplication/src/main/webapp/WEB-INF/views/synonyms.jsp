@@ -22,20 +22,48 @@
 		<img class="immBack" id="search" src="resources/img/search-background.jpg"/>
 		<jsp:include page="navBar.jsp"></jsp:include>
 		
-		
-		<div class="d-flex justify-content-center text-center">
-			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
-				<c:if test = "${first != null}">
-			    	<h2>Synonyms of ${first.country.name} </h2>
-			    </c:if>  
-				<ul class="list-group">
-					<c:forEach items="${synonyms}" var="pattern">
-						<li class="list-group-item">
-						${pattern.userPattern}
-						</li>
-					</c:forEach>
-				</ul>
+		<div ng-app="myApp" ng-controller="customersCtrl" style="overflow:hidden"> 
+			
+			<input id="codice" type="hidden"  value="${ first.country.code }">
+			
+			<div class="container" style="width:20%;" >
+				<img src="{{myData.flag}}" class="image">
+				<div class="overlay">
+					<div class="text">
+						<h2>${ first.country.name }</h2>
+					</div>
+				</div>		
+			</div>
+			<br>
+			
+			<div class="d-flex justify-content-center text-center">
+				<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+					<c:if test = "${first != null}">
+				    	<h2>Synonyms </h2>
+				    </c:if>  
+					<ul class="list-group">
+						<c:forEach items="${synonyms}" var="pattern">
+							<li class="list-group-item">
+							${pattern.userPattern}
+							</li>
+						</c:forEach>
+					</ul>
+				</div>
 			</div>
 		</div>
+		
+		<script>
+			var app = angular.module('myApp', []);
+			
+			app.controller('customersCtrl', function($scope, $http) {
+				//console.log("https://restcountries.eu/rest/v2/alpha/" + $scope.codice );
+				var c = document.getElementById("codice").value;
+			  $http.get("https://restcountries.eu/rest/v2/alpha/" + c   ).then(function (response) {
+			      $scope.myData = response.data;
+			  });
+			});
+			
+		</script>
+	
 	</body>
 </html>

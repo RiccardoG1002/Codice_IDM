@@ -17,6 +17,7 @@
 	
 	<body>
 
+		<div class="imgCover"></div>
 		<img class="immBack" id="search" src="resources/img/search-background.jpg"/>
 		
 		<jsp:include page="navBar.jsp"></jsp:include>
@@ -43,8 +44,8 @@
 			</div>
 		</c:if>
 		
-		<div  class="col-md-4 offset-md-4" style="margin-top: 20%">
-		<!-- img name="world" src="resources/img/world.png" height="150" alt="world" style="padding-left:10%; padding-right:10%;"-->
+		<div  class="col-md-4 offset-md-4">
+		<img name="world" src="resources/img/Globe.png" height="200" alt="world" style="padding:5%; margin-top: 20%">
 			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
 		  		<input name="find" type="text" class="searchForm" placeholder="Country" aria-label="Recipient's username" aria-describedby="Search">
 		 	 	<button class="btn btn-info searchBtn" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>

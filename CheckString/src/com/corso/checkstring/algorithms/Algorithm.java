@@ -4,8 +4,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public abstract class Algorithm {
-	private Algorithm next = null, last = this;
+import com.corso.checkstring.beans.Country;
+import com.corso.checkstring.beans.Pattern;
+import com.corso.checkstring.dao.CountryDAO;
+import com.corso.checkstring.dao.CountryDAOImpl;
+import com.corso.checkstring.dao.PatternDAO;
+import com.corso.checkstring.dao.PatternDAOImpl;
+
+public abstract class Algorithm<T> {
+	private Algorithm<T> next = null;
+	private static Collection<String> collection = null;
 	
 	public void setNext(Algorithm next) {
 		this.next = next;
@@ -15,27 +23,58 @@ public abstract class Algorithm {
 		return next;
 	}
 	
-	protected abstract Match checkString(String string, Collection<String> collection);
+	protected abstract T checkString(String string, Collection<String> collection);
 	
-	public final Match getMostSimilar(String input, Collection<String> collection) {
-		// convert strings to lowercase to help algos
-		input = input.toLowerCase();
-		collection = collection.stream().map(x -> x.toLowerCase()).collect(Collectors.toList());
+	public final Country getMostSimilarCountry(String input) {
 		
-		Match match = checkString(input, collection);
+		if(input.equals(""))
+			return null;		
 		
-		if ((match == null || !match.isBestMatch()) && next !=null ) {
-			last = next;
-			return next.getMostSimilar(input, collection);
+		if (collection == null) {
+			CountryDAO cDAO = new CountryDAOImpl();
+			 collection = cDAO.getColumnFromTable("name");
+			input = input.toLowerCase();
+			collection = collection.stream().map(x -> x.toLowerCase()).collect(Collectors.toList());
 		}
 		
-		if(match.isBestMatch())
-			return match;
 		
+		T res = checkString(input, collection);
+		
+		if (res != null) {
+			
+			if(res instanceof Country)
+				return (Country) res;
+			
+			else if(res instanceof Match)
+				return addNewPattern(input, (Match) res);
+		}
+			
+		if (next != null)
+			return next.getMostSimilarCountry(input);
+	
 		return null;
 	} 
+	
+	private Country addNewPattern(String find,Match match) {
+		Country c = null;
+		
+		CountryDAO cDAO = new CountryDAOImpl();
+		PatternDAO pDAO = new PatternDAOImpl();
+		
 
-	public final String getLastAlgo() {
-		return last.toString();
+		System.out.println(match.toString());
+		
+		c = cDAO.getCountryByName(match.getMatch());
+		
+		if (match.getDistance() ==0)
+			c.setFromApprovedSource(true);
+		
+		Pattern dto = new Pattern(find, c, match.getAlgorithm().toString(), c.isFromApprovedSource()? 1:0);
+		pDAO.save(dto);
+	
+		return c;
 	}
+	
+	
+
 }

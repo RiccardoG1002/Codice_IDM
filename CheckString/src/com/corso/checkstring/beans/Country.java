@@ -6,6 +6,8 @@ import java.util.List;
 public class Country implements BeanDTO {
 	private String code, name;
 	private Collection<Pattern> patternList;
+	private boolean fromApprovedSource;
+	
 	
 	public Country() {}
 	public Country(String code, String name) {
@@ -33,4 +35,15 @@ public class Country implements BeanDTO {
 	public void setPatternList(Collection<Pattern> patternList) {
 		this.patternList = patternList;
 	}
+	
+	public boolean isFromApprovedSource() {
+		return fromApprovedSource;
+	}
+	
+	
+	public void setFromApprovedSource(boolean fromApprovedSource) {
+		this.fromApprovedSource = fromApprovedSource;
+	}
+	
+	
 }

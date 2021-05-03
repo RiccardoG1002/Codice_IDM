@@ -3,24 +3,37 @@ package com.corso.checkstring.algorithms;
 public class Match {
 	
 	private String match;
-	private String algorithm;
-	private boolean isBestMatch;
+	private Algorithm algorithm;
+	private int distance = -1;
 	
 	
-	public String getAlgorithm() {
+	
+	public int getDistance() {
+		return distance;
+	}
+
+	public void setDistance(int distance) {
+		this.distance = distance;
+	}
+
+	public Algorithm getAlgorithm() {
 		return algorithm;
 	}
 
-	public Match(String match, String algorithm, boolean isBestMatch) {
+	public Match(String match, Algorithm algorithm) {
 		super();
 		this.algorithm = algorithm;
-		this.isBestMatch = isBestMatch;
 		this.match = match;
 	}
-
 	
-	public boolean isBestMatch() {
-		return isBestMatch;
+	
+
+
+	public Match(String match, Algorithm algorithm, int distance) {
+		super();
+		this.match = match;
+		this.algorithm = algorithm;
+		this.distance = distance;
 	}
 
 	public String getMatch() {
@@ -29,7 +42,7 @@ public class Match {
 
 	@Override
 	public String toString() {
-		return "Match [match=" + match + ", algorithm=" + algorithm + ", isBestMatch=" + isBestMatch + "]";
+		return "Match [match=" + match + ", algorithm=" + algorithm +"]";
 	}
 	
 	

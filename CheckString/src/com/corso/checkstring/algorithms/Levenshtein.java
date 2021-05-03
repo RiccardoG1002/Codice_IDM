@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Levenshtein extends Algorithm{
+public class Levenshtein extends Algorithm<Match>{
 	
 	private int maxDistance = 2;
 	
@@ -114,10 +114,10 @@ public class Levenshtein extends Algorithm{
 				min_score = score;
 			}
 		}
+		if (min_score <= maxDistance)
+			return new Match(best_match, this, min_score);
 		
-		//System.out.println(best_match +" "+ min_score + " "+ (min_score <= maxDistance));
-		
-		return new Match(best_match, toString(), (min_score <= maxDistance));
+		return null;
 	}
 	 
 }

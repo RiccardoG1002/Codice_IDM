@@ -3,7 +3,7 @@ package com.corso.checkstring.algorithms;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Contains extends Algorithm {
+public class Contains extends Algorithm<Match>{
 	
 	@Override
 	public Match checkString(String string, Collection<String> list) {
@@ -14,16 +14,11 @@ public class Contains extends Algorithm {
 		for(String s: list) {
 			if(s.contains(string)) {
 				System.out.println("Risolto con Contains!");
-				new Match(s, toString(),true);
+				new Match(s, this);
 			}
 		}
-		
-		System.out.println("Non sono riuscito con Contains...");
-		
-		if(getNext() != null) {
-			return getNext().checkString(string, list);
-		}
-		else return null;
+	
+		 return null;
 	}
 
 	@Override

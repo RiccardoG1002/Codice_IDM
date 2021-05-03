@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.corso.checkstring.beans.Country" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,6 +20,18 @@
 	<body>
 		<img class="immBack" id="search" src="resources/img/search-background.jpg"/>
 		<jsp:include page="navBar.jsp"></jsp:include>
+		
+		<c:if test = "${message != null}">
+				<div class="d-flex justify-content-center text-center">
+					<div class="p-3 mb-5 ">
+						<div id="noCountryAlert" class="alert alert-secondary alert-dismissible text-center" role="alert">
+							<a href="/search" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<strong>${ message }</strong>
+						</div>
+					</div>
+				</div>
+				
+		</c:if>
 		
 		<!-- ANGULAR -->
 		

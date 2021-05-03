@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class SoundEx extends Algorithm {
+public class SoundEx extends Algorithm<Match> {
 
 	public SoundEx() {
 
@@ -64,7 +64,7 @@ public class SoundEx extends Algorithm {
 		for (String s : standard) {
 
 			if (soundex(input).equals(soundex(s)))
-				return new Match(s, toString(), true);
+				return new Match(s, this);
 
 		}
 		return null;

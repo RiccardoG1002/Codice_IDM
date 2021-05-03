@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.checkstring.algorithms.Algorithm;
-import com.corso.checkstring.base.ControllerCheckString;
+import com.corso.checkstring.algorithms.CheckDatabase;
+import com.corso.checkstring.algorithms.Levenshtein;
+import com.corso.checkstring.algorithms.SoundEx;
+
 import com.corso.checkstring.beans.Country;
 
 @Controller
@@ -19,9 +22,9 @@ public class ResultsController {
 	public String showResults(@RequestParam("find") String find, Model model)
 			throws IOException {
 
-		ControllerCheckString c = new ControllerCheckString();
 		Algorithm algorithm = (Algorithm) new ClassPathXmlApplicationContext("algorithms.xml").getBean("checkString");
-		Country country = c.checkString(find, algorithm);
+		
+		Country country = algorithm.getMostSimilarCountry(find); 
 
 		String message = null;
 		String ret = "";
@@ -29,6 +32,10 @@ public class ResultsController {
 		if (country != null) {
 			model.addAttribute("isSearching", true);
 			model.addAttribute("country", country);
+			
+			if (!country.isFromApprovedSource())
+				model.addAttribute("message", "Questo risultato non è stato ancora approvato");
+			
 			ret = "results";
 		} else {
 			message = "Il paese " + find + " non ha sinonimi!";
@@ -36,6 +43,8 @@ public class ResultsController {
 			model.addAttribute("message", message);
 			ret = "search";
 		}
-		return ret;
+	
+		
+		return "results";
 	}
 }

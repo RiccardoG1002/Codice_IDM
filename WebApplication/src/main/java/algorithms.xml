@@ -22,11 +22,13 @@
 	 	<property name="next" ref="ld_2"/>
 	 </bean>
 	   
-	 <bean id="checkString" class="com.corso.checkstring.algorithms.Levenshtein">
+	 <bean id="ld_1" class="com.corso.checkstring.algorithms.Levenshtein">
 		 <constructor-arg name="maxDistance" value="1" type="int"/>
 		 <property name="next" ref="soundex"/>
 	 </bean>      
 	 
-   
+    <bean id="checkString" class="com.corso.checkstring.algorithms.CheckDatabase">
+		 <property name="next" ref="ld_1"/>
+	 </bean>      
        
  </beans>

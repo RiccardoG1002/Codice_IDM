@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.checkstring.base.Synonyms;
 import com.corso.checkstring.algorithms.Algorithm;
-import com.corso.checkstring.base.ControllerCheckString;
 import com.corso.checkstring.beans.Country;
 import com.corso.checkstring.beans.Pattern;
 
@@ -24,9 +23,9 @@ public class SynonymsController {
 			throws IOException {
 
 		model.addAttribute("isSearching", false);
-		ControllerCheckString c = new ControllerCheckString();
+		
 		Algorithm algorithm = (Algorithm) new ClassPathXmlApplicationContext("algorithms.xml").getBean("checkString");
-		Country country = c.checkString(find, algorithm);
+		Country country = algorithm.getMostSimilarCountry(find);
 
 		String message = null;
 		String ret = "";

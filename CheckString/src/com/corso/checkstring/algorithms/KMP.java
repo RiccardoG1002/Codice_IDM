@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class KMP extends Algorithm {
+public class KMP extends Algorithm<Match> {
     public Match checkString(String string, Collection<String> list) {
 		for(String s: list) {
 			if(s.length() < string.length()) {
@@ -31,7 +31,7 @@ public class KMP extends Algorithm {
 				if(j < string.length() && s.charAt(i) == string.charAt(j)) {
 					if(++j == string.length()) {
 						System.out.println("Risolto con Knuth–Morris–Pratt!");
-						return new Match(s, toString(),true);
+						return new Match(s,this);
 					}
 				}
 				else if(j > 0) {
@@ -43,10 +43,7 @@ public class KMP extends Algorithm {
 		
 		System.out.println("Non sono riuscito con Knuth–Morris–Pratt...");
 		
-		if(getNext() != null) {
-			return getNext().checkString(string, list);
-		}
-		else return null;
+		 return null;
 	}
 
 	@Override

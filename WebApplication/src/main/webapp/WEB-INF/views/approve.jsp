@@ -34,7 +34,7 @@
 	
 	<body>
 	
-		<div class="imgCover"></div>
+		<img class="immBack" id="search" src="resources/img/search-background.jpg"/>
 		<jsp:include page="navBar.jsp"></jsp:include>
 			
 		<div class="d-flex justify-content-center text-center" style="margin-top: 4%;">

@@ -8,5 +8,5 @@ public interface UserDAO {
 	public boolean ifExistUsername(User user);
 	public boolean ifExistPassword(User user);
 	public boolean ifExistUser(User user);
-	
+	public int setNewPassword(String username, String password);
 }

@@ -25,12 +25,26 @@
 			<div id="noCountryAlert" class="alert alert-danger alert-dismissible text-center" role="alert">
 				<a href="/search" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				<strong>${ message }</strong>
+				<c:if test = "${fail != null}">
+					<a style="color:#721c24;" href=""  data-toggle="modal" data-target="#changePsw" ><i class="bi bi bi-lock"></i><strong>${ fail } </strong></a>  
+					<strong>or</strong>
+					<a style="color:#721c24;" href=""  data-toggle="modal" data-target="#signinPage2" ><i class="bi bi-box-arrow-in-left"></i><strong>Log in</strong></a>
+				</c:if>
+				<c:if test = "${failLogin != null}">
+					<a style="color:#721c24;" href=""  data-toggle="modal" data-target="#signupPage2" ><i class="bi bi-box-arrow-in-left"></i><strong>${ failLogin } </strong></a> 
+				</c:if>
 			</div>
 		</c:if>
 		
-		
+		<c:if test = "${messageSuccessful != null}">
+			<div style="text-align:center;"  class="alert alert-success" role="alert">
+				<a href="/search" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>${ messageSuccessful }</strong>
+			</div>
+		</c:if>
 		
 		<div  class="col-md-4 offset-md-4" style="margin-top: 20%">
+		<!-- img name="world" src="resources/img/world.png" height="150" alt="world" style="padding-left:10%; padding-right:10%;"-->
 			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
 		  		<input name="find" type="text" class="searchForm" placeholder="Country" aria-label="Recipient's username" aria-describedby="Search">
 		 	 	<button class="btn btn-info searchBtn" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>

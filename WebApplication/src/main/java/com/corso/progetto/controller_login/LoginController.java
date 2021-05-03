@@ -37,37 +37,40 @@ public class LoginController {
 			// utente già loggato
 			String failedMessage = "sei già in sessione " + userSession.getUsername();	
 			model.addAttribute("message", failedMessage);
-			return "home";
-			
 		} else {
 			User user = new User(username, password);
 			UserDAO uDAO = new UserDAOmanage();
 			
-			if(uDAO.ifExistUser(user)) {
-				session.setAttribute("isLogged", true);
-				session.setAttribute("user", user);
-				session.setMaxInactiveInterval(60 * 3);
-				String failedMessage = "Bentornato " + user.getUsername();	
-				model.addAttribute("message", failedMessage);
-				
+			if(uDAO.ifExistUsername(user)) {
+				if(!uDAO.ifExistPassword(user)) {
+					String message = "Password errata";	
+					model.addAttribute("message", message);
+					String fail = "Cambia password";	
+					model.addAttribute("fail", fail);
+				}else {
+					session.setAttribute("isLogged", true);
+					session.setAttribute("user", user);
+					session.setMaxInactiveInterval(60 * 3);
+					String okMessage = "Bentornato " + user.getUsername();
+					model.addAttribute("messageSuccessful", okMessage);
+				}
 				if(user.getUsername().equals(adminName)) {
 					session.setAttribute("isAdmin", true);
 				} else {
 					session.setAttribute("isAdmin", false);
 				}
-				return "search";
-			} 
-			
-			// messaggio di errore
-			String failedMessage = "login failed";	
-			model.addAttribute("message", failedMessage);
+			}else { //messaggio di errore per utente non registrato
+				String message = "Il login è fallito.";	
+				model.addAttribute("message", message);
+				String fail = "Registrati";	
+				model.addAttribute("failLogin", fail);
+			}
+			// messaggio di errore per psw dimenticata
 		}
-		return "index";
+		return "search";
 	}
 	
-	
-	
-	@RequestMapping(value="/approve")
+	/*@RequestMapping(value="/approve")
 	public String approve(Model model, HttpServletRequest request) {
 		
 		model.addAttribute("isSearching", false);
@@ -89,7 +92,7 @@ public class LoginController {
 			
 			return "index";
 		}
-	}
+	}*/
 	
 	
 	@RequestMapping(value="/logout")

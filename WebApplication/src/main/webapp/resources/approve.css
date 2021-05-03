@@ -1,7 +1,5 @@
 body, html {
-	overflow-y: auto;
-
-	
+	overflow-y: auto;	
 }
 
 button { white-space: normal !important; height: auto !important; }

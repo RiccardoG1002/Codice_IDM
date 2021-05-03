@@ -10,18 +10,30 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
-		<link rel="stylesheet" href="resources/search.css">
-		<link rel="stylesheet" href="resources/searchResults.css">
-		<link rel="stylesheet" href="resources/home.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="resources/home.css">
+		
 	</head>
 	<%
 	int porta = request.getLocalPort();
 	String path = request.getContextPath();
 	%>
 	
+	<script>
+	$(document).on('click', '#launchSignup', function(){
+		   $('#signinPage').modal('hide');
+		   $('.modal-backdrop').remove();
+		   $('#signupPage').modal('show');
+		});
+	
+	 $(document).on('click', '#launchSignin', function(){
+	   $('#signupPage').modal('hide');
+	   $('.modal-backdrop').remove();
+	   $('#signinPage').modal('show');
+	});
+ 	</script>
+ 	
 	<body>
-		
 		<nav class="navbar navbar-expand-lg navbar-dark static-top mb-3 shadow colorNavbar">
 			<a class="navbar-brand textColorNavbar" href="/WebApplication/"> <img src="resources/img/logo_idm7.png" height="30"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,8 +73,7 @@
 		</nav>
 		
 		<!--content of signin page-->
-
-		<div class="modal fade" id="signinPage">
+		<div class="modal" id="signinPage">
 			<div class="modal-dialog">
 		    	<div class="modal-content">
 		      
@@ -82,7 +93,7 @@
 						    	<label>Password:</label>
 						       	<input type="password" name="password" class="form-control input_pass" value="" placeholder="*********">
 						       	<br>
-						        <p class="font-small blue-text d-flex justify-content-end"> Non ti sei ancora registrato? <a href="http://localhost:<%out.print(porta); out.print(path);%>/signUp" class="blue-text ml-1">Registrati</a></p>
+						        <p class="font-small d-flex justify-content-end"> Non ti sei ancora registrato? <a class="nav-link textColorLogin" href="" data-toggle="modal" data-target="#signupPage" id="launchSignup"><i class="bi bi-box-arrow-in-left"></i>Registrati</a></p>
 						 	</div>
 							<div class="text-center mb-3">
 								<button type="submit" class="btn btn-primary btn-block z-depth-1a"><i class="bi bi-box-arrow-in-left"></i> Login</button>
@@ -93,5 +104,140 @@
 			</div> 
 		</div>
 		
+		<!--content of obligatory signin page-->
+		<div class="modal" id="signinPage2">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      
+			    	<div class="modal-header text-center">
+			        	<h3 class="modal-title w-100 dark-grey-text font-weight-bold"> <i class="bi bi-box-arrow-in-left"></i> Log In</h3>
+			        	<button type="button" class="close" data-dismiss="modal" aria-lable="close">&times;</button>
+			      	</div>
+		
+		      		<div class="modal-body mx-4">
+						<form action="http://localhost:<%out.print(porta); out.print(path);%>/login" method="POST" >
+							<div class="md-form">
+						    	<label>Username:</label>
+						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
+						    </div>
+							<br>
+						    <div class="md-form">
+						    	<label>Password:</label>
+						       	<input type="password" name="password" class="form-control input_pass" value="" placeholder="*********">
+						       	<br>
+						    </div>
+							<div class="text-center mb-3">
+								<button type="submit" class="btn btn-primary btn-block z-depth-1a"><i class="bi bi-box-arrow-in-left"></i> Login</button>
+							</div>	
+						</form>
+		      		</div>
+				</div>
+			</div> 
+		</div>
+		
+		<!--content of signup page-->
+		<div class="modal" id="signupPage">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      
+			    	<div class="modal-header text-center">
+			        	<h3 class="modal-title w-100 dark-grey-text font-weight-bold"> <i class="bi bi-box-arrow-in-left"></i> Sign up</h3>
+			        	<button type="button" class="close" data-dismiss="modal" aria-lable="close">&times;</button>
+			      	</div>
+		
+		      		<div class="modal-body mx-4">
+						<form action="http://localhost:<%out.print(porta); out.print(path);%>/signUpCreate" method="POST" >
+							<div class="md-form">
+						    	<label>Username:</label>
+						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
+						    </div>
+							<br>
+						    <div class="md-form">
+						    	<label>Password:</label>
+						       	<input type="password" name="password" class="form-control input_pass" value="" placeholder="*********">
+						       	<br>
+						       	<label>Conferma password:</label>
+						       	<input type="password" name="confirm_password" class="form-control input_pass" value="" placeholder="*********">
+						       	<br>
+						        <p class="font-small blue-text d-flex justify-content-end">Sei già registrato? <a class="nav-link textColorLogin" data-toggle="modal" data-target="#signinPage" href="" id="launchSignin"><i class="bi bi-box-arrow-in-left"></i>Accedi</a></p>
+						 	</div>
+							<div class="text-center mb-3">
+								<button type="submit" class="btn btn-primary btn-block z-depth-1a"><i class="bi bi-box-arrow-in-left"></i> Registrati</button>
+							</div>	
+						</form>
+		      		</div>
+				</div>
+			</div> 
+		</div>
+		
+		<!--content of obligatory signup page -->
+		<div class="modal" id="signupPage2">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      
+			    	<div class="modal-header text-center">
+			        	<h3 class="modal-title w-100 dark-grey-text font-weight-bold"> <i class="bi bi-box-arrow-in-left"></i> Sign up</h3>
+			        	<button type="button" class="close" data-dismiss="modal" aria-lable="close">&times;</button>
+			      	</div>
+		
+		      		<div class="modal-body mx-4">
+						<form action="http://localhost:<%out.print(porta); out.print(path);%>/signUpCreate" method="POST" >
+							<div class="md-form">
+						    	<label>Username:</label>
+						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
+						    </div>
+							<br>
+						    <div class="md-form">
+						    	<label>Password:</label>
+						       	<input type="password" name="password" class="form-control input_pass" value="" placeholder="*********">
+						       	<br>
+						       	<label>Conferma password:</label>
+						       	<input type="password" name="confirm_password" class="form-control input_pass" value="" placeholder="*********">
+						       	<br>
+						    </div>
+							<div class="text-center mb-3">
+								<button type="submit" class="btn btn-primary btn-block z-depth-1a"><i class="bi bi-box-arrow-in-left"></i> Registrati</button>
+							</div>	
+						</form>
+		      		</div>
+				</div>
+			</div> 
+		</div>
+		
+		
+		<!--content of change psw page-->
+		<div class="modal" id="changePsw">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      
+			    	<div class="modal-header text-center">
+			        	<h3 class="modal-title w-100 dark-grey-text font-weight-bold"> <i class="bi bi-lock"></i> Change Password</h3>
+			        	<button type="button" class="close" data-dismiss="modal" aria-lable="close">&times;</button>
+			      	</div>
+		
+		      		<div class="modal-body mx-4">
+						<form action="http://localhost:<%out.print(porta); out.print(path);%>/changePsw" method="POST" >
+							<div class="md-form">
+						    	<label>Username:</label>
+						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
+						    </div>
+							<br>
+						    <div class="md-form">
+						    	<label>Password:</label>
+						       	<input type="password" name="password" class="form-control input_pass" value="" placeholder="*********">
+						       	<br>
+						       	<label>Conferma password:</label>
+						       	<input type="password" name="confirm_password" class="form-control input_pass" value="" placeholder="*********">
+						       	<br>
+						    </div>
+							<div class="text-center mb-3">
+								<button type="submit" class="btn btn-primary btn-block z-depth-1a"><i class="bi bi bi-lock"></i>Cambia password</button>
+							</div>	
+						</form>
+		      		</div>
+				</div>
+			</div> 
+		</div>
+
 	</body>
 </html>

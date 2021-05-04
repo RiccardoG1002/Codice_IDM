@@ -35,11 +35,11 @@
 	<body>
 	
 		<jsp:include page="navBar.jsp"></jsp:include>
-			
-		<div class="d-flex justify-content-center text-center" >
-			<div class="bg-light shadow p-3 mb-5 bg-body rounded table-wrapper-scroll-y my-custom-scrollbar" style="height: 80%">
+
+		<div class="d-flex justify-content-center text-center">
+			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
 				<form action="http://localhost:8080/WebApplication/apply" method="POST" id="form_paesi" name="form_paesi">
-					<table id="table">
+					<table id="table" class="table-wrapper-scroll-y my-custom-scrollbar">
 						<tr>
 							<th>Country searched</th>
 							<th>Country found</th>
@@ -51,37 +51,34 @@
 						<c:forEach items="${ patternList }" var="p">
 							<tr>
 								<td><c:out value="${ p.userPattern }"/></td>
-								
 								<td> 
 									<div class="input-group">
 										  <select class="custom-select" id="${ p.userPattern }" onchange="OnSelectCountry(&quot;${ p.userPattern }&quot;, this);">
 										    <option  selected>${p.country.name}</option>
-										    
 										    <c:forEach items="${countryList}" var="country"> 
 												 <option value="${country.name}">${country.name}</option>
 											</c:forEach>
-										    
 										  </select>
-										  
 									</div>
 								</td>
 								
 								<td><c:out value="${ p.algorithm }"/></td>
-							
+
 								<td><input name="approved" type="checkbox" value="${ p.userPattern }"></td>
 								<td><input name="removed" type="checkbox" value="${ p.userPattern }"></td>
 							</tr>
 			
 						</c:forEach>
 					</table>
-	
-					<div class="d-flex justify-content-center" style="margin-top: 2%;">
-					<br>
-						<button class="btn searchBtn justify-content-center " type="submit">Confirm</button>
-					</div>
+
 				</form>
+				<div class="d-flex justify-content-center" style="margin-top: 2%;">
+					<br>
+					<button class="btn searchBtn justify-content-center " type="submit">Confirm</button>
+				</div>
 			</div>
-		</div>		
+		</div>
+
 	</body>
 </html>
 

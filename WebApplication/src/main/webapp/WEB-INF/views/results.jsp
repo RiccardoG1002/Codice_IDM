@@ -36,64 +36,62 @@
 		</c:if>
 		
 		<!-- ANGULAR -->
-		<div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 80%">
-			<div ng-app="myApp" ng-controller="customersCtrl" style="overflow:hidden"> 
-				
-				<input id="codice" type="hidden"  value="${ country.code }">
-				
-				<div class="container" style="width:20%;" >
-					<img src="{{myData.flag}}" class="image">
-					<div class="overlay">
-						<div class="text">
-							<h2>${ country.name }</h2>
-						</div>
-					</div>		
-				</div>
-				
-				<!-- visualizza nazione -->
-				<br>
-				<div class="d-flex justify-content-center text-center">
-					<div class="bg-light shadow p-3 mb-5 bg-body rounded ">
-						<table class="table">
-							
-						  	<tr ng-show="myData">
-						    	<td> <strong>Name:</strong> {{ myData.name }} </td>
-						    </tr>
-						    
-						    <tr ng-show="myData">
-						   		<td> <strong>Code:</strong> {{ myData.alpha2Code }}</td>
-						    </tr>
-						    
-						    <tr ng-show="myData">
-						    	<td> <strong>Capital:</strong> {{ myData.capital }}</td>
-						    </tr>
-						    
-						    <tr ng-show="myData">
-						    	<td> <strong>Population:</strong> {{ myData.population }}</td>
-						    </tr>
-						    
-						    <tr ng-show="myData">
-						    	<td> <strong>Native name:</strong> {{ myData.nativeName }}</td>
-						    </tr>
-						    
-						    <tr ng-show="myData">
-						    	<td> <strong>Region:</strong> {{ myData.region }}<td>
-						    </tr>
-						    
-						    <tr ng-show="myData">
-						    	<td> <strong>Calling code:</strong> {{ myData.callingCodes }}</td>
-						    </tr>
-						    
-						    <tr ng-show="myData">
-						    	<td> <strong>Currency:</strong> {{ myData.currencies[0].name }}</td>
-						    </tr>
-						  
-						</table>
+		<div ng-app="myApp" ng-controller="customersCtrl" style="overflow:hidden"> 
+			
+			<input id="codice" type="hidden"  value="${ country.code }">
+			
+			<div class="container" style="width:20%;" >
+				<img src="{{myData.flag}}" class="image">
+				<div class="overlay">
+					<div class="text">
+						<h2>${ country.name }</h2>
 					</div>
+				</div>		
+			</div>
+			
+			<!-- visualizza nazione -->
+			<br>
+			<div class="d-flex justify-content-center text-center">
+			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+				<table class="table" class="table-wrapper-scroll-y my-custom-scrollbar">
+						
+					  	<tr ng-show="myData">
+					    	<td> <strong>Name:</strong> {{ myData.name }} </td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					   		<td> <strong>Code:</strong> {{ myData.alpha2Code }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Capital:</strong> {{ myData.capital }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Population:</strong> {{ myData.population }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Native name:</strong> {{ myData.nativeName }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Region:</strong> {{ myData.region }}<td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Calling code:</strong> {{ myData.callingCodes }}</td>
+					    </tr>
+					    
+					    <tr ng-show="myData">
+					    	<td> <strong>Currency:</strong> {{ myData.currencies[0].name }}</td>
+					    </tr>
+					  
+					</table>
 				</div>
 			</div>
 		</div>
-	
+			
 		<script>
 		var app = angular.module('myApp', []);
 		

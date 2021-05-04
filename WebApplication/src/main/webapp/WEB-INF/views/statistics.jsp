@@ -11,6 +11,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
+		<link rel="stylesheet" href="resources/home.css">
 		<link rel="stylesheet" href="resources/table.css">
 		<link rel="stylesheet" href="resources/approve.css">
 	</head>
@@ -19,22 +20,20 @@
 
 		<jsp:include page="navBar.jsp"></jsp:include>
 		
-		<div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 80%">
-			<div class="d-flex justify-content-center text-center" >
-				<div class="bg-light shadow p-3 mb-5 bg-body rounded" style="width:20%;">
-					<table id="table"  style="width:100%;">
+		<div class="d-flex justify-content-center text-center" >
+			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+				<table id="table" class="table-wrapper-scroll-y my-custom-scrollbar">
+					<tr>
+						<th>Algorithm</th>
+						<th>#Success</th>
+					</tr>
+					<c:forEach items="${list}" var="item">
 						<tr>
-							<th>Algorithm</th>
-							<th>#Success</th>
+							<td>${item.algoritmo}</td>
+							<td>${item.num}</td>
 						</tr>
-						<c:forEach items="${list}" var="item">
-							<tr>
-								<td>${item.algoritmo}</td>
-								<td>${item.num}</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
+					</c:forEach>
+				</table>
 			</div>
 		</div>
 			

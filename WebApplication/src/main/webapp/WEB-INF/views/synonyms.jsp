@@ -18,40 +18,41 @@
 		<link rel="stylesheet" href="resources/search.css">
 		<link rel="stylesheet" href="resources/searchResults.css">
 		<link rel="stylesheet" href="resources/approve.css">
+		<link rel="stylesheet" href="resources/table.css">
 		
 	</head>
 	<body>
 
 		<jsp:include page="navBar.jsp"></jsp:include>
 		
-		<div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 80%">
-			<div ng-app="myApp" ng-controller="customersCtrl" style="overflow:hidden"> 
-				
-				<input id="codice" type="hidden"  value="${ first.country.code }">
-				
-				<div class="container" style="width:20%;" >
-					<img src="{{myData.flag}}" class="image">
-					<div class="overlay">
-						<div class="text">
-							<h2>${ first.country.name }</h2>
-						</div>
-					</div>		
-				</div>
-				<br>
-				
-				<div class="d-flex justify-content-center text-center">
-					<div class="bg-light shadow p-3 mb-5 bg-body rounded" style="width:20%;">
-						<c:if test = "${first != null}">
-					    	<h2>Synonyms </h2>
-					    </c:if>  
-						<ul class="list-group">
-							<c:forEach items="${synonyms}" var="pattern">
-								<li class="list-group-item">
-								${pattern.userPattern}
-								</li>
-							</c:forEach>
-						</ul>
+		<div ng-app="myApp" ng-controller="customersCtrl"> 
+			
+			<input id="codice" type="hidden"  value="${ first.country.code }">
+			
+			<div class="container" style="width:20%;" >
+				<img src="{{myData.flag}}" class="image">
+				<div class="overlay">
+					<div class="text">
+						<h2>${ first.country.name }</h2>
 					</div>
+				</div>		
+			</div>
+			<br>
+			
+			<div class="d-flex justify-content-center text-center">
+				<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+					<table id="table" class="table-wrapper-scroll-y my-custom-scrollbar">
+						<tr>
+							<c:if test = "${first != null}">
+						    	<th>Synonyms of ${first.country.name }</th>
+						    </c:if>  
+						</tr>
+						<c:forEach items="${synonyms}" var="pattern">
+							<tr>
+							<td>${pattern.userPattern}</td>
+							</tr>
+						</c:forEach>
+					</table>
 				</div>
 			</div>
 		</div>

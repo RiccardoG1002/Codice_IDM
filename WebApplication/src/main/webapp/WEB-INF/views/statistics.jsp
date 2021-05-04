@@ -5,12 +5,11 @@
 		<title>Statistics</title>
   		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	
+		
+		<!--Chart js  -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+		
+		
 		<link rel="stylesheet" href="resources/home.css">
 		<link rel="stylesheet" href="resources/table.css">
 		<link rel="stylesheet" href="resources/approve.css">
@@ -20,7 +19,9 @@
 
 		<jsp:include page="navBar.jsp"></jsp:include>
 		
-		<div class="d-flex justify-content-center text-center" >
+	<div class="container">
+  	<div class="row">
+  		<div class="d-flex justify-content-center text-center" >
 			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
 				<table id="table" class="table-wrapper-scroll-y my-custom-scrollbar">
 					<tr>
@@ -36,6 +37,90 @@
 				</table>
 			</div>
 		</div>
-			
+		</div>
+			 <div class="container col-md-4 justify-content-center" style="margin-top: 5%;">
+		<canvas id="pie-chart"></canvas>
+		</div>
+   
+    </div>
+  </div>
+  
+	
+		<script type="text/javascript">
+		
+		/*
+		
+		new Chart(document.getElementById("pie-chart"), {
+		    type: 'pie',
+		    data: {
+		      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+		      datasets: [{
+		        label: "Population (millions)",
+		        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+		        data: [2478,5267,734,784,433]
+		      }]
+		    },
+		    options: {
+		      title: {
+		        display: true,
+		        text: 'Predicted world population (millions) in 2050'
+		      }
+		    }
+		});
+		
+		*/
+		
+		
+		
+		  $(document).ready(function() {
+			  
+			  if(jQuery){
+				  console.log('yes');
+				  }
+		      $.ajax({
+		        url: "/WebApplication/chart",
+		        success: function(list) {
+
+		          var algoList = [];
+		          var statData = [];
+		          for (var i = 0; i < list.length; i++) {
+
+		            algoList.push(list[i].algoritmo);
+		            statData.push(list[i].num);
+		          }
+		          
+		          console.log(algoList);
+		          console.log(statData);
+
+		  		new Chart(document.getElementById("pie-chart"), {
+		  		    type: 'pie',
+		  		    data: {
+		  		      labels: algoList,
+		  		      datasets: [{
+		  		      
+		  		    	backgroundColor:["#50514f","#b4adea","#fdfff7","#59ffa0","#ff0841","#e77728","#3d2c00","#ff5714","#ff6b6c","#d58936"],
+		  		        data: statData
+		  		        
+		  		      }]
+		  		    },
+		  		    options: {
+		  		    	 legend: {
+		  	                labels: {
+		  	                    fontColor: "#FFFFFF",
+		  	                    fontSize: 14
+		  	                }
+		  	            }
+		  		    
+		  		    }
+		  		});
+
+		        
+		        }
+		      })
+
+		    });
+
+		
+		</script>
 	</body>
 </html>

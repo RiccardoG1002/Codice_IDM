@@ -18,8 +18,7 @@
 		<link rel="stylesheet" href="resources/searchResults.css">
 	</head>
 	<body>
-	
-		<img class="immBack" id="search" src="resources/img/search-background.jpg"/>
+
 		<jsp:include page="navBar.jsp"></jsp:include>
 		
 		<div ng-app="myApp" ng-controller="customersCtrl" style="overflow:hidden"> 

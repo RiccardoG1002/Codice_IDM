@@ -17,10 +17,6 @@
 	
 	<body>
 		
-		
-		<div class="imgCover"></div>
-		<img class="immBack" id="search" src="resources/img/search-background.jpg"/>
-		
 		<jsp:include page="navBar.jsp"></jsp:include>
 
 		<c:if test = "${message != null}">
@@ -30,8 +26,8 @@
 			</div>
 		</c:if>
 		
-		<div class="col-md-4 offset-md-4">
-		<img name="world" src="resources/img/world.png" height="150" alt="world" style="padding-left:9%; padding-right:9%; margin-top: 20%">
+		<div  class="col-md-5 offset-md-5">
+		<img name="logo" src="resources/img/logo_idm7.png" height="100" alt="logo" style="margin-bottom:2%;margin-top: 40%">
 			<form class="form-inline" action="http://localhost:8080/WebApplication/synonyms" method="GET">
 				<input name="find" class="searchForm" type="text" placeholder="Country" aria-label="Recipient's username" aria-describedby="Search">
 				<button class="btn btn-info searchBtn" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>

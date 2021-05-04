@@ -11,16 +11,22 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
+		<link rel="stylesheet" href="resources/home.css">
 		<link rel="stylesheet" href="resources/search.css">
+		<link rel="stylesheet" href="resources/stars.css">
 		
 	</head>
 	
 	<body>
-
-		<div class="imgCover"></div>
-		<img class="immBack" id="search" src="resources/img/search-background.jpg"/>
-		
 		<jsp:include page="navBar.jsp"></jsp:include>
+		
+		<div id="stars">
+			<div id="stars2">
+				<div id="stars3">
+				</div>
+			</div>
+		</div>
+		
 		
 		<c:if test = "${message != null}">
 			<div id="noCountryAlert" class="alert alert-danger alert-dismissible text-center" role="alert">
@@ -44,8 +50,8 @@
 			</div>
 		</c:if>
 		
-		<div  class="col-md-4 offset-md-4">
-		<img name="world" src="resources/img/Globe.png" height="200" alt="world" style="padding:5%; margin-top: 20%">
+		<div  class="col-md-5 offset-sm-5">
+		<img name="logo" src="resources/img/logo_idm7.png" height="100" alt="logo" style="margin-bottom:2%;margin-top: 40%">
 			<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
 		  		<input name="find" type="text" class="searchForm" placeholder="Country" aria-label="Recipient's username" aria-describedby="Search">
 		 	 	<button class="btn btn-info searchBtn" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>

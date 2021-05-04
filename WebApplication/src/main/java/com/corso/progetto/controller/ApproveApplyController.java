@@ -47,7 +47,7 @@ public class ApproveApplyController {
 		while (a.asIterator().hasNext()) {
 			String s = a.asIterator().next();
 			if(s.contains("selected")) {
-				System.out.println(s + " " + request.getParameter(s));
+				//System.out.println(s + " " + request.getParameter(s));
 				String s2 = s.replaceAll("_selected", "");
 			    pDAO.updateCountry(s2,request.getParameter(s));
 			}

@@ -22,7 +22,7 @@ public class StatAlgoritmoDAOImpl extends BaseDAO<StatAlgoritmo> implements Stat
 		try {
 			tx = session.beginTransaction();
 			
-			String hql = "From "+ StatAlgoritmo.class.getSimpleName();
+			String hql = "From "+ StatAlgoritmo.class.getSimpleName() + " where algoritmo is not null";
 			Query q = session.createQuery(hql);
 		    algoritmi =  q.getResultList();
 			

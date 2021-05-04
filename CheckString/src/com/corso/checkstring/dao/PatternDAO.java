@@ -10,6 +10,7 @@ public interface PatternDAO {
 	public String save(Pattern dto);
 	public Pattern get(Id id);
 	public Pattern[] getPendingPatterns();
+	public Pattern getPatternByName(String name);
 	int setApprove(String userPattern, int approve);
 	public int deletePattern(String userPattern);
 	public int updateCountry(String userPattern, String newCountry);

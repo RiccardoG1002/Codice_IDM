@@ -20,24 +20,24 @@
 		<div class="container">
   <div class="row">
   
-  <div class="container col-md-4 justify-content-center"  style="margin-top: 5%;">
-			
-				<table id="table">
-					<tr>
-						<th>Algorithm</th>
-						<th>#Success</th>
-					</tr>
-					
-					<c:forEach items="${list}" var="item">
-					
+  <div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 80%">
+			<div class="d-flex justify-content-center text-center" >
+				<div class="bg-light shadow p-3 mb-5 bg-body rounded" style="width:20%;">
+					<table id="table"  style="width:100%;">
 						<tr>
-							<td>${item.algoritmo}</td>
-							<td>${item.num}</td>
+							<th>Algorithm</th>
+							<th>#Success</th>
 						</tr>
-					
-					</c:forEach>
-				</table>
+						<c:forEach items="${list}" var="item">
+							<tr>
+								<td>${item.algoritmo}</td>
+								<td>${item.num}</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
 			</div>
+		</div>
   
   <div class="container col-md-4 justify-content-center" style="margin-top: 5%;">
 		<canvas id="pie-chart"></canvas>

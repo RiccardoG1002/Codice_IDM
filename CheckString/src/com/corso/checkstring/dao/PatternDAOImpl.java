@@ -202,4 +202,35 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 		
 		return res;
 	}
+
+	@Override
+	public Pattern getPatternByName(String name) {
+
+		Session session = getFactory().openSession();
+		Transaction tx = null;
+		List<Pattern> patternList = null;
+		
+		Pattern p=null;
+		
+		try {
+			tx = session.beginTransaction();
+			
+			String hql = "FROM Pattern WHERE userPattern=:userPattern";
+			Query q = session.createQuery(hql);
+			q.setParameter("userPattern", name);
+			p = (Pattern) q.getSingleResult();
+			tx.commit();
+		}
+		catch(HibernateException e) {
+			if(tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		
+		return p;
+	}
 }

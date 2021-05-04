@@ -34,11 +34,10 @@
 	
 	<body>
 	
-		<img class="immBack" id="search" src="resources/img/search-background.jpg"/>
 		<jsp:include page="navBar.jsp"></jsp:include>
 			
-		<div class="d-flex justify-content-center text-center table-wrapper-scroll-y my-custom-scrollbar" >
-			
+		<div class="d-flex justify-content-center text-center" >
+			<div class="bg-light shadow p-3 mb-5 bg-body rounded table-wrapper-scroll-y my-custom-scrollbar" style="height: 80%">
 				<form action="http://localhost:8080/WebApplication/apply" method="POST" id="form_paesi" name="form_paesi">
 					<table id="table">
 						<tr>
@@ -75,15 +74,14 @@
 			
 						</c:forEach>
 					</table>
-					</div>
+	
 					<div class="d-flex justify-content-center" style="margin-top: 2%;">
 					<br>
 						<button class="btn searchBtn justify-content-center " type="submit">Confirm</button>
 					</div>
-					
 				</form>
-				
-		
+			</div>
+		</div>		
 	</body>
 </html>
 

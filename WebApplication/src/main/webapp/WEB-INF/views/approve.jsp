@@ -71,11 +71,11 @@
 						</c:forEach>
 					</table>
 
+					<div class="d-flex justify-content-center" style="margin-top: 2%;">
+						<br>
+						<button class="btn searchBtn justify-content-center " type="submit">Confirm</button>
+					</div>
 				</form>
-				<div class="d-flex justify-content-center" style="margin-top: 2%;">
-					<br>
-					<button class="btn searchBtn justify-content-center " type="submit">Confirm</button>
-				</div>
 			</div>
 		</div>
 

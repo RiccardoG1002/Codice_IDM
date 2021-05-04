@@ -19,32 +19,31 @@
 
 		<jsp:include page="navBar.jsp"></jsp:include>
 		
-	<div class="container">
-  	<div class="row">
-  		<div class="d-flex justify-content-center text-center" >
-			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
-				<table id="table" class="table-wrapper-scroll-y my-custom-scrollbar">
-					<tr>
-						<th>Algorithm</th>
-						<th>#Success</th>
-					</tr>
-					<c:forEach items="${list}" var="item">
+	<div class="container" style="margin-top:8%">
+	  	<div class="row">
+	  		<div class="d-flex justify-content-center text-center" >
+				<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+					<table id="table" class="table-wrapper-scroll-y my-custom-scrollbar">
 						<tr>
-							<td>${item.algoritmo}</td>
-							<td>${item.num}</td>
+							<th>Algorithm</th>
+							<th>#Success</th>
 						</tr>
-					</c:forEach>
-				</table>
+						<c:forEach items="${list}" var="item">
+							<tr>
+								<td>${item.algoritmo}</td>
+								<td>${item.num}</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
 			</div>
-		</div>
-		</div>
+	
 			 <div class="container col-md-4 justify-content-center" style="margin-top: 5%;">
-		<canvas id="pie-chart"></canvas>
-		</div>
-   
-    </div>
-  </div>
-  
+				<canvas id="pie-chart"></canvas>
+			</div>
+	   
+	    </div>
+  	</div>
 	
 		<script type="text/javascript">
 		

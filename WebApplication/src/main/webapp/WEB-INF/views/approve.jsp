@@ -36,8 +36,8 @@
 	
 		<jsp:include page="navBar.jsp"></jsp:include>
 			
-		<div class="d-flex justify-content-center text-center" style="margin-top: 4%;">
-			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
+		<div class="d-flex justify-content-center text-center table-wrapper-scroll-y my-custom-scrollbar" >
+			
 				<form action="http://localhost:8080/WebApplication/apply" method="POST" id="form_paesi" name="form_paesi">
 					<table id="table">
 						<tr>
@@ -74,11 +74,15 @@
 			
 						</c:forEach>
 					</table>
+					</div>
+					<div class="d-flex justify-content-center" style="margin-top: 2%;">
+					<br>
+						<button class="btn searchBtn justify-content-center " type="submit">Confirm</button>
+					</div>
 					
-					<button class="btn searchBtn" type="submit">Confirm</button>
 				</form>
-				</div>
-		</div>
+				
+		
 	</body>
 </html>
 

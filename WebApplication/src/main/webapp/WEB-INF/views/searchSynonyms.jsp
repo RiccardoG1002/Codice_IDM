@@ -13,11 +13,20 @@
 	
 		<link rel="stylesheet" href="resources/search.css">
 		<link rel="stylesheet" href="resources/home.css">
+		<link rel="stylesheet" href="resources/stars.css">
+		
 	</head>
 	
 	<body>
 		
 		<jsp:include page="navBar.jsp"></jsp:include>
+		
+		<div id="stars">
+			<div id="stars2">
+				<div id="stars3">
+				</div>
+			</div>
+		</div>
 
 		<c:if test = "${message != null}">
 			<div id="noCountryAlert" class="alert alert-danger alert-dismissible text-center" role="alert">

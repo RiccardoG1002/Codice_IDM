@@ -12,30 +12,31 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
 		<link rel="stylesheet" href="resources/table.css">
+		<link rel="stylesheet" href="resources/approve.css">
 	</head>
 	
 	<body>
 
 		<jsp:include page="navBar.jsp"></jsp:include>
 		
-		<div class="d-flex justify-content-center text-center" style="margin-top: 5%;">
-			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
-				<table id="table">
-					<tr>
-						<th>Algorithm</th>
-						<th>#Success</th>
-					</tr>
-					
-					<c:forEach items="${list}" var="item">
-					
+		<div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 80%">
+			<div class="d-flex justify-content-center text-center" >
+				<div class="bg-light shadow p-3 mb-5 bg-body rounded" style="width:20%;">
+					<table id="table"  style="width:100%;">
 						<tr>
-							<td>${item.algoritmo}</td>
-							<td>${item.num}</td>
+							<th>Algorithm</th>
+							<th>#Success</th>
 						</tr>
-					
-					</c:forEach>
-				</table>
+						<c:forEach items="${list}" var="item">
+							<tr>
+								<td>${item.algoritmo}</td>
+								<td>${item.num}</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
 			</div>
 		</div>
+			
 	</body>
 </html>

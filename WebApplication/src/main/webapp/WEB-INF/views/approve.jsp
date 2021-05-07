@@ -77,7 +77,7 @@
 					
 				</form>
 				
-				<form action="http://localhost:8080/WebApplication/approve" method="GET" >
+				<form action="${baseURL}/approve" method="GET" >
 					<c:if test="${param.page > 0}">
 						<button class="btn justify-content-center" type="submit" name="page" value="${param.page-1}">prev</button>
 					</c:if>

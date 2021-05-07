@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -34,6 +35,7 @@
  	</script>
  	
 	<body>
+		<c:set var="baseURL" value="${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, pageContext.request.contextPath)}" />
 		<nav class="navbar navbar-default navbar-static-top navbar-expand-lg navbar-dark mb-3 shadow colorNavbar">
 			<a class="navbar-brand textColorNavbar" href="/WebApplication/"> <img src="resources/img/logo_idm7.png" height="30"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +65,7 @@
 						</li>
 					</c:if>
 					<c:if test="${ isSearching }">
-						<form class="form-inline" action="http://localhost:8080/WebApplication/results" method="GET">
+						<form class="form-inline" action="${baseURL}/results" method="GET">
 							<input name="find" class="form-control mr-2" type="text" placeholder="Country" aria-label="Search">
 							<button class="btn searchBtn" type="submit">Search</button>
 						</form>
@@ -83,7 +85,7 @@
 			      	</div>
 		
 		      		<div class="modal-body mx-4">
-						<form action="http://localhost:<%out.print(porta); out.print(path);%>/login" method="POST" >
+						<form action="${baseURL}/login" method="POST" >
 							<div class="md-form">
 						    	<label>Username:</label>
 						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
@@ -115,7 +117,7 @@
 			      	</div>
 		
 		      		<div class="modal-body mx-4">
-						<form action="http://localhost:<%out.print(porta); out.print(path);%>/login" method="POST" >
+						<form action="${baseURL}/login" method="POST" >
 							<div class="md-form">
 						    	<label>Username:</label>
 						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
@@ -146,7 +148,7 @@
 			      	</div>
 		
 		      		<div class="modal-body mx-4">
-						<form action="http://localhost:<%out.print(porta); out.print(path);%>/signUpCreate" method="POST" >
+						<form action="${baseURL}/signUpCreate" method="POST" >
 							<div class="md-form">
 						    	<label>Username:</label>
 						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
@@ -181,7 +183,7 @@
 			      	</div>
 		
 		      		<div class="modal-body mx-4">
-						<form action="http://localhost:<%out.print(porta); out.print(path);%>/signUpCreate" method="POST" >
+						<form action="${baseURL}/signUpCreate" method="POST" >
 							<div class="md-form">
 						    	<label>Username:</label>
 						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">
@@ -215,7 +217,7 @@
 			      	</div>
 		
 		      		<div class="modal-body mx-4">
-						<form action="http://localhost:<%out.print(porta); out.print(path);%>/changePsw" method="POST" >
+						<form action="${baseURL}/changePsw" method="POST" >
 							<div class="md-form">
 						    	<label>Username:</label>
 						       	<input type="text" name="username" class="form-control input_user" value="" placeholder="example123...">

@@ -31,15 +31,15 @@
 		              <a href="https://www.linkedin.com/in/francesco-giusti-developer" class="text-white">Francesco Giusti</a>
 		            </li>
 		            <li>
-		              <a href="https://github.com/RiccardoG1002" class="text-white">Riccardo Gallelli</a>
+		              <a href="https://www.linkedin.com/in/riccardo-gallelli-7b5749209" class="text-white">Riccardo Gallelli</a>
 		            </li>
 		            
 		            <li>
-		              <a href="https://github.com/Mohamed164" class="text-white">Mohamed Allam</a>
+		              <a href="http://linkedin.com/in/mohamed-allam-b04973a4" class="text-white">Mohamed Allam</a>
 		            </li>
 		            
 		            <li>
-		              <a href="#!" class="text-white">Raissa Paganone</a>
+		              <a href="https://www.linkedin.com/in/raissa-paganone-8b017b178" class="text-white">Raissa Paganone</a>
 		            </li>
 		            
 		          </ul>

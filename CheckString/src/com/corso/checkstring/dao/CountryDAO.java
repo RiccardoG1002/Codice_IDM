@@ -14,7 +14,7 @@ public interface CountryDAO {
 	public ArrayList<String> getColumnFromTable(String field);
 	public boolean isEmpty();
 	public Country getCountryByName(Serializable name);
-	public List<Pattern> getPatternsFromCountryID(Id id);
+	public List<Pattern> getPatternsFromCountryID(Country country);
 	public List<Country> getCountries();
 	public Country getCountry(String code);
 }

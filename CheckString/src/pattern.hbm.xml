@@ -9,7 +9,7 @@
 			<generator class="assigned"/>		
 		</id>
 		
-		<many-to-one name="country" class="com.corso.checkstring.beans.Country" fetch="join">
+		<many-to-one name="country" class="com.corso.checkstring.beans.Country" fetch="join" >
 			<column name="country" not-null="false"/>
 		</many-to-one>
 		

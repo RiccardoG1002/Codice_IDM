@@ -1,19 +1,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="java.util.*" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Approve</title>
-  		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"></link>
+  	
 		<link rel="stylesheet" href="resources/approve.css">
 		<link rel="stylesheet" href="resources/search.css">
 		<link rel="stylesheet" href="resources/table.css">
 	</head>
-	
 	
 	<script>
 	 	
@@ -31,15 +26,15 @@
 		}
 	</script>
 	
-	
 	<body>
-	
+		
 		<jsp:include page="navBar.jsp"></jsp:include>
-
-		<div class="d-flex justify-content-center text-center">
-			<div class="bg-light shadow p-3 mb-5 bg-body rounded">
-				<form action="http://localhost:8080/WebApplication/apply" method="POST" id="form_paesi" name="form_paesi">
-					<table id="table" class="table-wrapper-scroll-y my-custom-scrollbar">
+		<c:set var="baseURL" value="${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, pageContext.request.contextPath)}" />
+		
+		<div class="container">
+			<div class="shadow p-3 mb-5 rounded">
+				<form action="${baseURL}/apply" method="POST" id="form_paesi" name="form_paesi">
+					<table id="table" class="justify-content-center text-center">
 						<tr>
 							<th>Country searched</th>
 							<th>Country found</th>
@@ -71,14 +66,33 @@
 						</c:forEach>
 					</table>
 
-					<div class="d-flex justify-content-center" style="margin-top: 2%;">
+					
 						<br>
-						<button class="btn searchBtn justify-content-center " type="submit">Confirm</button>
-					</div>
+						
+						
+						
+						<button class="btn searchBtn justify-content-center float-right" type="submit">Confirm</button>
+						
+				
+					
+				</form>
+				
+				<form action="http://localhost:8080/WebApplication/approve" method="GET" >
+					<c:if test="${param.page > 0}">
+						<button class="btn justify-content-center" type="submit" name="page" value="${param.page-1}">prev</button>
+					</c:if>
+					
+					<c:if test="${fn:length(patternList) gt 5}">
+						<button class="btn justify-content-center" type="submit" name= "page" value="${param.page+1}">next</button>
+					</c:if>
+					
 				</form>
 			</div>
+				
 		</div>
 
+		<jsp:include page="footer.jsp"></jsp:include>
+		
 	</body>
 </html>
 

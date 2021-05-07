@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.corso.checkstring.algorithms.Algorithm;
+import com.corso.checkstring.algorithms.CountryAlgorithm;
 import com.corso.checkstring.algorithms.CheckDatabase;
 import com.corso.checkstring.algorithms.Levenshtein;
 import com.corso.checkstring.algorithms.SoundEx;
@@ -27,13 +27,12 @@ public class ResultsController {
 	@GetMapping(value = "/results")
 	public String showResults(@RequestParam("find") String find, Model model, HttpServletRequest request)
 			throws IOException {
-
-		Algorithm algorithm = (Algorithm) new ClassPathXmlApplicationContext("algorithms.xml").getBean("checkString");
+		ClassPathXmlApplicationContext contextAlgos = new ClassPathXmlApplicationContext("algorithms.xml");
+		ClassPathXmlApplicationContext contextDAOs = new ClassPathXmlApplicationContext("daos.xml");
 		
+		CountryAlgorithm<?> algorithm = (CountryAlgorithm<?>) contextAlgos.getBean("checkString");
 		Country country = algorithm.getMostSimilarCountry(find); 
 
-		PatternDAO pDao = new PatternDAOImpl();
-		Pattern pattern = pDao.getPatternByName(find);
 		
 		String message = null;
 		String ret = "";
@@ -42,17 +41,18 @@ public class ResultsController {
 			model.addAttribute("isSearching", true);
 			model.addAttribute("country", country);
 			
-			if(request.getSession()!=null && request.getSession().getAttribute("isAdmin")!=null) {
-				if (pattern.getApproved()==0) {
-					model.addAttribute("message", "Questo risultato non è stato ancora approvato");
-				}
+	//		if(request.getSession()!=null && request.getSession().getAttribute("isAdmin")!=null) {
+			if (!country.isFromApprovedSource()) {
+				model.addAttribute("message", "Questo risultato non è stato ancora approvato");
 			}
+	
+	//		}
 			ret = "results";
 		} else {
 			message = "Paese " + find + " non trovato";
 			model.addAttribute("message", message);
 			ret = "search";
 		}	
-		return "results";
+		return ret;
 	}
 }

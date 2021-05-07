@@ -1,6 +1,5 @@
 package com.corso.checkstring.algorithms;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -11,15 +10,15 @@ import com.corso.checkstring.dao.CountryDAOImpl;
 import com.corso.checkstring.dao.PatternDAO;
 import com.corso.checkstring.dao.PatternDAOImpl;
 
-public abstract class Algorithm<T> {
-	private Algorithm<T> next = null;
-	private static Collection<String> collection = null;
+public abstract class CountryAlgorithm<T> {
+	private CountryAlgorithm<?> next = null;
+
 	
-	public void setNext(Algorithm next) {
+	public void setNext(CountryAlgorithm<?> next) {
 		this.next = next;
 	}
 	
-	protected Algorithm getNext() {
+	protected CountryAlgorithm<?> getNext() {
 		return next;
 	}
 	
@@ -30,12 +29,13 @@ public abstract class Algorithm<T> {
 		if(input.equals(""))
 			return null;		
 		
-		if (collection == null) {
-			CountryDAO cDAO = new CountryDAOImpl();
-			 collection = cDAO.getColumnFromTable("name");
-			input = input.toLowerCase();
-			collection = collection.stream().map(x -> x.toLowerCase()).collect(Collectors.toList());
-		}
+	//	if (collection == null) {
+		Collection<String> collection = null;
+		CountryDAO cDAO = new CountryDAOImpl();
+		collection = cDAO.getColumnFromTable("name");
+		input = input.toLowerCase();
+		collection = collection.stream().map(x -> x.toLowerCase()).collect(Collectors.toList());
+//		}
 		
 		
 		T res = checkString(input, collection);

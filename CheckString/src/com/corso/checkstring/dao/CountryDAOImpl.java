@@ -12,6 +12,7 @@ import org.hibernate.query.Query;
 import com.corso.checkstring.beans.Country;
 import com.corso.checkstring.beans.Id;
 import com.corso.checkstring.beans.Pattern;
+import com.corso.checkstring.beans.StatAlgoritmo;
 
 public class CountryDAOImpl extends BaseDAO<Country> implements CountryDAO {
 
@@ -34,20 +35,18 @@ public class CountryDAOImpl extends BaseDAO<Country> implements CountryDAO {
 	}
 
 	@Override
-	public List<Pattern> getPatternsFromCountryID(Id id) {
-
+	public List<Pattern> getPatternsFromCountryID(Country id) {
 		Session session = getFactory().openSession();
 		Transaction tx = null;
-		List<Pattern> patternList = null;
+		List<Pattern> patterns = null;
 		
 		try {
 			tx = session.beginTransaction();
 			
-			String hql = "FROM Pattern WHERE country=:id";
+			String hql = "From "+ Pattern.class.getSimpleName() + " where country=:id";
 			Query q = session.createQuery(hql);
 			q.setParameter("id", id);
-			
-			patternList = (List<Pattern>) q.list();
+		    patterns =  q.getResultList();
 			
 			tx.commit();
 		}
@@ -61,8 +60,9 @@ public class CountryDAOImpl extends BaseDAO<Country> implements CountryDAO {
 			session.close();
 		}
 		
-		return patternList;
+		return patterns;
 	}
+
 	
 
 	@Override
@@ -83,6 +83,7 @@ public class CountryDAOImpl extends BaseDAO<Country> implements CountryDAO {
 			
 			String hql = "FROM Country ORDER BY name asc";
 			Query q = session.createQuery(hql);
+			q.setCacheable(true);
 			
 			countryList = (List<Country>) q.list();
 			

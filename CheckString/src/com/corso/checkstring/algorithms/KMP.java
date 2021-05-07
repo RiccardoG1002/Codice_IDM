@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class KMP extends Algorithm<Match> {
+public class KMP extends CountryAlgorithm<Match> {
     public Match checkString(String string, Collection<String> list) {
 		for(String s: list) {
 			if(s.length() < string.length()) {

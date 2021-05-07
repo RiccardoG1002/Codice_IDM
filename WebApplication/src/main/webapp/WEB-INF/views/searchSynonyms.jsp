@@ -1,18 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Search Synonyms</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	
 		<link rel="stylesheet" href="resources/search.css">
-		<link rel="stylesheet" href="resources/home.css">
 		<link rel="stylesheet" href="resources/stars.css">
 		
 	</head>
@@ -20,13 +12,21 @@
 	<body>
 		
 		<jsp:include page="navBar.jsp"></jsp:include>
+		<c:set var="baseURL" value="${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, pageContext.request.contextPath)}" />
 		
+		<!-- 
 		<div id="stars">
 			<div id="stars2">
 				<div id="stars3">
 				</div>
 			</div>
 		</div>
+		
+		
+		 -->
+		<div class="container">
+		<div class="d-flex justify-content-center text-center">
+					<div class="p-3 mb-5 ">
 
 		<c:if test = "${message != null}">
 			<div id="noCountryAlert" class="alert alert-danger alert-dismissible text-center" role="alert">
@@ -34,13 +34,22 @@
 				<strong>${ message }</strong>
 			</div>
 		</c:if>
-		
-		<div  class="col-md-5 offset-md-5">
-		<img name="logo" src="resources/img/logo_idm7.png" height="100" alt="logo" style="margin-bottom:2%;margin-top: 40%">
-			<form class="form-inline" action="http://localhost:8080/WebApplication/synonyms" method="GET">
-				<input name="find" class="searchForm" type="text" placeholder="Country" aria-label="Recipient's username" aria-describedby="Search">
-				<button class="btn btn-info searchBtn" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
-			</form> 
 		</div>
+		</div>
+		
+				
+				<div class="row justify-content-center">
+					<div  class="col-sm-3 searchContainer justify-content-center">
+						<img class="searchLogo" name="logo" src="resources/img/logo_idm7.png" height="100" alt="logo">
+						<form class="form-inline" action="${baseURL}/synonyms" method="GET">
+								  		
+					  		<input name="find" type="text" class="searchInput" placeholder="Country" aria-label="Recipient's username" aria-describedby="Search">
+					 	 	<button class="btn btn-info searchBtn" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
+						</form>
+					</div>
+				</div>
+		</div>
+		
+		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>

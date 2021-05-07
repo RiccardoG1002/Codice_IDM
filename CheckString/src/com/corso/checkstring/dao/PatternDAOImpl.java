@@ -12,44 +12,15 @@ import com.corso.checkstring.beans.Id;
 import com.corso.checkstring.beans.Pattern;
 
 public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
-
+	
+	final static int PAGE_SIZE = 6;
+	
 	@Override
 	public Pattern get(Id id) {
 		
 		return (Pattern) super.getBeanDTO(Pattern.class, id);
 	}
 
-	@Override
-	public Pattern[] getPendingPatterns() {
-		
-		Session session = getFactory().openSession();
-		Transaction tx = null;
-		List<Pattern> patternList = null;
-		
-		try {
-			tx = session.beginTransaction();
-			
-			String hql = "FROM Pattern WHERE approved=0";
-			Query q = session.createQuery(hql);
-			
-			patternList = (List<Pattern>) q.list();
-			
-			tx.commit();
-		}
-		catch(HibernateException e) {
-			if(tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-		}
-		finally {
-			session.close();
-		}
-		
-		Pattern[] p = new Pattern[patternList.size()];
-		
-		return patternList.toArray(p);
-	}
 	
 	@Override
 	public int setApprove(String userPattern, int approve) {
@@ -58,7 +29,7 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 	    int res=0;
 	    try {
 	    	tx = session.beginTransaction();
-	    	Query query=session.createQuery("UPDATE Pattern set approved=:approved WHERE user_pattern=:search");
+	    	Query<Pattern> query=session.createQuery("UPDATE Pattern set approved=:approved WHERE user_pattern=:search");
 	    	query.setParameter("approved", approve);
 	    	query.setParameter("search", userPattern);
 	    	res=query.executeUpdate();
@@ -73,7 +44,7 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 	}
 
 	@Override
-	public List<Pattern> getPatternsToBeApproved() {
+	public List<Pattern> getPatternsToBeApproved(int page) {
 		
 		Session session = getFactory().openSession();
 		Transaction tx = null;
@@ -83,10 +54,13 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 			tx = session.beginTransaction();
 			
 			String hql = "FROM Pattern WHERE approved=0";
-			Query q = session.createQuery(hql);
+			Query<Pattern> q = session.createQuery(hql);
+			
+			// for paging 
+			q.setFirstResult(page*PAGE_SIZE);
+			q.setMaxResults(PAGE_SIZE);
 			
 			patternList = (List<Pattern>) q.list();
-			
 			tx.commit();
 		}
 		catch(HibernateException e) {
@@ -113,7 +87,7 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 			tx = session.beginTransaction();
 			
 			String hql = "SELECT count(*) FROM Pattern WHERE approved=1 AND algorithm=:algorithm";
-			Query q = session.createQuery(hql);
+			Query<Pattern> q = session.createQuery(hql);
 			q.setParameter("algorithm", algorithm);
 			
 			count = q.getSingleResult().toString();
@@ -144,7 +118,7 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 			tx = session.beginTransaction();
 			
 			String hql = "DELETE from Pattern WHERE userPattern=:userPattern";
-			Query q = session.createQuery(hql);
+			Query<Pattern> q = session.createQuery(hql);
 			q.setParameter("userPattern", userPattern);
 			
 			res=q.executeUpdate();
@@ -177,7 +151,7 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 			tx = session.beginTransaction();
 			
 			String hql = "UPDATE Pattern set country=:country, algorithm=:algorithm WHERE userPattern=:userPattern";
-			Query q = session.createQuery(hql);
+			Query<Pattern> q = session.createQuery(hql);
 			q.setParameter("userPattern", userPattern);
 			q.setParameter("algorithm", "admin");
 			
@@ -216,9 +190,9 @@ public class PatternDAOImpl extends BaseDAO<Pattern> implements PatternDAO {
 			tx = session.beginTransaction();
 			
 			String hql = "FROM Pattern WHERE userPattern=:userPattern";
-			Query q = session.createQuery(hql);
+			Query<Pattern> q = session.createQuery(hql);
 			q.setParameter("userPattern", name);
-			p = (Pattern) q.getSingleResult();
+			p = q.getSingleResult();
 			tx.commit();
 		}
 		catch(HibernateException e) {

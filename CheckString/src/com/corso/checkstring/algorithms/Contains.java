@@ -3,7 +3,7 @@ package com.corso.checkstring.algorithms;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Contains extends Algorithm<Match>{
+public class Contains extends CountryAlgorithm<Match>{
 	
 	@Override
 	public Match checkString(String string, Collection<String> list) {

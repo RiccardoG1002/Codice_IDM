@@ -5,10 +5,14 @@
 
 <hibernate-mapping>
 	<class name = "com.corso.checkstring.beans.Pattern" table = "pattern">
+	
+	
+		
 		<id name="userPattern" column="user_pattern" type="string">
 			<generator class="assigned"/>		
 		</id>
-		
+	
+	
 		<many-to-one name="country" class="com.corso.checkstring.beans.Country" fetch="join" lazy="false">
 			<column name="country" not-null="false"/>
 		</many-to-one>

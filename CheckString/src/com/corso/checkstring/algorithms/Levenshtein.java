@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Levenshtein extends Algorithm<Match>{
+public class Levenshtein extends CountryAlgorithm<Match>{
 	
 	private int maxDistance = 2;
 	

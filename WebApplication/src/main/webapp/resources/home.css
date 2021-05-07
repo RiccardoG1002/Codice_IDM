@@ -1,10 +1,10 @@
 body, html {
 	background-image: url("../resources/img/search-background.jpg");
 	background-color: blue;
-	background-repeat:y;
-	overflow-y: hidden;
-	overflow-x: hidden;
+ 	background-repeat:y; 
+
 }
+
 
 .immBack {
 	width: 100%;

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.checkstring.base.Synonyms;
-import com.corso.checkstring.algorithms.Algorithm;
+import com.corso.checkstring.algorithms.CountryAlgorithm;
 import com.corso.checkstring.beans.Country;
 import com.corso.checkstring.beans.Pattern;
 
@@ -24,7 +24,7 @@ public class SynonymsController {
 
 		model.addAttribute("isSearching", false);
 		
-		Algorithm algorithm = (Algorithm) new ClassPathXmlApplicationContext("algorithms.xml").getBean("checkString");
+		CountryAlgorithm<?> algorithm = (CountryAlgorithm<?>) new ClassPathXmlApplicationContext("algorithms.xml").getBean("checkString");
 		Country country = algorithm.getMostSimilarCountry(find);
 
 		String message = null;
@@ -34,8 +34,8 @@ public class SynonymsController {
 			Synonyms s = new Synonyms();
 			Collection<Pattern> synonyms = s.findSynonyms(country);
 			if (synonyms != null) {
-				//System.out.println(synonyms);
-				model.addAttribute("first",synonyms.iterator().next());
+				
+				model.addAttribute("country",country);
 				model.addAttribute("synonyms", synonyms);
 				ret = "synonyms";
 			} else {

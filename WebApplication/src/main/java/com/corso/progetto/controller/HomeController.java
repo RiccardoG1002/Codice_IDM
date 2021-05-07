@@ -10,10 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
-
+	
 	@GetMapping(value="/")
 	public ModelAndView home(HttpServletResponse response, Model model) throws IOException {
 		model.addAttribute("isSearching", false);
 		return new ModelAndView("search");
 	}
+	
 }

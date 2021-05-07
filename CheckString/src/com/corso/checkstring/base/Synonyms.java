@@ -10,17 +10,14 @@ import com.corso.checkstring.dao.CountryDAO;
 import com.corso.checkstring.dao.CountryDAOImpl;
 public class Synonyms {
 
-	public Collection<Pattern> findSynonyms(Country country) {
-//		CountryDAO cDAO = new CountryDAOImpl();
-//		
-//		Id id = new Id(country.getCode());
-//		
-//		List<Pattern> synonyms = cDAO.getPatternsFromCountryID(id);
-//		
-//		country.setPatternList(synonyms);
-//		
-//		System.out.println("lista dei sinonimi: " + synonyms);
+	public Collection<Pattern> findSynonyms(Country country) {		
+	
+		CountryDAO cDAO = new CountryDAOImpl();
 		
-		return country.getPatternList();
+		List<Pattern> synonyms = cDAO.getPatternsFromCountryID(country);
+		
+		//country.setPatternList(synonyms);
+
+		return synonyms;
 	}
 }

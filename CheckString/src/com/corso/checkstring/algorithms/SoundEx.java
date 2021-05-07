@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class SoundEx extends Algorithm<Match> {
+public class SoundEx extends CountryAlgorithm<Match> {
 
 	public SoundEx() {
 

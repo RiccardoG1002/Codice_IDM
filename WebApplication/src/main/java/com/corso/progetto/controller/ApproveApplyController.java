@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,13 +24,15 @@ public class ApproveApplyController {
 	public String home(
 			Model model,
 			@RequestParam(value="approved", required=false) List<String> approvedList,
-			@RequestParam(value="removed", required=false) List<String> deleteList, HttpServletRequest request) throws IOException {
+			@RequestParam(value="removed", required=false) List<String> deleteList, 
+			HttpServletRequest request) throws IOException {
 		
 		
 
 		model.addAttribute("isSearching", false);
+		ClassPathXmlApplicationContext contextDAOs = new ClassPathXmlApplicationContext("daos.xml");
 
-		PatternDAO pDAO = new PatternDAOImpl();
+		PatternDAO pDAO = (PatternDAO) contextDAOs.getBean("patternDAO");
 		if(approvedList != null) {
 			for(String userPattern: approvedList) {
 				pDAO.setApprove(userPattern, 1);
@@ -43,7 +46,6 @@ public class ApproveApplyController {
 		}
 		
 		Enumeration<String> a = request.getParameterNames();
-		
 		while (a.asIterator().hasNext()) {
 			String s = a.asIterator().next();
 			if(s.contains("selected")) {

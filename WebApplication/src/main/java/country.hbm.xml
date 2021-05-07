@@ -5,15 +5,22 @@
 
 <hibernate-mapping>
 	<class name = "com.corso.checkstring.beans.Country" table = "country">
+		
+		<cache usage = "read-only"/>
+		
 		<id name="code" column="code" type="string">
 			<generator class="assigned"/>		
 		</id>
-		
+			
 		<property name="name" column="name" type="string"></property>
 		
-		<set name="patternList" inverse="true" lazy="false" cascade="all">
+		<!-- 
+		<set name="patternList" inverse="true" lazy="true" cascade="all">
             <key column="country" not-null="true" />
             <one-to-many class="com.corso.checkstring.beans.Pattern"/>
        </set>
+        -->
+	
+	
 	</class>
 </hibernate-mapping>

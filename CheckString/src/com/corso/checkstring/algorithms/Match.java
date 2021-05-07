@@ -3,7 +3,7 @@ package com.corso.checkstring.algorithms;
 public class Match {
 	
 	private String match;
-	private Algorithm algorithm;
+	private CountryAlgorithm algorithm;
 	private int distance = -1;
 	
 	
@@ -16,11 +16,11 @@ public class Match {
 		this.distance = distance;
 	}
 
-	public Algorithm getAlgorithm() {
+	public CountryAlgorithm getAlgorithm() {
 		return algorithm;
 	}
 
-	public Match(String match, Algorithm algorithm) {
+	public Match(String match, CountryAlgorithm algorithm) {
 		super();
 		this.algorithm = algorithm;
 		this.match = match;
@@ -29,7 +29,7 @@ public class Match {
 	
 
 
-	public Match(String match, Algorithm algorithm, int distance) {
+	public Match(String match, CountryAlgorithm algorithm, int distance) {
 		super();
 		this.match = match;
 		this.algorithm = algorithm;

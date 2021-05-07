@@ -12,7 +12,7 @@ import com.corso.checkstring.dao.CountryDAOImpl;
 import com.corso.checkstring.dao.PatternDAO;
 import com.corso.checkstring.dao.PatternDAOImpl;
 
-public class CheckDatabase extends Algorithm<Country> {
+public class CheckDatabase extends CountryAlgorithm<Country> {
 
 	@Override
 	protected Country checkString(String string, Collection<String> collection) {
@@ -28,12 +28,7 @@ public class CheckDatabase extends Algorithm<Country> {
 			// abbiamo trovato il pattern nel PatternDB
 			System.out.println("Ho trovato la soluzione nel PatternDB!");
 			
-			if(alreadyInDB.getApproved() == 0) {
-				
-			 alreadyInDB.getCountry().setFromApprovedSource(false);
-			 return alreadyInDB.getCountry();
-			}
-			
+			alreadyInDB.getCountry().setFromApprovedSource(alreadyInDB.getApproved() == 1? true:false);
 			return alreadyInDB.getCountry();
 		}
 		return null;
